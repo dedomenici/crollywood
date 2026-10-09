@@ -40,7 +40,9 @@
         "Nominatim/OSM geocode"
       ],
       "confidence": "high",
-      "confidence_note": "Venue location verified via OSM."
+      "confidence_note": "Venue location verified via OSM.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "american-assassin",
@@ -84,7 +86,9 @@
         "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859"
       ],
       "confidence": "high",
-      "confidence_note": "Map pins for both titles are about 15m apart. Bandersnatch's half of the Walk has been demolished."
+      "confidence_note": "Map pins for both titles are about 15m apart. Bandersnatch's half of the Walk has been demolished.",
+      "priority": 5,
+      "must_keep": false
     },
     {
       "id": "the-bill",
@@ -111,7 +115,9 @@
         "https://en-academic.com/dic.nsf/enwiki/273044"
       ],
       "confidence": "low",
-      "confidence_note": "Map pin has no description, so the specific episode or scene is unknown."
+      "confidence_note": "Map pin has no description, so the specific episode or scene is unknown.",
+      "priority": 1,
+      "must_keep": false
     },
     {
       "id": "heads-of-state-sgw",
@@ -144,7 +150,9 @@
         "https://www.croydonites.com/programme/redux-heads-of-state"
       ],
       "confidence": "high",
-      "confidence_note": "Several press sources, plus Croydonites saying the Warsaw chase was filmed in the town centre. The exact frame-by-frame spots are for Richard to refine."
+      "confidence_note": "Several press sources, plus Croydonites saying the Warsaw chase was filmed in the town centre. The exact frame-by-frame spots are for Richard to refine.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "made-in-dagenham",
@@ -176,7 +184,9 @@
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/"
       ],
       "confidence": "medium",
-      "confidence_note": "The map pin has no description, and the scene details are generic."
+      "confidence_note": "The map pin has no description, and the scene details are generic.",
+      "priority": 2,
+      "must_keep": false
     },
     {
       "id": "fairfield-halls",
@@ -220,7 +230,9 @@
         "Croydonites Crollywood 2026 listing (mentions The Da Vinci Code)"
       ],
       "confidence": "high",
-      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb."
+      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb.",
+      "priority": 4,
+      "must_keep": false
     },
     {
       "id": "criminal-bourne",
@@ -265,7 +277,9 @@
         "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/"
       ],
       "confidence": "high",
-      "confidence_note": "Several sources agree. The KML pin is between the two buildings."
+      "confidence_note": "Several sources agree. The KML pin is between the two buildings.",
+      "priority": 4,
+      "must_keep": false
     },
     {
       "id": "velvet-goldmine",
@@ -297,7 +311,9 @@
         "https://londononlocation.co.uk/films/velvet-goldmine/"
       ],
       "confidence": "medium",
-      "confidence_note": "The street is confirmed, but the exact camera position is approximate."
+      "confidence_note": "The street is confirmed, but the exact camera position is approximate.",
+      "priority": 2,
+      "must_keep": false
     },
     {
       "id": "man-who-knew-too-little",
@@ -329,7 +345,9 @@
         "https://londononlocation.co.uk/films/man-who-knew-too-little-the/"
       ],
       "confidence": "high",
-      "confidence_note": "Map pin and London on Location agree."
+      "confidence_note": "Map pin and London on Location agree.",
+      "priority": 3,
+      "must_keep": false
     },
     {
       "id": "peep-show-canterbury",
@@ -361,7 +379,9 @@
         "Nominatim/OSM"
       ],
       "confidence": "high",
-      "confidence_note": "Detailed description on the map, and the building is verified in OSM."
+      "confidence_note": "Detailed description on the map, and the building is verified in OSM.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "heads-of-state-apollo",
@@ -394,7 +414,9 @@
         "Nominatim/OSM (Apollo House)"
       ],
       "confidence": "medium",
-      "confidence_note": "Only one source (a Reddit comment, possibly by Richard) places the scene here. The building position is verified in OSM. Check against the film."
+      "confidence_note": "Only one source (a Reddit comment, possibly by Richard) places the scene here. The building position is verified in OSM. Check against the film.",
+      "priority": 3,
+      "must_keep": false
     },
     {
       "id": "dark-knight-rises",
@@ -427,7 +449,9 @@
         "https://www.yourlocalguardian.co.uk/news/9033781.building-facing-destruction-as-new-batman-filmed-in-croydon/"
       ],
       "confidence": "high",
-      "confidence_note": "Several sources agree. The KML pin was about 60m south, so this uses the OSM building position."
+      "confidence_note": "Several sources agree. The KML pin was about 60m south, so this uses the OSM building position.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "terry-and-june",
@@ -473,7 +497,9 @@
         "https://en-academic.com/dic.nsf/enwiki/273044 (Croydon article mirror)"
       ],
       "confidence": "high",
-      "confidence_note": "All of Us Strangers: high (IMDb, Guardian, Inside Croydon). Terry & June titles: medium (Guardian and Inside Croydon mention the Whitgift title sequence). The ramp pin is approximate."
+      "confidence_note": "All of Us Strangers: high (IMDb, Guardian, Inside Croydon). Terry & June titles: medium (Guardian and Inside Croydon mention the Whitgift title sequence). The ramp pin is approximate.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "opalite",
@@ -507,7 +533,9 @@
         "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift"
       ],
       "confidence": "high",
-      "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site."
+      "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "girl-group",
@@ -536,7 +564,9 @@
         "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift"
       ],
       "confidence": "low",
-      "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC."
+      "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "it-crowd",
@@ -568,7 +598,9 @@
         "https://moviemaps.org/locations/279 (nearby: Whitgift Shopping Centre, The IT Crowd)"
       ],
       "confidence": "high",
-      "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed."
+      "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed.",
+      "priority": 4,
+      "must_keep": false
     },
     {
       "id": "peep-show-loop-bar",
@@ -599,7 +631,9 @@
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
       ],
       "confidence": "medium",
-      "confidence_note": "From DeDomenici's map; venue may have changed name."
+      "confidence_note": "From DeDomenici's map; venue may have changed name.",
+      "priority": 2,
+      "must_keep": false
     },
     {
       "id": "heads-of-state-overtons",
@@ -633,7 +667,9 @@
         "Nominatim/OSM (Overton's Yard)"
       ],
       "confidence": "high",
-      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched."
+      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
+      "priority": 4,
+      "must_keep": false
     },
     {
       "id": "heads-of-state-carpark",
@@ -666,7 +702,9 @@
         "Nominatim/OSM (parking, Surrey Street)"
       ],
       "confidence": "medium",
-      "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position."
+      "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
+      "priority": 3,
+      "must_keep": false
     },
     {
       "id": "matthews-yard",
@@ -693,7 +731,9 @@
         "http://www.justcroydon.com/events/5609/18-May-2018/culture/richard-dedomenici-american-assassin-redux"
       ],
       "confidence": "high",
-      "confidence_note": "Not a film location as such: the tour's original start point."
+      "confidence_note": "Not a film location as such: the tour's original start point.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "konga",
@@ -725,7 +765,9 @@
         "https://movie-locations.com/movies/k/Konga.php"
       ],
       "confidence": "high",
-      "confidence_note": "Map pin plus movie-locations.com description agree."
+      "confidence_note": "Map pin plus movie-locations.com description agree.",
+      "priority": 5,
+      "must_keep": true
     },
     {
       "id": "peep-show-registry",
@@ -756,7 +798,9 @@
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
       ],
       "confidence": "medium",
-      "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate."
+      "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate.",
+      "priority": 2,
+      "must_keep": false
     },
     {
       "id": "finale",
@@ -786,8 +830,33 @@
         "https://www.davidleancinema.org.uk"
       ],
       "confidence": "high",
-      "confidence_note": "Tour finish point: the same venue as stop 1."
+      "confidence_note": "Tour finish point: the same venue as stop 1.",
+      "priority": 5,
+      "must_keep": true
     }
   ],
-  "close_loop": false
+  "close_loop": false,
+  "presets": [
+    {
+      "id": "highlights",
+      "label": "Highlights",
+      "target_min": 75
+    },
+    {
+      "id": "90",
+      "label": "1½ hrs",
+      "target_min": 90
+    },
+    {
+      "id": "120",
+      "label": "2 hrs",
+      "target_min": 120
+    },
+    {
+      "id": "full",
+      "label": "Full",
+      "target_min": null
+    }
+  ],
+  "dwell_min_per_stop": 4
 }

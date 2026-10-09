@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261009171746';
+  var BUILD = '20261009175155';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -104,7 +104,8 @@
     var anchor = i === 0 && isFinale(state.stops.length - 1) ? [39, 34] : isFinale(i) ? [-3, 34] : [18, 34];
     return L.divIcon({ className: 'clap' + (mode === 'current' ? ' current' : ''), html: clapSVG(s.order, mode), iconSize: [36, 36], iconAnchor: anchor });
   }
-  function refreshIcons() { var hi = highlightIdx(); state.markers.forEach(function (m, i) { m.setIcon(iconFor(i)); m.setZIndexOffset(i === hi ? 500 : 0); }); }
+  function zFor(i, hi) { return (100 - state.stops[i].order) * 1000 + (i === hi ? 200000 : 0); } // stop 1 on top, current stop above all
+  function refreshIcons() { var hi = highlightIdx(); state.markers.forEach(function (m, i) { m.setIcon(iconFor(i)); m.setZIndexOffset(zFor(i, hi)); }); }
 
   /* ---------- sheets / layout ---------- */
   function visibleSheet() { return state.mode === 'stop' ? $('panel') : $('home'); }
@@ -112,7 +113,7 @@
   function layoutMapBtns() { $('mapBtns').style.bottom = (sheetHeight() + 12) + 'px'; }
   function fitRoute() {
     if (!state.routeBounds) return;
-    map.fitBounds(state.routeBounds, { paddingTopLeft: [16, 34], paddingBottomRight: [16, sheetHeight() + 10] });
+    map.fitBounds(state.routeBounds, { paddingTopLeft: [24, 84], paddingBottomRight: [24, sheetHeight() + 12] });
   }
   function panToVisible(p) {
     var pt = map.project(p, map.getZoom()).add([0, sheetHeight() / 2 - 16]);
@@ -135,15 +136,20 @@
     $('endBtn').hidden = !t.active;
   }
 
-  var MIN_PER_STOP = 4; // dwell time per stop (3–5 min)
+  function fmtHrs(min) {
+    if (min < 50) return Math.round(min / 5) * 5 + ' min';
+    var q = Math.round(min / 15) / 4, whole = Math.floor(q), frac = q - whole;
+    var f = frac === 0.25 ? '¼' : frac === 0.5 ? '½' : frac === 0.75 ? '¾' : '';
+    return (whole || '') + f + (q > 1 ? ' hrs' : ' hr');
+  }
+  function presetSummary(p) {
+    if (!p) return '';
+    return p.stop_ids.length + ' stops · ' + (p.distance_m / 1000).toFixed(1) + ' km · ~' + fmtHrs(p.est_min);
+  }
   function tourDurationText() {
-    if (!state.data) return '';
-    var walk = (state.data.route_duration_s || (state.data.route_distance_m || 0) / 1.3) / 60;
-    var total = walk + MIN_PER_STOP * state.stops.length;
-    var hrs = Math.round(total / 30) / 2; // nearest half hour
-    var hTxt = (hrs % 1 ? Math.floor(hrs) + '½' : String(hrs)).replace(/^0½$/, '½') + (hrs > 1 ? ' hrs' : ' hr');
-    return state.stops.length + ' stops · ' + (state.data.route_distance_m / 1000).toFixed(1) + ' km · ~' + hTxt +
-      ' (' + Math.round(walk) + ' min walking + ~' + MIN_PER_STOP + ' min per stop)';
+    var p = state.preset; if (!p) return '';
+    var dwell = state.data.dwell_min_per_stop || 4;
+    return presetSummary(p) + ' (' + Math.round(p.walk_s / 60) + ' min walking + ~' + dwell + ' min per stop)';
   }
 
   /* ---------- stop panel: carousel + media ---------- */
@@ -464,7 +470,7 @@
   /* ---------- credits ---------- */
   function buildCredits() {
     var ph = [], po = [], seen = {};
-    state.stops.forEach(function (s) {
+    (state.data ? state.data.stops : state.stops).forEach(function (s) {
       if (s.image && s.image.credit) ph.push('<li>' + s.order + '. ' + esc(s.name) + ': ' + esc(s.image.credit) + ', ' + esc(s.image.license) +
         (s.image.page ? ' (<a href="' + esc(s.image.page) + '" target="_blank" rel="noopener">source</a>)' : '') + '</li>');
       s.films.forEach(function (f) { if (f.poster && !seen[f.poster.src]) { seen[f.poster.src] = 1; po.push('<li>' + esc(f.title) + ': <a href="' + esc(f.poster.page) + '" target="_blank" rel="noopener">Wikipedia</a></li>'); } });
@@ -492,30 +498,84 @@
   $('lockBtn').onclick = function () { localStorage.removeItem(LS.unlock); location.reload(); };
   window.addEventListener('resize', function () { layoutMapBtns(); });
 
-  function init(data, route) {
-    state.data = data;
-    state.stops = data.stops.slice().sort(function (a, b) { return a.order - b.order; });
-    state.routeKm = data.route_distance_m ? (data.route_distance_m / 1000).toFixed(1) : null;
-    var line = route && route.features && route.features[0]
-      ? route.features[0].geometry.coordinates.map(function (c) { return [c[1], c[0]]; })
-      : state.stops.map(ll).concat([ll(state.stops[0])]);
-    L.polyline(line, { color: '#000', weight: 8, opacity: 0.85, interactive: false }).addTo(map);
-    var rl = L.polyline(line, { color: ACCENT, weight: 4, dashArray: '10 7', interactive: false }).addTo(map);
-    state.routeBounds = rl.getBounds();
+  var LS_PRESET = 'crollywood.preset';
+  var routeLayers = [], routeCache = {};
+  function loadRoute(p) {
+    if (routeCache[p.id]) return Promise.resolve(routeCache[p.id]);
+    return fetch(p.route + '?v=' + BUILD).then(function (r) { if (!r.ok) throw new Error(p.route + ' HTTP ' + r.status); return r.json(); })
+      .then(function (g) { routeCache[p.id] = g; return g; });
+  }
+  function applyPreset(id, opts) {
+    opts = opts || {};
+    var data = state.data, p = data.presets.filter(function (x) { return x.id === id; })[0] || data.presets[data.presets.length - 1];
+    var byId = {}; data.stops.forEach(function (s) { byId[s.id] = s; });
+    var prevTargetId = state.tour.active && state.stops[state.tour.target] ? state.stops[state.tour.target].id : null;
+    state.preset = p;
+    state.stops = p.stop_ids.map(function (sid, i) { return Object.assign({}, byId[sid], { order: i + 1, leg_to_next_m: p.legs_m[i] || 0 }); });
+    localStorage.setItem(LS_PRESET, p.id);
+    state.routeKm = (p.distance_m / 1000).toFixed(1);
+    // markers
+    state.markers.forEach(function (m) { map.removeLayer(m); }); state.markers = [];
     state.stops.forEach(function (s, i) {
-      var m = L.marker(ll(s), { icon: iconFor(i), title: s.order + '. ' + s.name }).addTo(map);
+      var m = L.marker(ll(s), { icon: iconFor(i), title: s.order + '. ' + s.name, zIndexOffset: zFor(i, -1) }).addTo(map);
       m.on('click', function () { setFollow(false); goTo(i); });
       state.markers.push(m);
     });
-    if (state.tour.target >= state.stops.length) state.tour.target = 0;
+    // tour target within the new subset (visited state is kept by stop id)
+    if (state.tour.active) {
+      var keep = prevTargetId ? state.stops.map(function (s) { return s.id; }).indexOf(prevTargetId) : -1;
+      state.tour.target = keep >= 0 && !state.visited[prevTargetId] ? keep : firstTarget();
+      state.tour.finishing = isFinale(state.tour.target); state.lastArrived = -1; saveTour();
+    } else if (state.tour.target >= state.stops.length) state.tour.target = 0;
+    if (state.current >= state.stops.length) state.current = 0;
+    refreshIcons(); renderHome(); updateStatus();
+    return loadRoute(p).then(function (g) {
+      if (state.preset !== p) return;
+      routeLayers.forEach(function (l) { map.removeLayer(l); });
+      var line = g.features[0].geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+      routeLayers = [L.polyline(line, { color: '#000', weight: 8, opacity: 0.85, interactive: false }).addTo(map),
+                     L.polyline(line, { color: ACCENT, weight: 4, dashArray: '10 7', interactive: false }).addTo(map)];
+      state.routeBounds = routeLayers[1].getBounds();
+      log('preset', { id: p.id, stops: state.stops.length, points: line.length });
+      if (state.mode === 'home') fitRoute();
+    }).catch(function (e) {
+      console.error(e); setHomeMsg('Could not load the route for this tour length.', true);
+      var line = state.stops.map(ll); routeLayers.forEach(function (l) { map.removeLayer(l); });
+      routeLayers = [L.polyline(line, { color: ACCENT, weight: 3, dashArray: '4 6' }).addTo(map)];
+      state.routeBounds = routeLayers[0].getBounds();
+    });
+  }
+  function setupSlider() {
+    var ps = state.data.presets, sl = $('durSlider');
+    sl.min = 0; sl.max = ps.length - 1; sl.step = 1;
+    $('durTicks').innerHTML = ps.map(function (p, i) { return '<button type="button" data-i="' + i + '">' + esc(p.label) + '<small>~' + esc(fmtHrs(p.est_min)) + '</small></button>'; }).join('');
+    function idx() { return ps.indexOf(state.preset); }
+    function sync() { sl.value = idx(); $('durTicks').querySelectorAll('button').forEach(function (b, i) { b.classList.toggle('on', i === idx()); }); $('durLive').textContent = presetSummary(state.preset); }
+    function choose(i) {
+      i = +i; if (ps[i] === state.preset) return sync();
+      if (state.tour.active && !confirm('Change tour length to ' + ps[i].label + ' (' + presetSummary(ps[i]) + ') mid-tour?\nStops you have already visited stay ticked.')) { sync(); return; }
+      applyPreset(ps[i].id).then(sync); sync();
+      if (state.tour.active && state.mode === 'home') setHomeMsg('Tour length changed. Next stop: ' + state.stops[state.tour.target].order + '. ' + state.stops[state.tour.target].name);
+    }
+    sl.addEventListener('input', function () { $('durLive').textContent = presetSummary(ps[+sl.value]); });
+    sl.addEventListener('change', function () { choose(sl.value); });
+    $('durTicks').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) choose(b.dataset.i); });
+    state.syncSlider = sync; sync();
+  }
+  function init(data) {
+    state.data = data;
+    if (!data.presets || !data.presets.length) { // older data: single full preset
+      data.presets = [{ id: 'full', label: 'Full', route: 'route.geojson', stop_ids: data.stops.map(function (s) { return s.id; }),
+        legs_m: data.stops.map(function (s) { return s.leg_to_next_m || 0; }), distance_m: data.route_distance_m, walk_s: data.route_duration_s, est_min: 150 }];
+    }
+    var saved = localStorage.getItem(LS_PRESET) || data.default_preset || 'full';
+    applyPreset(saved).then(function () { goHome(); });
+    setupSlider();
     buildCredits();
     goHome();
     if (state.tour.active) setHomeMsg('Tour in progress. Tap RESUME TOUR to turn location back on.');
   }
-  Promise.all([
-    fetch('locations.json?v=' + BUILD).then(function (r) { return r.json(); }),
-    fetch('route.geojson?v=' + BUILD).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
-  ]).then(function (res) { init(res[0], res[1]); })
+  fetch('locations.json?v=' + BUILD).then(function (r) { return r.json(); }).then(init)
     .catch(function (e) { setHomeMsg('Could not load locations.json: ' + e.message, true); console.error(e); });
 
   window.crollywood = state; // debugging / test hook
