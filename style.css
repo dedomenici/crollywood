@@ -283,3 +283,8 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 .logo-btn picture,.logo-btn .logo{object-fit:contain}
 .logo-sub{display:none}
 .gate-logo,.credits-logo{aspect-ratio:1774/527}
+/* --- round 8b: logo full width, accent matched to logo teal --- */
+:root{--accent:#4d9b9f;--topH:calc(100vw * 527 / 1774)}
+#topbar{background:#4d9b9f}
+.logo-btn{max-width:none}
+.logo-btn picture,.logo-btn .logo{object-fit:cover}
