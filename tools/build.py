@@ -65,16 +65,19 @@ else:
         if c < bestC: bestT, bestC = t, c
     # pick the direction (clockwise vs anticlockwise) - both equal length; keep as found
     order = bestT
+fin = [i for i, s in enumerate(stops) if s["id"] == "finale"]
+if fin: order = [i for i in order if i != fin[0]] + fin
 ordered = [stops[i] for i in order]
 # route geometry
-coords = ";".join(f"{s['lng']},{s['lat']}" for s in ordered + [ordered[0]])
+close = src.get("close_loop", True)   # False when the last stop is an explicit finale at the start venue
+coords = ";".join(f"{s['lng']},{s['lat']}" for s in (ordered + [ordered[0]] if close else ordered))
 r = get(f"{OSRM}/route/v1/driving/{coords}?overview=full&geometries=geojson&steps=false")
 route = r["routes"][0]
 for i, s in enumerate(ordered):
     s["order"] = i + 1
     s["clip"] = f"media/clips/{s['id']}.mp4"
     s["audio"] = f"media/audio/{s['id']}.mp3"
-    s["leg_to_next_m"] = round(route["legs"][i]["distance"])
+    s["leg_to_next_m"] = round(route["legs"][i]["distance"]) if i < len(route["legs"]) else 0
     # where the walking route actually passes the stop (pins often sit inside buildings / malls)
     wp = r["waypoints"][i]
     s["route_snap"] = {"lat": round(wp["location"][1], 6), "lng": round(wp["location"][0], 6), "offset_m": round(wp.get("distance", 0))}
@@ -84,7 +87,7 @@ gj = {"type": "FeatureCollection", "features": [{"type": "Feature",
                      "stop_order": [s["id"] for s in ordered]},
       "geometry": route["geometry"]}]}
 json.dump(gj, open("route.geojson", "w"))
-out = dict(src["meta"]); out["route_distance_m"] = round(route["distance"]); out["stops"] = ordered
+out = dict(src["meta"]); out["route_distance_m"] = round(route["distance"]); out["route_duration_s"] = round(route["duration"]); out["stops"] = ordered
 json.dump(out, open("locations.json", "w"), indent=2, ensure_ascii=False)
 print(f"{n} stops, loop {route['distance']/1000:.2f} km, ~{route['duration']/60:.0f} min walking")
 for s in ordered: print(f"{s['order']:>2} {s['id']:<28} -> {s['leg_to_next_m']} m")

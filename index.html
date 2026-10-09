@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23000%27/%3E%3Ctext x=%2716%27 y=%2725%27 font-size=%2724%27 text-anchor=%27middle%27 fill=%27%2314b8a6%27 font-family=%27Impact,sans-serif%27%3EC%3C/text%3E%3C/svg%3E">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>CROLLYWOOD: Croydon Movie Location Walk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261009171746">
 </head>
 <body>
 <!-- Hollywood-sign style logo (reused on gate + header) -->
@@ -61,6 +62,7 @@
 <section id="home" class="sheet" aria-live="polite">
   <div class="sheet-grip"></div>
   <p class="home-blurb">Walk Croydon's movie locations, from Batman to Taylor Swift. The loop starts and ends at the David Lean Cinema.</p>
+  <p id="durationText" class="duration"></p>
   <div id="progress" class="progress"><div class="bar"><span id="progressBar"></span></div><span id="progressText"></span></div>
   <button id="startBtn" class="big-btn">▶ START TOUR</button>
   <div class="home-row">
@@ -68,6 +70,7 @@
     <button id="endBtn" hidden>■ End tour</button>
     <button id="resetBtn">Reset progress</button>
   </div>
+  <a class="yt-btn" href="https://youtu.be/KRim_DRHNQY" target="_blank" rel="noopener">▶ Watch the previous tour (YouTube)</a>
   <p id="homeMsg" class="home-msg"></p>
 </section>
 <section id="panel" class="sheet" hidden aria-live="polite">
@@ -89,7 +92,7 @@
 <div id="toast" hidden></div>
 <div id="sv" hidden>
   <div class="sv-bar"><span>Street View</span><a id="svOpenLink" href="#" target="_blank" rel="noopener" title="Open in Google Street View">⤢</a><button id="svToggle" title="Show/hide Street View">–</button></div>
-  <iframe id="svFrame" title="Google Street View of this stop" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; gyroscope; fullscreen" allowfullscreen></iframe>
+  <iframe id="svFrame" title="Google Street View of this stop" src="about:blank" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; gyroscope; fullscreen"></iframe>
 </div>
 
 <div id="credits" hidden>
@@ -101,6 +104,7 @@
     <p>Part of <strong>The Redux Project</strong>: <a href="https://thereduxproject.com" target="_blank" rel="noopener">thereduxproject.com</a></p>
     <p>With <strong>Croydonites Festival</strong>: <a href="https://www.croydonites.com" target="_blank" rel="noopener">croydonites.com</a></p>
     <p>Tour start and finish: <a href="https://www.davidleancinema.org.uk" target="_blank" rel="noopener">David Lean Cinema</a>, Croydon Clocktower.</p>
+    <p><a class="yt-btn" href="https://youtu.be/KRim_DRHNQY" target="_blank" rel="noopener">▶ Watch the previous tour: CROLLYWOOD | Croydon Movie Location Tour (YouTube)</a></p>
     <h3>Map &amp; route</h3>
     <p>Satellite imagery © Esri, Maxar, Earthstar Geographics and the GIS User Community (Esri World Imagery). Street View © Google. Route data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> (ODbL). Walking route by <a href="https://routing.openstreetmap.de" target="_blank" rel="noopener">OSRM / routing.openstreetmap.de</a>. Map library <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>.</p>
     <h3>Location photos</h3>
@@ -115,6 +119,7 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script src="app.js"></script>
+<script>window.CROLLY_BUILD='20261009171746';</script>
+<script src="app.js?v=20261009171746"></script>
 </body>
 </html>

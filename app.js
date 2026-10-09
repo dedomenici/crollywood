@@ -1,6 +1,19 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
+  var BUILD = '20261009171746';
+  // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
+  // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
+  if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
+    var k = 'crollywood.reloadedFor';
+    if (sessionStorage.getItem(k) !== BUILD) {
+      sessionStorage.setItem(k, BUILD);
+      location.replace(location.pathname + '?v=' + BUILD + '&r=' + Date.now());
+      return;
+    }
+    console.warn('Crollywood: page/script build mismatch persists', window.CROLLY_BUILD, BUILD);
+    if (!document.getElementById('home')) return; // old HTML: don't crash, the next normal load will fix it
+  }
   var ARRIVE_M = 30;          // base arrival radius
   var ARRIVE_ACC_BONUS = 20;  // radius grows with GPS uncertainty, up to +20 m
   var MAX_ACC_FOR_ARRIVAL = 75; // ignore fixes worse than this for auto-arrive
@@ -87,7 +100,9 @@
   function iconFor(i) {
     var s = state.stops[i], hi = highlightIdx();
     var mode = i === hi ? 'current' : state.visited[s.id] ? 'visited' : 'normal';
-    return L.divIcon({ className: 'clap' + (mode === 'current' ? ' current' : ''), html: clapSVG(s.order, mode), iconSize: [36, 36], iconAnchor: [18, 34] });
+    // start (1) and finale share a spot: nudge the icons apart so both are visible
+    var anchor = i === 0 && isFinale(state.stops.length - 1) ? [39, 34] : isFinale(i) ? [-3, 34] : [18, 34];
+    return L.divIcon({ className: 'clap' + (mode === 'current' ? ' current' : ''), html: clapSVG(s.order, mode), iconSize: [36, 36], iconAnchor: anchor });
   }
   function refreshIcons() { var hi = highlightIdx(); state.markers.forEach(function (m, i) { m.setIcon(iconFor(i)); m.setZIndexOffset(i === hi ? 500 : 0); }); }
 
@@ -114,9 +129,21 @@
     var n = state.stops.length, v = state.stops.filter(function (s) { return state.visited[s.id]; }).length;
     $('progressBar').style.width = (n ? 100 * v / n : 0) + '%';
     $('progressText').textContent = v + ' / ' + n + ' visited';
+    $('durationText').textContent = tourDurationText();
     var t = state.tour;
     $('startBtn').textContent = t.active ? '▶ RESUME TOUR' : (n && v === n ? '↺ START AGAIN' : v > 0 ? '▶ CONTINUE TOUR' : '▶ START TOUR');
     $('endBtn').hidden = !t.active;
+  }
+
+  var MIN_PER_STOP = 4; // dwell time per stop (3–5 min)
+  function tourDurationText() {
+    if (!state.data) return '';
+    var walk = (state.data.route_duration_s || (state.data.route_distance_m || 0) / 1.3) / 60;
+    var total = walk + MIN_PER_STOP * state.stops.length;
+    var hrs = Math.round(total / 30) / 2; // nearest half hour
+    var hTxt = (hrs % 1 ? Math.floor(hrs) + '½' : String(hrs)).replace(/^0½$/, '½') + (hrs > 1 ? ' hrs' : ' hr');
+    return state.stops.length + ' stops · ' + (state.data.route_distance_m / 1000).toFixed(1) + ' km · ~' + hTxt +
+      ' (' + Math.round(walk) + ' min walking + ~' + MIN_PER_STOP + ' min per stop)';
   }
 
   /* ---------- stop panel: carousel + media ---------- */
@@ -171,6 +198,7 @@
     s.films.forEach(function (f) {
       h += '<div class="film"><h3>' + esc(f.title) + (f.year ? ' (' + esc(f.year) + ')' : '') + '</h3><div class="meta">' + esc(f.type || '') + '</div><p>' + esc(f.scene) + '</p></div>';
     });
+    if (s.link) h += '<a class="big-btn link-btn" href="' + esc(s.link.url) + '" target="_blank" rel="noopener">' + esc(s.link.label) + ' ↗</a>';
     h += mediaHTML(s);
     if (s.leg_to_next_m) h += '<p class="small">To the next stop: ' + fmtDist(s.leg_to_next_m) + ' along the route.</p>';
     h += '<div class="btnrow"><button id="visitBtn">' + (state.visited[s.id] ? '✓ Visited' : 'Mark visited') + '</button><button id="dirBtn">Walk here (OSM)</button></div>';
@@ -254,7 +282,7 @@
     if (tgtIdx < 0) { $('nextInfo').textContent = state.tour.active ? '' : 'Tap ▶ START TOUR'; }
     else {
       var t = state.stops[tgtIdx];
-      var label = (state.tour.active ? (state.tour.finishing ? 'Finish → ' : 'Next → ') : '') + t.order + '. ' + t.name;
+      var label = (state.tour.active ? (state.tour.finishing ? 'Finale → ' : 'Next → ') : '') + t.order + '. ' + t.name;
       if (g.me) {
         var d = haversine(g.me, ll(t));
         label += ': ' + fmtDist(d) + ' ' + compass(bearing(g.me, ll(t)));
@@ -337,21 +365,22 @@
   map.on('dragstart', function () { if (state.geo.follow) setFollow(false); });
 
   /* ---------- tour + arrival ---------- */
+  function isFinale(i) { return state.stops[i] && state.stops[i].id === 'finale'; }
   function nextUnvisitedAfter(i) {
     for (var j = i + 1; j < state.stops.length; j++) if (!state.visited[state.stops[j].id]) return j;
     return -1;
   }
   function firstTarget() {
-    if (!state.visited[state.stops[0].id]) return 0;
-    var j = nextUnvisitedAfter(0); return j < 0 ? 0 : j;
+    for (var j = 0; j < state.stops.length; j++) if (!state.visited[state.stops[j].id]) return j;
+    return 0;
   }
   function advanceTarget(fromIdx) {
     var j = nextUnvisitedAfter(fromIdx);
-    if (j < 0) { // also pick up any skipped earlier stops before heading home
+    if (j < 0) { // pick up skipped earlier stops, finale last
       for (var k = 1; k < fromIdx; k++) if (!state.visited[state.stops[k].id]) { j = k; break; }
     }
-    if (j < 0) { state.tour.target = 0; state.tour.finishing = true; }
-    else { state.tour.target = j; state.tour.finishing = false; }
+    state.tour.target = j < 0 ? state.stops.length - 1 : j;
+    state.tour.finishing = isFinale(state.tour.target);
     saveTour();
   }
   function checkArrival(p, acc) {
@@ -366,7 +395,7 @@
     // near another unvisited stop that isn't the target → gentle nudge only
     var best = -1, bd = 1e9;
     state.stops.forEach(function (s, i) {
-      if (i === ti || state.visited[s.id] || state.toasted[s.id]) return;
+      if (i === ti || state.visited[s.id] || state.toasted[s.id] || s.id === 'finale') return;
       var di = arrivalDist(p, s); if (di <= radius && di < bd) { bd = di; best = i; }
     });
     if (best >= 0) {
@@ -377,27 +406,25 @@
   }
   function arrive(i, d) {
     var s = state.stops[i];
-    if (state.tour.finishing && i === 0) {
-      setVisited(s, true);
+    setVisited(s, true); state.lastArrived = i;
+    if (isFinale(i)) {
       state.tour.active = false; state.tour.finishing = false; saveTour();
       log('arrive', { id: s.id, d: Math.round(d), complete: true });
       if (navigator.vibrate) navigator.vibrate([300, 100, 300, 100, 300]);
-      goTo(0, { banner: '🎬 That\'s a wrap! Tour complete. Enjoy the David Lean Cinema.' });
+      goTo(i, { banner: '🎬 That\'s a wrap! Tour complete. See a film or visit the bar.' });
       releaseWakeLock(); return;
     }
-    setVisited(s, true); state.lastArrived = i;
     log('arrive', { id: s.id, d: Math.round(d) });
     if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
     advanceTarget(i);
     var nx = state.stops[state.tour.target];
-    goTo(i, { banner: 'You have arrived: stop ' + s.order + '. Next: ' + (state.tour.finishing ? 'back to the David Lean Cinema' : nx.order + '. ' + nx.name) });
+    goTo(i, { banner: 'You have arrived: stop ' + s.order + '. Next: ' + nx.order + '. ' + nx.name });
   }
   function startTour() {
     if (!state.stops.length) return;
     var allDone = state.stops.every(function (s) { return state.visited[s.id]; });
     if (allDone && !state.tour.active) { state.visited = {}; state.toasted = {}; state.lastArrived = -1; localStorage.setItem(LS.visited, '{}'); }
-    state.tour.active = true; state.tour.finishing = false; state.tour.target = firstTarget();
-    if (state.visited[state.stops[0].id] && state.tour.target === 0) state.tour.finishing = true;
+    state.tour.active = true; state.tour.target = firstTarget(); state.tour.finishing = isFinale(state.tour.target);
     saveTour(); log('tour-start', state.tour.target);
     var ok = startTracking();
     if (ok) { setFollow(true); setHomeMsg('Getting your location…'); }
@@ -466,6 +493,7 @@
   window.addEventListener('resize', function () { layoutMapBtns(); });
 
   function init(data, route) {
+    state.data = data;
     state.stops = data.stops.slice().sort(function (a, b) { return a.order - b.order; });
     state.routeKm = data.route_distance_m ? (data.route_distance_m / 1000).toFixed(1) : null;
     var line = route && route.features && route.features[0]
@@ -485,8 +513,8 @@
     if (state.tour.active) setHomeMsg('Tour in progress. Tap RESUME TOUR to turn location back on.');
   }
   Promise.all([
-    fetch('locations.json').then(function (r) { return r.json(); }),
-    fetch('route.geojson').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+    fetch('locations.json?v=' + BUILD).then(function (r) { return r.json(); }),
+    fetch('route.geojson?v=' + BUILD).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
   ]).then(function (res) { init(res[0], res[1]); })
     .catch(function (e) { setHomeMsg('Could not load locations.json: ' + e.message, true); console.error(e); });
 

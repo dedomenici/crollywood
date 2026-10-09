@@ -757,6 +757,37 @@
       ],
       "confidence": "medium",
       "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate."
+    },
+    {
+      "id": "finale",
+      "name": "Finale: David Lean Cinema",
+      "address": "Croydon Clocktower, Katharine Street, CR9 1ET",
+      "lat": 51.37213,
+      "lng": -0.09901,
+      "films": [
+        {
+          "title": "That's a wrap!",
+          "year": null,
+          "type": "venue",
+          "scene": "You've walked Crollywood. Finish where you started: catch a film at the David Lean Cinema, Croydon's volunteer-run community cinema in the Clocktower, named after Croydon-born director David Lean, or wind down at the cinema bar."
+        }
+      ],
+      "link": {
+        "url": "https://www.davidleancinema.org.uk",
+        "label": "What's on at the David Lean Cinema"
+      },
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Clocktower_seen_from_Queen's_gardens.jpg?width=800",
+        "credit": "Looshluz via Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_seen_from_Queen's_gardens.jpg"
+      },
+      "sources": [
+        "https://www.davidleancinema.org.uk"
+      ],
+      "confidence": "high",
+      "confidence_note": "Tour finish point: the same venue as stop 1."
     }
-  ]
+  ],
+  "close_loop": false
 }
