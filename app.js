@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261009203957';
+  var BUILD = '20261009204503';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -100,7 +100,7 @@
     var s = state.stops[i], hi = highlightIdx();
     var mode = i === hi ? 'current' : state.visited[s.id] ? 'visited' : 'normal';
     // start (1) and finale share a spot: nudge the icons apart so both are visible
-    var anchor = i === 0 && isFinale(state.stops.length - 1) ? [39, 34] : isFinale(i) ? [-3, 34] : [18, 34];
+    var anchor = i === 0 && isFinale(state.stops.length - 1) ? [-3, 34] : isFinale(i) ? [39, 34] : [18, 34];
     anchor = [anchor[0], 37];
     return L.divIcon({ className: 'clap' + (mode === 'current' ? ' current' : ''), html: clapSVG(s.order, mode), iconSize: [36, 38], iconAnchor: anchor });
   }
@@ -778,6 +778,7 @@
       if (state.preset !== p) return;
       routeLayers.forEach(function (l) { map.removeLayer(l); });
       var line = g.features[0].geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+      line = trimEnds(line, 14);
       routeLayers = [L.polyline(line, { color: '#000', weight: 8, opacity: 0.85, interactive: false }).addTo(map),
                      L.polyline(line, { color: ACCENT, weight: 4, dashArray: '10 7', interactive: false }).addTo(map)];
       state.routeBounds = routeLayers[1].getBounds();
@@ -864,3 +865,8 @@
 })();
 ;(function(){var tb=document.getElementById('topbar');if(!tb)return;function s(){document.documentElement.style.setProperty('--topH',tb.offsetHeight+'px');if(window.map&&map.invalidateSize)map.invalidateSize();}
 if(window.ResizeObserver)new ResizeObserver(s).observe(tb);window.addEventListener('resize',s);s();})();
+
+function trimEnds(line, m){ if(!line||line.length<3) return line;
+  function cut(a){ var out=a.slice(), left=m; while(out.length>2){ var p=L.latLng(out[0]), q=L.latLng(out[1]), d=p.distanceTo(q);
+    if(d>left){ var f=left/d; out[0]=[p.lat+(q.lat-p.lat)*f, p.lng+(q.lng-p.lng)*f]; break; } left-=d; out.shift(); } return out; }
+  return cut(cut(line).reverse()).reverse(); }

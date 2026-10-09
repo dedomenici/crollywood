@@ -307,3 +307,5 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 #home{overflow:visible}
 #home #durSlider{margin-top:-16px;position:relative;z-index:2}
 #home #durSlider{width:calc(100% - 64px);margin-left:auto;margin-right:auto}
+#home #durSlider{margin-top:-8px}
+#home #durSlider{width:calc(100% - 96px)!important}
