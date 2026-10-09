@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261009184208';
+  var BUILD = '20261009190344';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -223,6 +223,10 @@
     if (s.link) h += '<a class="big-btn link-btn" href="' + esc(s.link.url) + '" target="_blank" rel="noopener">' + esc(s.link.label) + ' ↗</a>';
     h += '<div class="card">' + mediaHTML(s) + '</div>';
     h += '<div class="card">';
+    var nxi = state.current + 1;
+    if (state.tour.active) { nxi = state.tour.target !== state.current ? state.tour.target : nextUnvisitedAfter(state.current); if (nxi < 0) nxi = state.stops.length - 1; }
+    var nx = state.stops[nxi];
+    if (nx && nxi !== state.current && !(state.tour.active && isFinale(state.current) && state.visited[s.id])) h += '<div class="next-line">Next: ' + nx.order + '. ' + esc(nx.name) + '</div>';
     if (s.leg_to_next_m) h += '<p class="small">To the next stop: ' + fmtDist(s.leg_to_next_m) + ' along the route.</p>';
     h += '<div class="btnrow"><button id="visitBtn">' + (state.visited[s.id] ? '✓ Visited' : 'Mark visited') + '</button><button id="dirBtn">Walk here (OSM)</button></div>';
     h += '<p><span class="conf ' + esc(s.confidence) + '">' + esc(s.confidence) + ' confidence</span> <span class="sources">' + esc(s.confidence_note || '') + '</span></p>';
@@ -335,7 +339,7 @@
       if (isFinale(i)) return arrive(i, -1);
       setVisited(s, true); state.lastArrived = i; advanceTarget(i);
       var nx = state.stops[t.target];
-      return goTo(t.target, { banner: 'Next: walk to stop ' + nx.order + '. ' + nx.name });
+      return goTo(t.target, {});
     }
     if (i === n - 1) return goHome();
     goTo(i + 1);
@@ -403,12 +407,11 @@
       var s = state.stops[state.current];
       pd.textContent = g.me && isFar(g.me) ? 'You seem to be far from Croydon (or your location is approximate).' : g.me ? fmtDist(haversine(g.me, ll(s))) + ' away (as the crow flies, ' + compass(bearing(g.me, ll(s))) + ') · ~' + fmtWalk(haversine(g.me, ll(s))) + ' walk' : '';
     }
-    var chip = $('gpsChip');
-    chip.textContent = g.watchId === null ? 'GPS off' : !g.me ? 'Locating…' : isFar(g.me) ? 'Far from Croydon' : '±' + Math.round(g.acc) + ' m';
-    chip.classList.toggle('on', g.watchId !== null);
-    chip.classList.toggle('warn', !!(g.me && (isFar(g.me) || g.acc > MAX_ACC_FOR_ARRIVAL || Date.now() - g.lastFix > STALE_MS)));
     $('locateBtn').classList.toggle('on', g.watchId !== null);
-    $('locateBtn').textContent = g.watchId !== null ? '◉ GPS on' : '◉ GPS';
+    var lb = $('locateBtn');
+    lb.textContent = g.watchId === null ? '◉ GPS' : !g.me ? '◉ Locating…' : isFar(g.me) ? '◉ Far away' : '◉ ±' + Math.round(g.acc) + ' m';
+    lb.classList.toggle('warn', !!(g.me && (isFar(g.me) || g.acc > MAX_ACC_FOR_ARRIVAL || Date.now() - g.lastFix > STALE_MS)));
+    lb.title = g.watchId === null ? 'Live location is off: tap to turn on' : 'GPS accuracy' + (g.me ? ' ±' + Math.round(g.acc) + ' m' : '') + ': tap to turn live location off';
   }
   setInterval(updateStatus, 5000);
 
@@ -532,7 +535,7 @@
     if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
     advanceTarget(i);
     var nx = state.stops[state.tour.target];
-    goTo(i, { expand: true, banner: 'You have arrived: stop ' + s.order + '. Next: ' + nx.order + '. ' + nx.name });
+    goTo(i, { expand: true, banner: 'You have arrived: stop ' + s.order });
   }
   function startTour() {
     if (!state.stops.length) return;
@@ -735,7 +738,6 @@
   $('fitBtn').onclick = function () { setFollow(false); fitRoute(); };
   $('aboutBtn').onclick = function () { $('credits').hidden = false; };
   $('lookBtn').onclick = openLook;
-  $('gpsChip').onclick = function () { if (state.geo.watchId !== null) stopTracking(); else { startTracking(); setFollow(true); } };
   $('lookClose').onclick = closeLook;
   $('creditsClose').onclick = function () { $('credits').hidden = true; };
   $('lockBtn').onclick = function () { localStorage.removeItem(LS.unlock); location.reload(); };
@@ -788,28 +790,56 @@
       state.routeBounds = routeLayers[0].getBounds();
     });
   }
-  function setupSlider() { // compact: one chip on home opens a small picker sheet
-    var ps = state.data.presets, list = $('durTicks');
-    list.innerHTML = ps.map(function (p, i) {
-      return '<button type="button" data-i="' + i + '"><strong>' + esc(p.label) + '</strong><span>~' + esc(fmtHrs(p.est_min)) + ' · ' + p.stop_ids.length + ' stops · ' + (p.distance_m / 1000).toFixed(1) + ' km</span></button>';
-    }).join('');
+  function setupSlider() { // full-width snap slider; the thumb IS the '⏱ 2½ hrs' label
+    var ps = state.data.presets, sl = $('durSlider'), thumb = $('durThumb'), n = ps.length;
+    sl.setAttribute('aria-valuemax', n - 1);
+    $('durTicks').innerHTML = ps.map(function (p, i) { return '<button type="button" data-i="' + i + '" aria-label="' + esc(p.label) + ': ' + esc(presetSummary(p)) + '"></button>'; }).join('');
+    var ticks = $('durTicks').querySelectorAll('button');
     function idx() { return ps.indexOf(state.preset); }
-    function sync() {
-      list.querySelectorAll('button').forEach(function (b, i) { b.classList.toggle('on', i === idx()); b.setAttribute('aria-pressed', i === idx() ? 'true' : 'false'); });
-      $('durLive').textContent = presetSummary(state.preset); $('durChipText').textContent = fmtHrs(state.preset.est_min);
+    function place(f, label) { // f = 0..1 along the usable track (thumb stays inside the slider)
+      var W = sl.clientWidth, tw = thumb.offsetWidth || 96, x = tw / 2 + f * (W - tw);
+      thumb.style.left = x + 'px'; $('durFill').style.width = x + 'px';
+      ticks.forEach(function (t, i) { t.style.left = (tw / 2 + i / (n - 1) * (W - tw)) + 'px'; });
+      if (label) $('durChipText').textContent = label;
     }
-    function open(on) { $('durSheet').hidden = !on; log('picker', on); if (on) sync(); }
+    function sync() {
+      var i = idx(); place(i / (n - 1), fmtHrs(state.preset.est_min));
+      sl.setAttribute('aria-valuenow', i); sl.setAttribute('aria-valuetext', ps[i].label + ', ' + presetSummary(ps[i]));
+      ticks.forEach(function (t, k) { t.classList.toggle('on', k <= i); });
+      $('durLive').textContent = presetSummary(state.preset);
+    }
     function choose(i) {
-      i = +i; if (ps[i] === state.preset) { open(false); return sync(); }
+      i = Math.max(0, Math.min(n - 1, +i)); if (ps[i] === state.preset) return sync();
       if (state.tour.active && !confirm('Change tour length to ' + ps[i].label + ' (' + presetSummary(ps[i]) + ') mid-tour?\nStops you have already visited stay ticked.')) { sync(); return; }
-      applyPreset(ps[i].id).then(function () { sync(); if (state.mode === 'home') fitRoute(); }); sync(); open(false);
+      log('slider', ps[i].id);
+      applyPreset(ps[i].id).then(function () { sync(); if (state.mode === 'home') fitRoute(); }); sync();
       if (state.tour.active && state.mode === 'home') setHomeMsg('Tour length changed. Next stop: ' + state.stops[state.tour.target].order + '. ' + state.stops[state.tour.target].name);
     }
-    list.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) choose(b.dataset.i); });
-    $('durChip').onclick = function () { open(true); };
-    $('durClose').onclick = function () { open(false); };
-    $('durSheet').addEventListener('click', function (e) { if (e.target.id === 'durSheet') open(false); });
-    state.syncSlider = sync; sync();
+    function fracAt(clientX) { var r = sl.getBoundingClientRect(), tw = thumb.offsetWidth; return Math.max(0, Math.min(1, (clientX - r.left - tw / 2) / (r.width - tw))); }
+    var drag = null;
+    sl.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('#durTicks button')) return; // tick tap handled by click
+      drag = { id: e.pointerId, moved: false, x0: e.clientX }; sl.setPointerCapture(e.pointerId); sl.classList.add('dragging');
+      if (!e.target.closest('#durThumb')) { var f = fracAt(e.clientX); place(f, fmtHrs(ps[Math.round(f * (n - 1))].est_min)); }
+      e.preventDefault();
+    });
+    sl.addEventListener('pointermove', function (e) {
+      if (!drag || e.pointerId !== drag.id) return;
+      if (Math.abs(e.clientX - drag.x0) > 3) drag.moved = true;
+      var f = fracAt(e.clientX); place(f, fmtHrs(ps[Math.round(f * (n - 1))].est_min));
+    });
+    function endDrag(e) {
+      if (!drag) return; sl.classList.remove('dragging');
+      var f = fracAt(e.clientX), i = Math.round(f * (n - 1)); drag = null; choose(i); sync();
+    }
+    sl.addEventListener('pointerup', endDrag); sl.addEventListener('pointercancel', function () { drag = null; sl.classList.remove('dragging'); sync(); });
+    $('durTicks').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) choose(b.dataset.i); });
+    sl.addEventListener('keydown', function (e) {
+      var k = e.key; if (k === 'ArrowLeft' || k === 'ArrowDown') { choose(idx() - 1); e.preventDefault(); } else if (k === 'ArrowRight' || k === 'ArrowUp') { choose(idx() + 1); e.preventDefault(); }
+      else if (k === 'Home') choose(0); else if (k === 'End') choose(n - 1);
+    });
+    window.addEventListener('resize', sync);
+    state.syncSlider = sync; sync(); setTimeout(sync, 300);
   }
   function init(data) {
     state.data = data;

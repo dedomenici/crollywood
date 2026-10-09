@@ -9,9 +9,9 @@ button{font-family:inherit}
 .top-actions{display:flex;gap:6px}
 .top-actions button{background:#000;color:#fff;border:1.5px solid #fff;border-radius:14px;padding:5px 8px;font-weight:700;font-size:12px;white-space:nowrap}
 #locateBtn.on{background:#fff;color:#000}
-#map{position:fixed;top:64px;left:0;right:0;bottom:0;background:#222}
+#map{position:fixed;top:var(--topH);left:0;right:0;bottom:0;background:#222}
 .leaflet-container a{color:#000}
-#statusbar{position:fixed;top:64px;left:0;right:0;z-index:999;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:4px 10px;font-size:12px;background:rgba(0,0,0,.85)}
+#statusbar{position:fixed;top:var(--topH);left:0;right:0;z-index:999;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:4px 10px;font-size:12px;background:rgba(0,0,0,.94)}
 #nextInfo{flex:1;text-align:center;font-weight:700}
 .toggle{white-space:nowrap}
 #panelHead{display:flex;align-items:center;gap:8px;padding:2px 10px 8px}
@@ -102,7 +102,7 @@ video,audio{width:100%;margin:6px 0;border-radius:8px}
 #followBtn[aria-pressed="true"]{background:#fff;color:#000}
 .leaflet-top.leaflet-left{top:30px}
 .leaflet-control-attribution{font-size:9px!important;background:rgba(255,255,255,.75)!important}
-#toast{position:fixed;left:50%;transform:translateX(-50%);top:100px;z-index:3000;background:#fff;color:#000;font-weight:700;padding:10px 14px;border-radius:8px;max-width:92vw;box-shadow:0 4px 16px rgba(0,0,0,.6);font-size:14px;cursor:pointer}
+#toast{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--topH) + 36px);z-index:3000;background:#fff;color:#000;font-weight:700;padding:10px 14px;border-radius:8px;max-width:92vw;box-shadow:0 4px 16px rgba(0,0,0,.6);font-size:14px;cursor:pointer}
 #toast[hidden]{display:none}
 .statusbar-warn{text-decoration:underline dashed}
 .me-arrow{width:0;height:0}
@@ -131,7 +131,7 @@ a{color:var(--accent)}
 .me-pulse{position:absolute;left:-11px;top:-11px;width:40px;height:40px;border-radius:50%;background:rgba(255,26,26,.55);animation:mepulse 1.6s ease-out infinite}
 @keyframes mepulse{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.6);opacity:0}}
 @keyframes meblink{0%,100%{background:#ff1a1a}50%{background:#ff8080}}
-#sv{position:fixed;top:96px;left:8px;right:8px;margin:0 auto;z-index:1003;max-width:520px;background:#000;border:1.5px solid var(--accent);border-radius:8px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.6)}
+#sv{position:fixed;top:calc(var(--topH) + 32px);left:8px;right:8px;margin:0 auto;z-index:1003;max-width:520px;background:#000;border:1.5px solid var(--accent);border-radius:8px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.6)}
 #sv[hidden]{display:none}
 #sv iframe{display:block;width:100%;height:min(42vh,360px);border:0}
 .sv-bar{display:flex;align-items:center;gap:8px;padding:6px 8px;font-size:12px;font-weight:700;color:#fff;background:#000}
@@ -152,7 +152,6 @@ a{color:var(--accent)}
 .duration{font-size:11px!important;color:#999!important;font-weight:400!important}
 
 /* --- round 5: angular logo + subtitle, Back/NEXT, start step, see-through panel with peek --- */
-#topbar{height:64px}
 .logo-btn{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:3px 0 0 6px;line-height:1}
 .logo-sub{font-size:10px;letter-spacing:.06em;color:#cfcfcf;text-transform:lowercase;font-weight:500;padding-left:3px;white-space:nowrap}
 .gate-logo,.credits-logo{aspect-ratio:650/132}
@@ -251,3 +250,30 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 .look-arrow svg{width:112px;height:112px;display:block}
 .look-arrow.dim{opacity:.75;border:0}
 .look-arrow.dim svg path:nth-child(2){fill:#7fd9ce}
+
+/* --- round 7: full-width photographic logo header, slider with label thumb --- */
+:root{--topH:min(20vw,128px)}
+#topbar{height:var(--topH);padding:0;background:linear-gradient(#2662ba,#7fb0df);border-bottom:2px solid var(--accent);overflow:hidden}
+.logo-btn{position:absolute;inset:0;display:block;padding:0;margin:0 auto;max-width:640px;width:100%;height:100%}
+.logo-btn picture,.logo-btn .logo{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.logo-sub{position:absolute;left:8px;bottom:3px;padding:0;font-size:10.5px;letter-spacing:.06em;color:#fff;text-shadow:0 1px 2px #000,0 0 6px #000,0 0 2px #000;font-weight:600}
+.top-actions{position:absolute;top:5px;right:6px;z-index:2}
+.top-actions button{background:rgba(0,0,0,.55);border-color:rgba(255,255,255,.9);padding:4px 8px;font-size:11px}
+#locateBtn.warn{border-style:dashed}
+.gate-logo,.credits-logo{display:block;width:100%;height:auto;aspect-ratio:5/1;border-radius:8px}
+.gate-inner picture,.credits-inner picture{display:block;margin:0 0 10px}
+/* slider */
+.dur-slider{position:relative;height:44px;margin:2px 0 10px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;outline:none}
+.dur-slider:focus-visible .dur-thumb{outline:2px solid #fff;outline-offset:2px}
+.dur-track{position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;border-radius:3px;background:#333}
+.dur-fill{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--accent)}
+.dur-ticks2 button{position:absolute;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:0;background:none;padding:0;cursor:pointer}
+.dur-ticks2 button::after{content:"";position:absolute;left:7px;top:7px;width:8px;height:8px;border-radius:50%;background:#666;border:0}
+.dur-ticks2 button.on::after{background:#0b7d70}
+.dur-thumb{position:absolute;top:50%;transform:translate(-50%,-50%);background:#000;color:#fff;border:2px solid var(--accent);border-radius:18px;padding:7px 12px;font-size:15px;font-weight:800;white-space:nowrap;cursor:grab;transition:left .18s ease;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.6)}
+.dur-slider.dragging .dur-thumb{transition:none;cursor:grabbing;background:var(--accent);color:#000}
+.dur-slider.dragging .dur-fill{transition:none}
+.dur-fill{transition:width .18s ease}
+/* next line at the bottom of the stop panel */
+.next-line{font-family:Anton,Impact,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#000;background:var(--accent);padding:6px 10px;border-radius:4px;margin:0 0 6px;font-size:16px}
+.next-line + .small{margin-top:0}
