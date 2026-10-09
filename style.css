@@ -277,3 +277,9 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 /* next line at the bottom of the stop panel */
 .next-line{font-family:Anton,Impact,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#000;background:var(--accent);padding:6px 10px;border-radius:4px;margin:0 0 6px;font-size:16px}
 .next-line + .small{margin-top:0}
+/* --- round 8: Richard's supplied logo (subtitle baked in) --- */
+:root{--topH:min(29.7vw,190px)}
+#topbar{background:#1a9a9a}
+.logo-btn picture,.logo-btn .logo{object-fit:contain}
+.logo-sub{display:none}
+.gate-logo,.credits-logo{aspect-ratio:1774/527}
