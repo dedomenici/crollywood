@@ -298,3 +298,4 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 .logo-btn{position:static;display:block;width:100%;height:auto;padding:0!important;margin:0;line-height:0}
 .logo-btn picture,.logo-btn .logo{display:block;width:100%!important;height:auto!important;max-width:none;object-fit:initial}
 .leaflet-control-attribution{display:none!important}
+#home .sheet-grip{display:none}#home.sheet{border-radius:0}
