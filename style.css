@@ -316,3 +316,4 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 #home #durSlider{margin-top:14px!important;margin-bottom:14px}
 #home #durSlider{width:100%!important;margin-left:0;margin-right:0}
 .dur-slider{--tw:112px}.dur-thumb{width:var(--tw);box-sizing:border-box;text-align:center;padding-left:4px;padding-right:4px}
+#home .chips{margin-top:14px}
