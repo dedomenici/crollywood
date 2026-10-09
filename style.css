@@ -215,3 +215,39 @@ a{color:var(--accent)}
 #lookClip video{width:100%;max-height:28vh;border-radius:8px;background:#000}
 .look-ph{height:70px;background:rgba(0,0,0,.6);margin:0}
 .look-text{font-size:14px;line-height:1.4;margin:8px 0 0;color:#eee}
+/* --- round 6: decluttered home --- */
+body.mode-home #statusbar{display:none}
+body.mode-home .leaflet-top.leaflet-left{top:0}
+#home{padding:0 14px calc(10px + env(safe-area-inset-bottom))}
+.home-top{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px}
+.dur-chip{background:#000;color:#fff;border:1.5px solid var(--accent);border-radius:16px;padding:6px 12px;font-size:14px;font-weight:800;cursor:pointer}
+.dur-chip .caret{color:var(--accent);font-size:11px}
+.about-link{background:none;border:0;color:#ccc;font-size:13px;text-decoration:underline;text-underline-offset:3px;padding:6px 2px;cursor:pointer}
+.start-btn{display:block;width:100%;padding:13px 12px;font-size:24px}
+.chips{display:flex;gap:5px;margin:8px -14px 0;padding:0 14px 2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:4px;background:#000;color:#ddd;border:1px solid #555;border-radius:14px;padding:5px 8px;font-size:11.5px;font-weight:600;white-space:nowrap;cursor:pointer;font-family:inherit}
+.chip[hidden]{display:none}
+.chip.on{border-color:var(--accent);color:var(--accent)}
+.chip.warn{border-style:dashed}
+.chip-toggle input{accent-color:var(--accent);margin:0;width:14px;height:14px}
+#home .home-msg{margin:0 0 8px;font-size:12px}
+#durSheet{position:fixed;inset:0;z-index:3500;background:rgba(0,0,0,.45);display:flex;align-items:flex-end}
+#durSheet[hidden]{display:none}
+.dur-sheet-inner{width:100%;background:#111;border-top:1.5px solid var(--accent);border-radius:14px 14px 0 0;padding:12px 14px calc(14px + env(safe-area-inset-bottom))}
+.dur-sheet-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.dur-sheet-head strong{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:20px;letter-spacing:.05em;text-transform:uppercase}
+.dur-sheet-head #durLive{flex:1;font-size:12px;color:var(--accent);text-align:right}
+#durClose{background:#000;color:#fff;border:1.5px solid #fff;border-radius:50%;width:34px;height:34px}
+.dur-list{display:flex;flex-direction:column;gap:6px}
+.dur-list button{display:flex;justify-content:space-between;align-items:center;background:#000;color:#fff;border:1.5px solid #444;border-radius:8px;padding:11px 12px;font-size:15px;cursor:pointer;font-family:inherit}
+.dur-list button span{font-size:12px;color:#aaa}
+.dur-list button.on{border-color:var(--accent);background:rgba(20,184,166,.12)}
+.dur-list button.on strong,.dur-list button.on span{color:var(--accent)}
+.dur-note{margin:10px 0 0}
+.clap svg{filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.8)) drop-shadow(0 0 1px rgba(0,0,0,.6))}
+/* look-through: real arrow shape (shaft + triangular head) */
+.look-arrow{width:120px;height:120px;border-radius:0;background:none;border:0;line-height:0;font-size:0;display:flex;align-items:center;justify-content:center}
+.look-arrow svg{width:112px;height:112px;display:block}
+.look-arrow.dim{opacity:.75;border:0}
+.look-arrow.dim svg path:nth-child(2){fill:#7fd9ce}

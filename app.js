@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261009180729';
+  var BUILD = '20261009184208';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -39,7 +39,7 @@
     e.preventDefault();
     if ($('gatePw').value.trim().toLowerCase() === PASSWORD) {
       localStorage.setItem(LS.unlock, '1'); $('gate').hidden = true;
-      setTimeout(function () { map.invalidateSize(); goHome(); }, 50);
+      setTimeout(function () { map.invalidateSize(); goHome(); launchFly(); }, 50);
     } else {
       $('gateMsg').textContent = 'Wrong password. Ask Richard!';
       var f = $('gateForm'); f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
@@ -47,7 +47,7 @@
   });
 
   /* ---------- map ---------- */
-  var map = L.map('map', { zoomControl: false, attributionControl: false }).setView([51.3745, -0.0990], 16);
+  var map = L.map('map', { zoomControl: false, attributionControl: false, zoomSnap: 0.25, zoomDelta: 0.5 }).setView([51.3745, -0.0990], 16);
   L.control.attribution({ position: 'topleft', prefix: false }).addTo(map);
   // Colour satellite imagery (Esri World Imagery – free to use with attribution, no key) + street/label overlays
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -76,6 +76,8 @@
   function fmtDist(m) { return m < 1000 ? Math.round(m) + ' m' : (m / 1000).toFixed(2) + ' km'; }
   function fmtWalk(m) { return Math.max(1, Math.round(m / 80)) + ' min'; }
   function ll(s) { return [s.lat, s.lng]; }
+  var CROYDON = [51.3727, -0.0990], FAR_M = 5000;
+  function isFar(p) { return !!p && haversine(p, CROYDON) > FAR_M; } // e.g. a desktop/IP-based position: don't show silly distances
   // distance used for arrival: nearer of the pin and the point where the walking route passes it
   function arrivalDist(p, s) {
     var d = haversine(p, ll(s));
@@ -84,17 +86,14 @@
   }
 
   /* ---------- clapperboard markers ---------- */
-  function clapSVG(num, mode) {
-    var board = mode === 'current' ? ACCENT : mode === 'visited' ? '#6a6a6a' : '#000';
-    var text = mode === 'current' ? '#000' : '#fff', stroke = mode === 'current' ? '#000' : '#fff';
-    var fs = String(num).length > 1 ? 13 : 15;
-    return '<svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">' +
-      '<g transform="rotate(-14 3 11)"><rect x="3" y="5" width="30" height="7" fill="#000" stroke="#fff" stroke-width="1.3"/>' +
-      '<path d="M7 5 L11 12 M15 5 L19 12 M23 5 L27 12 M31 5 L33 8.5" stroke="#fff" stroke-width="2.6"/></g>' +
-      '<rect x="3" y="12" width="30" height="5" fill="#000" stroke="#fff" stroke-width="1.3"/>' +
-      '<path d="M7 12 L11 17 M15 12 L19 17 M23 12 L27 17" stroke="#fff" stroke-width="2.6"/>' +
-      '<rect x="3" y="17" width="30" height="17" rx="1.5" fill="' + board + '" stroke="' + stroke + '" stroke-width="1.5"/>' +
-      '<text x="18" y="30.5" text-anchor="middle" font-family="Anton,Impact,Arial Black,sans-serif" font-size="' + fs + '" fill="' + text + '">' + num + '</text></svg>';
+  function clapSVG(num, mode) { // simplified clapperboard: one striped bar + big bold number on a high-contrast board
+    var board = mode === 'current' ? ACCENT : mode === 'visited' ? '#9b9b9b' : '#fff';
+    var fs = String(num).length > 1 ? 17 : 20;
+    return '<svg width="36" height="38" viewBox="0 0 36 38" xmlns="http://www.w3.org/2000/svg">' +
+      '<g transform="rotate(-10 3 11)"><rect x="2.5" y="4.5" width="31" height="7" rx="1" fill="#000" stroke="#fff" stroke-width="1.5"/>' +
+      '<path d="M10 4.5 L14 11.5 M20 4.5 L24 11.5" stroke="#fff" stroke-width="3"/></g>' +
+      '<rect x="2.5" y="12.5" width="31" height="23" rx="3" fill="' + board + '" stroke="#000" stroke-width="2.5"/>' +
+      '<text x="18" y="' + (fs > 18 ? 31.5 : 30.5) + '" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-weight="900" font-size="' + fs + '" fill="#000">' + num + '</text></svg>';
   }
   function highlightIdx() { return state.mode === 'stop' ? state.current : state.mode === 'start' ? 0 : (state.tour.active ? state.tour.target : -1); }
   function iconFor(i) {
@@ -102,7 +101,8 @@
     var mode = i === hi ? 'current' : state.visited[s.id] ? 'visited' : 'normal';
     // start (1) and finale share a spot: nudge the icons apart so both are visible
     var anchor = i === 0 && isFinale(state.stops.length - 1) ? [39, 34] : isFinale(i) ? [-3, 34] : [18, 34];
-    return L.divIcon({ className: 'clap' + (mode === 'current' ? ' current' : ''), html: clapSVG(s.order, mode), iconSize: [36, 36], iconAnchor: anchor });
+    anchor = [anchor[0], 37];
+    return L.divIcon({ className: 'clap' + (mode === 'current' ? ' current' : ''), html: clapSVG(s.order, mode), iconSize: [36, 38], iconAnchor: anchor });
   }
   function zFor(i, hi) { return (100 - state.stops[i].order) * 1000 + (i === hi ? 200000 : 0); } // stop 1 on top, current stop above all
   function refreshIcons() { var hi = highlightIdx(); state.markers.forEach(function (m, i) { m.setIcon(iconFor(i)); m.setZIndexOffset(zFor(i, hi)); }); }
@@ -111,10 +111,21 @@
   function inPanel() { return state.mode === 'stop' || state.mode === 'start'; }
   function visibleSheet() { return inPanel() ? $('panel') : $('home'); }
   function sheetHeight() { var s = visibleSheet(); return s && !s.hidden ? s.getBoundingClientRect().height : 0; }
-  function layoutMapBtns() { $('mapBtns').style.bottom = (sheetHeight() + 12) + 'px'; }
+  function layoutMapBtns() { document.body.classList.toggle('mode-home', !inPanel()); $('mapBtns').style.bottom = (sheetHeight() + 12) + 'px'; }
+  function pinBounds() { return state.stops.length ? L.latLngBounds(state.stops.map(ll)) : state.routeBounds; }
+  function fitOpts() { // tight crop: pins are ~38 px tall above their point, ~20 px either side; leave room for the bottom sheet and map buttons
+    return { paddingTopLeft: [22, (inPanel() ? 30 : 0) + 44], paddingBottomRight: [56, sheetHeight() + 8] };
+  }
   function fitRoute() {
-    if (!state.routeBounds) return;
-    map.fitBounds(state.routeBounds, { paddingTopLeft: [24, 84], paddingBottomRight: [24, sheetHeight() + 12] });
+    var b = pinBounds(); if (!b || !launched) return; // before the launch fly-in, stay on the London overview
+    map.fitBounds(b, fitOpts());
+  }
+  var launched = false;
+  function launchFly() { // first view: zoomed out over London, then fly in to Croydon cropped to this preset's pins
+    if (launched || !state.stops.length || !$('gate').hidden) return;
+    launched = true; log('launch-fly');
+    map.setView([51.5072, -0.1276], 10, { animate: false });
+    setTimeout(function () { map.flyToBounds(pinBounds(), Object.assign({ duration: 2.4 }, fitOpts())); map.once('moveend', function () { log('launch-done', map.getZoom()); }); }, 350);
   }
   function panToVisible(p) {
     var pt = map.project(p, map.getZoom()).add([0, sheetHeight() / 2 - 16]);
@@ -129,11 +140,9 @@
   }
   function renderHome() {
     var n = state.stops.length, v = state.stops.filter(function (s) { return state.visited[s.id]; }).length;
-    $('progressBar').style.width = (n ? 100 * v / n : 0) + '%';
-    $('progressText').textContent = v + ' / ' + n + ' visited';
-    $('durationText').textContent = tourDurationText();
     var t = state.tour;
-    $('startBtn').textContent = t.active ? '▶ RESUME TOUR' : (n && v === n ? '↺ START AGAIN' : v > 0 ? '▶ CONTINUE TOUR' : '▶ START TOUR');
+    $('startBtn').textContent = t.active ? 'RESUME TOUR' : (n && v === n ? 'START AGAIN' : v > 0 ? 'CONTINUE TOUR' : 'START TOUR');
+    if (state.preset) $('durChipText').textContent = fmtHrs(state.preset.est_min);
     $('endBtn').hidden = !t.active;
   }
 
@@ -357,6 +366,7 @@
     if (state.mode !== 'start' || !$('startDist')) return;
     var s = state.stops[0], g = state.geo;
     if (!g.me) { $('startDist').textContent = g.watchId === null ? 'Location is off' : 'Finding your location…'; $('startSub').textContent = g.watchId === null ? 'Tap ◉ GPS to see distance and direction.' : ''; return; }
+    if (isFar(g.me)) { $('startDist').textContent = 'Far from Croydon'; $('startSub').textContent = 'Your position is more than 5 km away (or approximate). Head to Katharine Street, CR9.'; return; }
     var d = arrivalDist(g.me, s), b = bearing(g.me, ll(s));
     $('startDist').textContent = fmtDist(d) + ' ' + compass(b);
     $('startSub').textContent = '~' + fmtWalk(d) + ' walk · as the crow flies · ±' + Math.round(g.acc) + ' m GPS';
@@ -380,7 +390,8 @@
     else {
       var t = state.stops[tgtIdx];
       var label = (state.tour.active ? (state.tour.finishing ? 'Finale → ' : 'Next → ') : '') + t.order + '. ' + t.name;
-      if (g.me) {
+      if (g.me && isFar(g.me)) label += ': far from Croydon';
+      else if (g.me) {
         var d = haversine(g.me, ll(t));
         label += ': ' + fmtDist(d) + ' ' + compass(bearing(g.me, ll(t)));
       }
@@ -390,8 +401,12 @@
     var pd = $('panelDist');
     if (pd && state.mode === 'stop') {
       var s = state.stops[state.current];
-      pd.textContent = g.me ? fmtDist(haversine(g.me, ll(s))) + ' away (as the crow flies, ' + compass(bearing(g.me, ll(s))) + ') · ~' + fmtWalk(haversine(g.me, ll(s))) + ' walk' : '';
+      pd.textContent = g.me && isFar(g.me) ? 'You seem to be far from Croydon (or your location is approximate).' : g.me ? fmtDist(haversine(g.me, ll(s))) + ' away (as the crow flies, ' + compass(bearing(g.me, ll(s))) + ') · ~' + fmtWalk(haversine(g.me, ll(s))) + ' walk' : '';
     }
+    var chip = $('gpsChip');
+    chip.textContent = g.watchId === null ? 'GPS off' : !g.me ? 'Locating…' : isFar(g.me) ? 'Far from Croydon' : '±' + Math.round(g.acc) + ' m';
+    chip.classList.toggle('on', g.watchId !== null);
+    chip.classList.toggle('warn', !!(g.me && (isFar(g.me) || g.acc > MAX_ACC_FOR_ARRIVAL || Date.now() - g.lastFix > STALE_MS)));
     $('locateBtn').classList.toggle('on', g.watchId !== null);
     $('locateBtn').textContent = g.watchId !== null ? '◉ GPS on' : '◉ GPS';
   }
@@ -605,6 +620,7 @@
     }
     if (look.mode === 'pano') { $('lookCompass').hidden = true; return; }
     $('lookCompass').hidden = false;
+    if (g.me && isFar(g.me)) { $('lookDist').textContent = 'Far from Croydon · ' + s.order + '. ' + s.name; $('lookArrow').style.transform = 'rotate(0deg)'; $('lookArrow').classList.add('dim'); return; }
     if (!g.me) { $('lookDist').textContent = g.watchId === null ? 'Location off' : 'Finding you…'; $('lookArrow').style.transform = 'rotate(0deg)'; $('lookArrow').classList.add('dim'); return; }
     var brg = bearing(g.me, ll(s)), d = arrivalDist(g.me, s);
     var rel = look.heading === null ? brg : brg - look.heading; // without a compass the arrow is north-up
@@ -709,7 +725,6 @@
   $('startBtn').onclick = startTour;
   $('endBtn').onclick = endTour;
   $('resetBtn').onclick = resetProgress;
-  $('browseBtn').onclick = function () { goTo(state.tour.active ? state.tour.target : 0, { expand: true }); };
   $('prevBtn').onclick = navBack;
   $('nextBtn').onclick = navNext;
   $('locateBtn').onclick = function () { if (state.geo.watchId !== null) stopTracking(); else { startTracking(); setFollow(true); } };
@@ -720,6 +735,7 @@
   $('fitBtn').onclick = function () { setFollow(false); fitRoute(); };
   $('aboutBtn').onclick = function () { $('credits').hidden = false; };
   $('lookBtn').onclick = openLook;
+  $('gpsChip').onclick = function () { if (state.geo.watchId !== null) stopTracking(); else { startTracking(); setFollow(true); } };
   $('lookClose').onclick = closeLook;
   $('creditsClose').onclick = function () { $('credits').hidden = true; };
   $('lockBtn').onclick = function () { localStorage.removeItem(LS.unlock); location.reload(); };
@@ -772,21 +788,27 @@
       state.routeBounds = routeLayers[0].getBounds();
     });
   }
-  function setupSlider() {
-    var ps = state.data.presets, sl = $('durSlider');
-    sl.min = 0; sl.max = ps.length - 1; sl.step = 1;
-    $('durTicks').innerHTML = ps.map(function (p, i) { return '<button type="button" data-i="' + i + '">' + esc(p.label) + '<small>~' + esc(fmtHrs(p.est_min)) + '</small></button>'; }).join('');
+  function setupSlider() { // compact: one chip on home opens a small picker sheet
+    var ps = state.data.presets, list = $('durTicks');
+    list.innerHTML = ps.map(function (p, i) {
+      return '<button type="button" data-i="' + i + '"><strong>' + esc(p.label) + '</strong><span>~' + esc(fmtHrs(p.est_min)) + ' · ' + p.stop_ids.length + ' stops · ' + (p.distance_m / 1000).toFixed(1) + ' km</span></button>';
+    }).join('');
     function idx() { return ps.indexOf(state.preset); }
-    function sync() { sl.value = idx(); $('durTicks').querySelectorAll('button').forEach(function (b, i) { b.classList.toggle('on', i === idx()); }); $('durLive').textContent = presetSummary(state.preset); }
+    function sync() {
+      list.querySelectorAll('button').forEach(function (b, i) { b.classList.toggle('on', i === idx()); b.setAttribute('aria-pressed', i === idx() ? 'true' : 'false'); });
+      $('durLive').textContent = presetSummary(state.preset); $('durChipText').textContent = fmtHrs(state.preset.est_min);
+    }
+    function open(on) { $('durSheet').hidden = !on; log('picker', on); if (on) sync(); }
     function choose(i) {
-      i = +i; if (ps[i] === state.preset) return sync();
+      i = +i; if (ps[i] === state.preset) { open(false); return sync(); }
       if (state.tour.active && !confirm('Change tour length to ' + ps[i].label + ' (' + presetSummary(ps[i]) + ') mid-tour?\nStops you have already visited stay ticked.')) { sync(); return; }
-      applyPreset(ps[i].id).then(sync); sync();
+      applyPreset(ps[i].id).then(function () { sync(); if (state.mode === 'home') fitRoute(); }); sync(); open(false);
       if (state.tour.active && state.mode === 'home') setHomeMsg('Tour length changed. Next stop: ' + state.stops[state.tour.target].order + '. ' + state.stops[state.tour.target].name);
     }
-    sl.addEventListener('input', function () { $('durLive').textContent = presetSummary(ps[+sl.value]); });
-    sl.addEventListener('change', function () { choose(sl.value); });
-    $('durTicks').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) choose(b.dataset.i); });
+    list.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) choose(b.dataset.i); });
+    $('durChip').onclick = function () { open(true); };
+    $('durClose').onclick = function () { open(false); };
+    $('durSheet').addEventListener('click', function (e) { if (e.target.id === 'durSheet') open(false); });
     state.syncSlider = sync; sync();
   }
   function init(data) {
@@ -796,7 +818,8 @@
         legs_m: data.stops.map(function (s) { return s.leg_to_next_m || 0; }), distance_m: data.route_distance_m, walk_s: data.route_duration_s, est_min: 150 }];
     }
     var saved = localStorage.getItem(LS_PRESET) || data.default_preset || 'full';
-    applyPreset(saved).then(function () { goHome(); });
+    map.setView([51.5072, -0.1276], 10, { animate: false }); // start over London; launchFly() zooms in to Croydon
+    applyPreset(saved).then(function () { goHome(); launchFly(); });
     setupSlider();
     buildCredits();
     goHome();
