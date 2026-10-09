@@ -13,4 +13,8 @@ open("index.html", "w").write(h)
 j = open("app.js").read()
 j = re.sub(r"var BUILD = '[^']*';", "var BUILD = '%s';" % v, j)
 open("app.js", "w").write(j)
-print("build", v)
+# media manifest: the app only requests clips/narration that actually exist (no 404s for placeholders)
+import os, json
+man = {d: sorted(f for f in os.listdir("media/" + d) if not f.startswith(".")) if os.path.isdir("media/" + d) else [] for d in ("clips", "audio")}
+open("media/manifest.json", "w").write(json.dumps(man) + "\n")
+print("build", v, "| media:", {k: len(x) for k, x in man.items()})

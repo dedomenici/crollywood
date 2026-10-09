@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261009175155';
+  var BUILD = '20261009180218';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -96,7 +96,7 @@
       '<rect x="3" y="17" width="30" height="17" rx="1.5" fill="' + board + '" stroke="' + stroke + '" stroke-width="1.5"/>' +
       '<text x="18" y="30.5" text-anchor="middle" font-family="Anton,Impact,Arial Black,sans-serif" font-size="' + fs + '" fill="' + text + '">' + num + '</text></svg>';
   }
-  function highlightIdx() { return state.mode === 'stop' ? state.current : (state.tour.active ? state.tour.target : -1); }
+  function highlightIdx() { return state.mode === 'stop' ? state.current : state.mode === 'start' ? 0 : (state.tour.active ? state.tour.target : -1); }
   function iconFor(i) {
     var s = state.stops[i], hi = highlightIdx();
     var mode = i === hi ? 'current' : state.visited[s.id] ? 'visited' : 'normal';
@@ -108,7 +108,8 @@
   function refreshIcons() { var hi = highlightIdx(); state.markers.forEach(function (m, i) { m.setIcon(iconFor(i)); m.setZIndexOffset(zFor(i, hi)); }); }
 
   /* ---------- sheets / layout ---------- */
-  function visibleSheet() { return state.mode === 'stop' ? $('panel') : $('home'); }
+  function inPanel() { return state.mode === 'stop' || state.mode === 'start'; }
+  function visibleSheet() { return inPanel() ? $('panel') : $('home'); }
   function sheetHeight() { var s = visibleSheet(); return s && !s.hidden ? s.getBoundingClientRect().height : 0; }
   function layoutMapBtns() { $('mapBtns').style.bottom = (sheetHeight() + 12) + 'px'; }
   function fitRoute() {
@@ -121,7 +122,7 @@
   }
   function goHome() {
     state.mode = 'home';
-    $('panel').hidden = true; $('panel').style.transform = '';
+    $('panel').hidden = true; $('panel').style.transform = ''; setPeek(false, true); svOpen = false;
     $('home').hidden = false;
     renderHome(); refreshIcons(); layoutMapBtns(); fitRoute(); updateStatus(); updateStreetView();
     log('home');
@@ -185,9 +186,15 @@
       dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
     }, { passive: true });
   }
+  // Only request clips/narration listed in media/manifest.json (written by tools/stamp_version.py); otherwise show the placeholder.
+  state.media = { clips: [], audio: [] };
+  function hasMedia(kind, path) { var f = String(path || '').split('/').pop(); return (state.media[kind] || []).indexOf(f) >= 0; }
   function mediaHTML(s) {
-    return '<div class="media-label">Clip</div><div id="clipSlot"><video controls playsinline preload="metadata" src="' + esc(s.clip) + '"></video></div>' +
-      '<div class="media-label">Narration</div><div id="audioSlot"><audio controls preload="metadata" src="' + esc(s.audio) + '"></audio></div>';
+    var clip = hasMedia('clips', s.clip) ? '<video controls playsinline preload="metadata" src="' + esc(s.clip) + '"></video>'
+      : '<div class="placeholder">🎬 Video clip placeholder<br><code>' + esc(s.clip) + '</code></div>';
+    var aud = hasMedia('audio', s.audio) ? '<audio controls preload="metadata" src="' + esc(s.audio) + '"></audio>'
+      : '<div class="placeholder" style="height:60px">🎧 Narration placeholder: <code>' + esc(s.audio) + '</code></div>';
+    return '<div class="media-label">Clip</div><div id="clipSlot">' + clip + '</div><div class="media-label">Narration</div><div id="audioSlot">' + aud + '</div>';
   }
   function wireMedia(s) {
     var v = document.querySelector('#clipSlot video'), a = document.querySelector('#audioSlot audio');
@@ -199,21 +206,22 @@
     $('stopNum').textContent = s.order + '/' + state.stops.length;
     $('stopName').textContent = s.name;
     var h = banner ? '<div class="arrived-banner">' + esc(banner) + '</div>' : '';
-    h += '<div class="addr">' + esc(s.address || '') + '</div><div class="dist" id="panelDist"></div>';
+    h += '<div class="card"><div class="addr">' + esc(s.address || '') + '</div><div class="dist" id="panelDist"></div></div>';
     h += carouselHTML(s);
     s.films.forEach(function (f) {
-      h += '<div class="film"><h3>' + esc(f.title) + (f.year ? ' (' + esc(f.year) + ')' : '') + '</h3><div class="meta">' + esc(f.type || '') + '</div><p>' + esc(f.scene) + '</p></div>';
+      h += '<div class="film card"><h3>' + esc(f.title) + (f.year ? ' (' + esc(f.year) + ')' : '') + '</h3><div class="meta">' + esc(f.type || '') + '</div><p>' + esc(f.scene) + '</p></div>';
     });
     if (s.link) h += '<a class="big-btn link-btn" href="' + esc(s.link.url) + '" target="_blank" rel="noopener">' + esc(s.link.label) + ' ↗</a>';
-    h += mediaHTML(s);
+    h += '<div class="card">' + mediaHTML(s) + '</div>';
+    h += '<div class="card">';
     if (s.leg_to_next_m) h += '<p class="small">To the next stop: ' + fmtDist(s.leg_to_next_m) + ' along the route.</p>';
     h += '<div class="btnrow"><button id="visitBtn">' + (state.visited[s.id] ? '✓ Visited' : 'Mark visited') + '</button><button id="dirBtn">Walk here (OSM)</button></div>';
     h += '<p><span class="conf ' + esc(s.confidence) + '">' + esc(s.confidence) + ' confidence</span> <span class="sources">' + esc(s.confidence_note || '') + '</span></p>';
     h += '<div class="sources">Sources: ' + s.sources.map(function (x) {
       return /^https?:/.test(x) ? '<a href="' + esc(x.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(x.split(' ')[0].replace(/^https?:\/\/(www\.)?/, '').slice(0, 48)) + '</a>' : esc(x);
-    }).join(' · ') + '</div>';
+    }).join(' · ') + '</div></div>';
     $('panelBody').innerHTML = h; $('panelBody').scrollTop = 0;
-    wireCarousel(); wireMedia(s);
+    wireCarousel(); wireMedia(s); renderNav();
     $('visitBtn').onclick = function () { setVisited(s, !state.visited[s.id]); renderPanel(); };
     $('dirBtn').onclick = function () {
       var from = state.geo.me ? state.geo.me.join(',') : '';
@@ -230,6 +238,7 @@
     var n = state.stops.length; state.current = ((i % n) + n) % n;
     state.mode = 'stop';
     $('home').hidden = true; $('panel').hidden = false; $('panel').style.transform = '';
+    if (opts.expand) setPeek(false, true);
     renderPanel(opts.banner); refreshIcons(); layoutMapBtns(); updateStreetView();
     if (!opts.noPan) panToVisible(ll(state.stops[state.current]));
   }
@@ -239,52 +248,134 @@
   function svHeading(s) { var a = svPoint(s); return haversine(a, ll(s)) > 3 ? Math.round(bearing(a, ll(s))) : 0; }
   function svEmbedUrl(s) { var a = svPoint(s); return 'https://maps.google.com/maps?layer=c&cbll=' + a[0] + ',' + a[1] + '&cbp=11,' + svHeading(s) + ',0,0,0&output=svembed'; }
   function svLinkUrl(s) { var a = svPoint(s); return 'https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + a[0] + ',' + a[1] + '&heading=' + svHeading(s); }
-  var svOpen = localStorage.getItem('crollywood.sv') !== '0';
+  // Street View is on demand: the 'Street View' button in the stop panel / start step opens it, ✕ closes it.
+  var svOpen = false;
+  function svStop() { return state.mode === 'start' ? state.stops[0] : state.stops[state.current]; }
   function updateStreetView() {
-    var box = $('sv'), s = state.stops[state.current];
-    if (state.mode !== 'stop' || !s) { box.hidden = true; $('svFrame').src = 'about:blank'; return; }
-    box.hidden = false;
+    var box = $('sv'), s = svStop();
+    if (!inPanel() || !s || !svOpen) { box.hidden = true; if ($('svFrame').getAttribute('src') !== 'about:blank') $('svFrame').setAttribute('src', 'about:blank'); $('svBtn').setAttribute('aria-pressed', 'false'); return; }
+    box.hidden = false; $('svBtn').setAttribute('aria-pressed', 'true');
+    $('svTitle').textContent = 'Street View · ' + s.order + '. ' + s.name;
     $('svOpenLink').href = svLinkUrl(s);
-    box.classList.toggle('min', !svOpen);
-    var want = svOpen ? svEmbedUrl(s) : 'about:blank';
+    var want = svEmbedUrl(s);
     if ($('svFrame').getAttribute('src') !== want) $('svFrame').setAttribute('src', want);
   }
-  $('svToggle').onclick = function () { svOpen = !svOpen; localStorage.setItem('crollywood.sv', svOpen ? '1' : '0'); updateStreetView(); };
+  $('svBtn').onclick = function () { svOpen = !svOpen; log('sv', svOpen); updateStreetView(); };
+  $('svClose').onclick = function () { svOpen = false; log('sv', false); updateStreetView(); };
 
-  /* ---------- swipe down to close ---------- */
+  /* ---------- panel sheet: expanded <-> peek (collapsed, map visible) -> home ---------- */
+  state.peek = false;
+  function setPeek(on, silent) {
+    state.peek = !!on; $('panel').classList.toggle('peek', state.peek);
+    $('panel').setAttribute('data-state', state.peek ? 'peek' : 'expanded');
+    if (!silent) log('panel', state.peek ? 'peek' : 'expanded');
+    layoutMapBtns();
+    setTimeout(function () { // keep the stop (or you, when following) in the visible part of the map
+      layoutMapBtns(); if (silent || !inPanel()) return;
+      if (state.geo.follow && state.geo.me) panToVisible(state.geo.me);
+      else { var st = state.mode === 'start' ? state.stops[0] : state.stops[state.current]; if (st) panToVisible(ll(st)); }
+    }, 260);
+  }
   (function () {
     var drag = $('panelDrag'), panel = $('panel'), y0 = null, dy = 0, t0 = 0, active = false;
-    drag.addEventListener('pointerdown', function (e) { y0 = e.clientY; dy = 0; t0 = Date.now(); active = false; });
+    drag.addEventListener('pointerdown', function (e) { if (e.target.closest('button')) return; y0 = e.clientY; dy = 0; t0 = Date.now(); active = false; });
     window.addEventListener('pointermove', function (e) {
       if (y0 === null) return;
-      dy = Math.max(0, e.clientY - y0);
-      if (!active && dy > 8) { active = true; panel.classList.add('dragging'); }
-      if (active) { panel.style.transform = 'translateY(' + dy + 'px)'; e.preventDefault(); }
+      dy = e.clientY - y0;
+      if (!active && Math.abs(dy) > 8) { active = true; panel.classList.add('dragging'); }
+      if (active) { panel.style.transform = 'translateY(' + Math.max(dy, -40) + 'px)'; e.preventDefault(); }
     }, { passive: false });
     function end() {
       if (y0 === null) return;
-      var v = dy / Math.max(1, Date.now() - t0);
-      panel.classList.remove('dragging');
-      if (active && (dy > 90 || v > 0.6)) goHome(); else panel.style.transform = '';
+      var v = dy / Math.max(1, Date.now() - t0), h = panel.getBoundingClientRect().height + Math.max(0, -dy);
+      panel.classList.remove('dragging'); panel.style.transform = '';
+      if (!active) { y0 = null; return; }
+      if (dy < -30 || v < -0.5) setPeek(false);                       // swipe up: expand
+      else if (dy > 0) {
+        var far = state.peek ? (dy > 60 || v > 0.6) : (dy > Math.max(260, h * 0.6));
+        if (far) goHome();                                              // swipe fully down: overview
+        else if (!state.peek && (dy > 60 || v > 0.5)) setPeek(true);    // swipe down: collapse to peek
+      }
       y0 = null;
-      if (active) { var swallow = function (ev) { ev.stopPropagation(); ev.preventDefault(); window.removeEventListener('click', swallow, true); }; window.addEventListener('click', swallow, true); setTimeout(function () { window.removeEventListener('click', swallow, true); }, 50); }
+      var swallow = function (ev) { ev.stopPropagation(); ev.preventDefault(); window.removeEventListener('click', swallow, true); };
+      window.addEventListener('click', swallow, true); setTimeout(function () { window.removeEventListener('click', swallow, true); }, 50);
     }
     window.addEventListener('pointerup', end); window.addEventListener('pointercancel', end);
+    $('stopHeading').addEventListener('click', function () { setPeek(!state.peek); });
   })();
+
+  /* ---------- Back / NEXT LOCATION ---------- */
+  function renderNav() {
+    var n = state.stops.length, t = state.tour, prev = $('prevBtn'), next = $('nextBtn');
+    if (state.mode === 'start') { prev.textContent = '‹ Back'; next.textContent = 'NEXT ›'; return; }
+    var i = state.current, last = i === n - 1;
+    prev.textContent = '‹ Back';
+    next.textContent = last ? (t.active ? 'FINISH TOUR ✓' : 'OVERVIEW') : 'NEXT LOCATION ›';
+  }
+  function navBack() {
+    if (state.mode === 'start') return goHome();
+    if (state.current === 0) { if (state.tour.active && !state.visited[state.stops[0].id]) return showStartStep(); return goHome(); }
+    goTo(state.current - 1);
+  }
+  function navNext() {
+    var t = state.tour, n = state.stops.length;
+    if (state.mode === 'start') { log('next-manual', 0); return arrive(0, -1); }
+    var i = state.current, s = state.stops[i];
+    if (t.active && i === t.target) { // manual "done here": same as arriving
+      log('next-manual', i);
+      if (isFinale(i)) return arrive(i, -1);
+      setVisited(s, true); state.lastArrived = i; advanceTarget(i);
+      var nx = state.stops[t.target];
+      return goTo(t.target, { banner: 'Next: walk to stop ' + nx.order + '. ' + nx.name });
+    }
+    if (i === n - 1) return goHome();
+    goTo(i + 1);
+  }
+
+  /* ---------- start step: walk to the David Lean Cinema ---------- */
+  function showStartStep() {
+    var s = state.stops[0];
+    state.mode = 'start'; state.current = 0;
+    $('home').hidden = true; $('panel').hidden = false; $('panel').style.transform = ''; setPeek(false, true);
+    $('stopNum').textContent = 'START';
+    $('stopName').textContent = 'Walk to ' + s.name;
+    var img = s.image && (s.image.src || s.image.url);
+    var h = '<div class="card start-card"><div class="start-title">Head to the start: ' + esc(s.name) + '</div>' +
+      '<div class="start-dir"><span id="startArrow" class="arrow">↑</span><div><div id="startDist" class="start-dist">Finding your location…</div><div id="startSub" class="small"></div></div></div>' +
+      '<div class="addr">' + esc(s.address || '') + '</div></div>';
+    if (img) h += '<figure class="slide start-photo"><span class="tag">Start point</span><img src="' + esc(img) + '" alt="' + esc(s.name) + '"' + (s.image.src && s.image.url ? ' data-fallback="' + esc(s.image.url) + '"' : '') + '><figcaption>' + esc(s.image.credit || '') + '</figcaption></figure>';
+    h += '<div class="card"><p class="small">This step moves on automatically when you arrive (within about 30 m). Already there, or no GPS? Tap <strong>NEXT</strong>. Tap <strong>Street View</strong> above to see what it looks like.</p></div>';
+    $('panelBody').innerHTML = h; $('panelBody').scrollTop = 0;
+    var im = $('panelBody').querySelector('img');
+    if (im) im.addEventListener('error', function () { if (im.dataset.fallback && im.src.indexOf(im.dataset.fallback) < 0) im.src = im.dataset.fallback; });
+    renderNav(); refreshIcons(); layoutMapBtns(); updateStreetView(); updateStatus();
+    log('start-step');
+    if (state.geo.me) { checkArrival(state.geo.me, state.geo.acc); }
+    else panToVisible(ll(s));
+  }
+  function updateStartStep() {
+    if (state.mode !== 'start' || !$('startDist')) return;
+    var s = state.stops[0], g = state.geo;
+    if (!g.me) { $('startDist').textContent = g.watchId === null ? 'Location is off' : 'Finding your location…'; $('startSub').textContent = g.watchId === null ? 'Tap ◉ GPS to see distance and direction.' : ''; return; }
+    var d = arrivalDist(g.me, s), b = bearing(g.me, ll(s));
+    $('startDist').textContent = fmtDist(d) + ' ' + compass(b);
+    $('startSub').textContent = '~' + fmtWalk(d) + ' walk · as the crow flies · ±' + Math.round(g.acc) + ' m GPS';
+    $('startArrow').style.transform = 'rotate(' + Math.round(b) + 'deg)';
+  }
 
   /* ---------- status line ---------- */
   function setHomeMsg(msg, isErr) { var m = $('homeMsg'); m.textContent = msg || ''; m.classList.toggle('err', !!isErr); }
   function updateStatus() {
     var g = state.geo, n = state.stops.length;
     if (!n) return;
-    if (g.watchId === null) $('gpsStatus').textContent = state.mode === 'home' ? n + ' stops · ' + (state.routeKm || '?') + ' km' : 'GPS off';
+    if (g.watchId === null) $('gpsStatus').textContent = !inPanel() ? n + ' stops · ' + (state.routeKm || '?') + ' km' : 'GPS off';
     else if (!g.me) $('gpsStatus').textContent = 'Locating…';
     else {
       var stale = Date.now() - g.lastFix > STALE_MS;
       $('gpsStatus').textContent = (stale ? 'GPS stale · ' : '') + '±' + Math.round(g.acc) + ' m';
       $('gpsStatus').classList.toggle('statusbar-warn', stale || g.acc > MAX_ACC_FOR_ARRIVAL);
     }
-    var tgtIdx = state.tour.active ? state.tour.target : (state.mode === 'stop' ? state.current : -1);
+    var tgtIdx = state.tour.active ? state.tour.target : (inPanel() ? state.current : -1);
     if (tgtIdx < 0) { $('nextInfo').textContent = state.tour.active ? '' : 'Tap ▶ START TOUR'; }
     else {
       var t = state.stops[tgtIdx];
@@ -295,6 +386,7 @@
       }
       $('nextInfo').textContent = label;
     }
+    updateStartStep();
     var pd = $('panelDist');
     if (pd && state.mode === 'stop') {
       var s = state.stops[state.current];
@@ -398,7 +490,8 @@
     // clustered stops: only count the target once you're nearer to it than to the stop you just arrived at
     var la = state.lastArrived, dLast = la >= 0 && la !== ti ? arrivalDist(p, state.stops[la]) : Infinity;
     if (d <= radius && d < dLast) { arrive(ti, d); return; }
-    // near another unvisited stop that isn't the target → gentle nudge only
+    // near another unvisited stop that isn't the target → gentle nudge only (not before you've reached the start)
+    if (ti === 0) return;
     var best = -1, bd = 1e9;
     state.stops.forEach(function (s, i) {
       if (i === ti || state.visited[s.id] || state.toasted[s.id] || s.id === 'finale') return;
@@ -417,14 +510,14 @@
       state.tour.active = false; state.tour.finishing = false; saveTour();
       log('arrive', { id: s.id, d: Math.round(d), complete: true });
       if (navigator.vibrate) navigator.vibrate([300, 100, 300, 100, 300]);
-      goTo(i, { banner: '🎬 That\'s a wrap! Tour complete. See a film or visit the bar.' });
+      goTo(i, { expand: true, banner: '🎬 That\'s a wrap! Tour complete. See a film or visit the bar.' });
       releaseWakeLock(); return;
     }
-    log('arrive', { id: s.id, d: Math.round(d) });
+    log('arrive', { id: s.id, d: Math.round(d), manual: d < 0 });
     if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
     advanceTarget(i);
     var nx = state.stops[state.tour.target];
-    goTo(i, { banner: 'You have arrived: stop ' + s.order + '. Next: ' + nx.order + '. ' + nx.name });
+    goTo(i, { expand: true, banner: 'You have arrived: stop ' + s.order + '. Next: ' + nx.order + '. ' + nx.name });
   }
   function startTour() {
     if (!state.stops.length) return;
@@ -435,7 +528,8 @@
     var ok = startTracking();
     if (ok) { setFollow(true); setHomeMsg('Getting your location…'); }
     requestWakeLock();
-    goTo(state.tour.target, { banner: state.tour.target === 0 ? 'Tour started. Head to stop 1, the David Lean Cinema.' : 'Tour resumed. Head to stop ' + state.stops[state.tour.target].order + '.' });
+    if (state.tour.target === 0 && !state.visited[state.stops[0].id]) return showStartStep();
+    goTo(state.tour.target, { expand: true, banner: 'Tour resumed. Head to stop ' + state.stops[state.tour.target].order + '.' });
     if (state.geo.me) checkArrival(state.geo.me, state.geo.acc);
   }
   function endTour() {
@@ -484,16 +578,16 @@
   $('startBtn').onclick = startTour;
   $('endBtn').onclick = endTour;
   $('resetBtn').onclick = resetProgress;
-  $('browseBtn').onclick = function () { goTo(state.tour.active ? state.tour.target : 0, {}); };
-  $('prevBtn').onclick = function () { goTo(state.current - 1); };
-  $('nextBtn').onclick = function () { goTo(state.current + 1); };
+  $('browseBtn').onclick = function () { goTo(state.tour.active ? state.tour.target : 0, { expand: true }); };
+  $('prevBtn').onclick = navBack;
+  $('nextBtn').onclick = navNext;
   $('locateBtn').onclick = function () { if (state.geo.watchId !== null) stopTracking(); else { startTracking(); setFollow(true); } };
   $('followBtn').onclick = function () {
     if (state.geo.watchId === null) { if (startTracking()) setFollow(true); return; }
     setFollow(!state.geo.follow);
   };
   $('fitBtn').onclick = function () { setFollow(false); fitRoute(); };
-  $('creditsBtn').onclick = function () { $('credits').hidden = false; };
+  $('aboutBtn').onclick = function () { $('credits').hidden = false; };
   $('creditsClose').onclick = function () { $('credits').hidden = true; };
   $('lockBtn').onclick = function () { localStorage.removeItem(LS.unlock); location.reload(); };
   window.addEventListener('resize', function () { layoutMapBtns(); });
@@ -518,7 +612,7 @@
     state.markers.forEach(function (m) { map.removeLayer(m); }); state.markers = [];
     state.stops.forEach(function (s, i) {
       var m = L.marker(ll(s), { icon: iconFor(i), title: s.order + '. ' + s.name, zIndexOffset: zFor(i, -1) }).addTo(map);
-      m.on('click', function () { setFollow(false); goTo(i); });
+      m.on('click', function () { setFollow(false); goTo(i, { expand: true }); });
       state.markers.push(m);
     });
     // tour target within the new subset (visited state is kept by stop id)
@@ -575,7 +669,9 @@
     goHome();
     if (state.tour.active) setHomeMsg('Tour in progress. Tap RESUME TOUR to turn location back on.');
   }
-  fetch('locations.json?v=' + BUILD).then(function (r) { return r.json(); }).then(init)
+  fetch('media/manifest.json?v=' + BUILD).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
+    .then(function (m) { state.media = { clips: m.clips || [], audio: m.audio || [] }; return fetch('locations.json?v=' + BUILD); })
+    .then(function (r) { return r.json(); }).then(init)
     .catch(function (e) { setHomeMsg('Could not load locations.json: ' + e.message, true); console.error(e); });
 
   window.crollywood = state; // debugging / test hook
