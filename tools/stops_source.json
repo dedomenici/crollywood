@@ -1,0 +1,762 @@
+{
+  "meta": {
+    "title": "Crollywood",
+    "subtitle": "A self-guided walk through Croydon's movie locations",
+    "artist": "Richard DeDomenici / The Redux Project",
+    "loop": "Starts and ends at the David Lean Cinema. The walking route is pre-computed with OSRM foot routing (routing.openstreetmap.de) over OpenStreetMap data.",
+    "dropped": [
+      {
+        "name": "Brazil (1985)",
+        "reason": "Map pin at 51.3805,-0.1229 is about 1.6km west of the loop (Purley Way side), outside the walkable town-centre radius.",
+        "source": "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
+      }
+    ]
+  },
+  "start_id": "david-lean",
+  "stops": [
+    {
+      "id": "david-lean",
+      "name": "David Lean Cinema, Croydon Clocktower",
+      "address": "Katharine Street, CR9 1ET",
+      "lat": 51.37213,
+      "lng": -0.09901,
+      "films": [
+        {
+          "title": "Start & finish: the David Lean Cinema",
+          "year": null,
+          "type": "venue",
+          "scene": "Welcome to Crollywood. The tour starts and ends at the David Lean Cinema, named after Croydon-born director David Lean (Lawrence of Arabia, Brief Encounter). It's also where Heads of State: Redux premieres (14 Nov 2026)."
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Clocktower_on_Katharine_Street_-_panoramio.jpg?width=800",
+        "credit": "Panoramio user via Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_on_Katharine_Street_-_panoramio.jpg"
+      },
+      "sources": [
+        "User brief (start/end point)",
+        "https://www.davidleancinema.org.uk/event/crollywood-tour-heads-of-state-redux-premier/",
+        "Nominatim/OSM geocode"
+      ],
+      "confidence": "high",
+      "confidence_note": "Venue location verified via OSM."
+    },
+    {
+      "id": "peep-show-registry",
+      "name": "Former Croydon Registry Office, Mint Walk",
+      "address": "Mint Walk (now Bernard Weatherill House area)",
+      "lat": 51.37174,
+      "lng": -0.10002,
+      "films": [
+        {
+          "title": "Peep Show",
+          "year": 2004,
+          "type": "TV",
+          "scene": "The registry office where Jeremy marries Nancy (so she can get a green card). Demolished to make way for the council's new headquarters.",
+          "poster": {
+            "src": "media/posters/peep-show-british-tv-series.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Peep Show logo.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Peep_Show_(British_TV_series)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Council.JPG?width=800",
+        "credit": "A P Monblat via Wikimedia Commons (Bernard Weatherill House, built on the site)",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Council.JPG"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
+      ],
+      "confidence": "medium",
+      "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate."
+    },
+    {
+      "id": "konga",
+      "name": "High Street, north of the Flyover",
+      "address": "High Street, CR0",
+      "lat": 51.37106,
+      "lng": -0.10025,
+      "films": [
+        {
+          "title": "Konga",
+          "year": 1961,
+          "type": "film",
+          "scene": "A giant ape runs amok in 'London'. The terrified-locals crowd shots were filmed on the east side of Croydon High Street, just north of the Flyover.",
+          "poster": {
+            "src": "media/posters/konga-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Konga-Poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Konga_(film)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/High_Street,_Croydon_-_geograph.org.uk_-_2728006.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:High_Street,_Croydon_-_geograph.org.uk_-_2728006.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://movie-locations.com/movies/k/Konga.php"
+      ],
+      "confidence": "high",
+      "confidence_note": "Map pin plus movie-locations.com description agree."
+    },
+    {
+      "id": "matthews-yard",
+      "name": "Matthews Yard",
+      "address": "Matthews Yard, off Surrey Street, CR0 1FF",
+      "lat": 51.37236,
+      "lng": -0.10111,
+      "films": [
+        {
+          "title": "American Assassin: Redux (Crollywood HQ)",
+          "year": 2018,
+          "type": "redux",
+          "scene": "Start and finish of the original 2018 Crollywood tour, and the venue of the American Assassin: Redux world premiere at Matthews Yard Theatre."
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Matthews_Yard,_Croydon,_CR0_(34398740191).jpg?width=800",
+        "credit": "Flickr user via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Matthews_Yard,_Croydon,_CR0_(34398740191).jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "http://www.justcroydon.com/events/5609/18-May-2018/culture/richard-dedomenici-american-assassin-redux"
+      ],
+      "confidence": "high",
+      "confidence_note": "Not a film location as such: the tour's original start point."
+    },
+    {
+      "id": "heads-of-state-overtons",
+      "name": "Overton's Yard (the street)",
+      "address": "Overton's Yard, off Surrey Street, CR0 1SL",
+      "lat": 51.37276,
+      "lng": -0.10186,
+      "films": [
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "Part of the night-time 'Warsaw' chase, filmed 20–21 June 2023. A car chase and crash were shot along Overton's Yard, the short service road where Granaries nightclub used to be, beside the Surrey Street car park.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons (nearby Surrey Street)",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg"
+      },
+      "sources": [
+        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
+        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
+        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (r/croydon thread)",
+        "Nominatim/OSM (Overton's Yard)"
+      ],
+      "confidence": "high",
+      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched."
+    },
+    {
+      "id": "peep-show-loop-bar",
+      "name": "Loop Bar, Crown Hill",
+      "address": "Crown Hill, CR0",
+      "lat": 51.37374,
+      "lng": -0.1012,
+      "films": [
+        {
+          "title": "Peep Show",
+          "year": 2003,
+          "type": "TV",
+          "scene": "The bar ('Shooshh') where Mark plays pool (badly) with his nemesis Jeff.",
+          "poster": {
+            "src": "media/posters/peep-show-british-tv-series.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Peep Show logo.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Peep_Show_(British_TV_series)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Crown_Hill,_Croydon_-_geograph.org.uk_-_6180140.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Crown_Hill,_Croydon_-_geograph.org.uk_-_6180140.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
+      ],
+      "confidence": "medium",
+      "confidence_note": "From DeDomenici's map; venue may have changed name."
+    },
+    {
+      "id": "it-crowd",
+      "name": "Whitgift Centre, North End entrance",
+      "address": "North End, CR0",
+      "lat": 51.37601,
+      "lng": -0.10125,
+      "films": [
+        {
+          "title": "The IT Crowd",
+          "year": 2010,
+          "type": "TV",
+          "scene": "Series 4 'Bad Boys': Moss shoplifts copies of Grand Designs magazine while he and Roy are bunking off.",
+          "poster": {
+            "src": "media/posters/the-it-crowd.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (The IT Crowd title card.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/The_IT_Crowd"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_North_End_entrance.jpg?width=800",
+        "credit": "Hzh via Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_North_End_entrance.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://moviemaps.org/locations/279 (nearby: Whitgift Shopping Centre, The IT Crowd)"
+      ],
+      "confidence": "high",
+      "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed."
+    },
+    {
+      "id": "opalite",
+      "name": "Whitgift Centre: the 'Opalite' escalator",
+      "address": "Whitgift Centre, enter from North End",
+      "lat": 51.3758,
+      "lng": -0.1001,
+      "films": [
+        {
+          "title": "Taylor Swift – 'Opalite' (music video)",
+          "year": 2026,
+          "type": "music video",
+          "scene": "Taylor Swift and Domhnall Gleeson ride down the escalator and into a shop where Graham Norton hands out samples of 'Opalite' cleaning spray. Shot in November 2025 and released 6 Feb 2026. Fans now take selfies on the escalator opposite Clarks.",
+          "poster": {
+            "src": "media/posters/opalite-song.png",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Taylor Swift - Opalite.png), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Opalite_(song)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Whitgift_Centre,_Croydon_-_geograph.org.uk_-_694473.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:The_Whitgift_Centre,_Croydon_-_geograph.org.uk_-_694473.jpg"
+      },
+      "sources": [
+        "https://www.standard.co.uk/showbiz/taylor-swift-fans-whitgift-shopping-centre-croydon-opalite-music-video-b1270477.html",
+        "https://www.bbc.co.uk/newsround/articles/cn71xpv77zlo",
+        "https://metro.co.uk/2026/02/10/im-a-swiftie-this-flocking-a-luck-croydon-shopping-centre-26815066/",
+        "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift"
+      ],
+      "confidence": "high",
+      "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site."
+    },
+    {
+      "id": "terry-and-june",
+      "name": "Whitgift Centre: Wellesley Road ramp",
+      "address": "Wellesley Road, CR0",
+      "lat": 51.37671,
+      "lng": -0.09954,
+      "films": [
+        {
+          "title": "All of Us Strangers",
+          "year": 2023,
+          "type": "film",
+          "scene": "Adam (Andrew Scott) takes his parents (Claire Foy, Jamie Bell) to an American diner in the Whitgift. Their cab drives up the ramp from Wellesley Road, they ride the escalator to the first floor in Sainsbury's Square, and over milkshakes his parents tell him it's time to say goodbye. The Whitgift sign appears on screen.",
+          "poster": {
+            "src": "media/posters/all-of-us-strangers.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (All of Us Strangers poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/All_of_Us_Strangers"
+          }
+        },
+        {
+          "title": "Terry & June",
+          "year": 1979,
+          "type": "TV",
+          "scene": "The sitcom was set in Purley, and its opening titles were filmed around the Whitgift Centre and Fairfield Halls area.",
+          "poster": {
+            "src": "media/posters/terry-and-june.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Terry And June.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Terry_and_June"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre,_Croydon,_1976.jpg?width=800",
+        "credit": "John Shepherd via Wikimedia Commons",
+        "license": "CC BY 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre,_Croydon,_1976.jpg"
+      },
+      "sources": [
+        "https://www.imdb.com/title/tt21192142/locations/",
+        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight",
+        "https://insidecroydon.com/2024/08/08/how-movie-director-haigh-placed-sanderstead-centre-stage/",
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://en-academic.com/dic.nsf/enwiki/273044 (Croydon article mirror)"
+      ],
+      "confidence": "high",
+      "confidence_note": "All of Us Strangers: high (IMDb, Guardian, Inside Croydon). Terry & June titles: medium (Guardian and Inside Croydon mention the Whitgift title sequence). The ramp pin is approximate."
+    },
+    {
+      "id": "dark-knight-rises",
+      "name": "Delta Point, Wellesley Road",
+      "address": "35 Wellesley Road (by West Croydon station)",
+      "lat": 51.37907,
+      "lng": -0.10047,
+      "films": [
+        {
+          "title": "The Dark Knight Rises",
+          "year": 2012,
+          "type": "film",
+          "scene": "Played Gotham General Hospital: Blake rushes in to save Commissioner Gordon from Bane's thugs, and a masked Bruce Wayne visits Gordon. Now converted to flats.",
+          "poster": {
+            "src": "media/posters/the-dark-knight-rises.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Dark knight rises poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/The_Dark_Knight_Rises"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://movie-locations.com/movies/d/Dark-Knight-Rises.php",
+        "https://www.yourlocalguardian.co.uk/news/9033781.building-facing-destruction-as-new-batman-filmed-in-croydon/"
+      ],
+      "confidence": "high",
+      "confidence_note": "Several sources agree. The KML pin was about 60m south, so this uses the OSM building position."
+    },
+    {
+      "id": "peep-show-canterbury",
+      "name": "Canterbury House, Sydenham Road",
+      "address": "Sydenham Road, CR0",
+      "lat": 51.37764,
+      "lng": -0.09755,
+      "films": [
+        {
+          "title": "Peep Show",
+          "year": 2003,
+          "type": "TV",
+          "scene": "The JLB Credit office where Mark and Sophie first met. It's being converted to flats, so the interior they filmed in is gone.",
+          "poster": {
+            "src": "media/posters/peep-show-british-tv-series.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Peep Show logo.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Peep_Show_(British_TV_series)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "Nominatim/OSM"
+      ],
+      "confidence": "high",
+      "confidence_note": "Detailed description on the map, and the building is verified in OSM."
+    },
+    {
+      "id": "man-who-knew-too-little",
+      "name": "Dingwall Road / Lansdowne Road roundabout",
+      "address": "Dingwall Road, CR0",
+      "lat": 51.37694,
+      "lng": -0.09555,
+      "films": [
+        {
+          "title": "The Man Who Knew Too Little",
+          "year": 1997,
+          "type": "film",
+          "scene": "Bill Murray's car-chase roundabout scene, with Lansdowne Road and Corinthian House in shot. The chase also uses the Croydon Flyover.",
+          "poster": {
+            "src": "media/posters/the-man-who-knew-too-little.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (The_Man_Who_Knew_Too_Little.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/The_Man_Who_Knew_Too_Little"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dingwall_Road,_Croydon_-_geograph.org.uk_-_475506.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Dingwall_Road,_Croydon_-_geograph.org.uk_-_475506.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://londononlocation.co.uk/films/man-who-knew-too-little-the/"
+      ],
+      "confidence": "high",
+      "confidence_note": "Map pin and London on Location agree."
+    },
+    {
+      "id": "velvet-goldmine",
+      "name": "Wellesley Road (looking north)",
+      "address": "Wellesley Road, CR0",
+      "lat": 51.37564,
+      "lng": -0.09802,
+      "films": [
+        {
+          "title": "Velvet Goldmine",
+          "year": 1998,
+          "type": "film",
+          "scene": "Croydon stands in for 1980s New York. The 'nightmarish' street scene looks north along Wellesley Road as Christian Bale's journalist Arthur moves through town.",
+          "poster": {
+            "src": "media/posters/velvet-goldmine.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (VelvetGoldminePoster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Velvet_Goldmine"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://londononlocation.co.uk/films/velvet-goldmine/"
+      ],
+      "confidence": "medium",
+      "confidence_note": "The street is confirmed, but the exact camera position is approximate."
+    },
+    {
+      "id": "criminal-bourne",
+      "name": "College Green: the old School of Art (Segas House)",
+      "address": "College Green / Park Lane, CR0",
+      "lat": 51.37303,
+      "lng": -0.09602,
+      "films": [
+        {
+          "title": "Jason Bourne",
+          "year": 2016,
+          "type": "film",
+          "scene": "The old Croydon School of Art's photographic studio doubles as a Berlin warehouse for a Matt Damon fight scene, while the CIA watches the windows.",
+          "poster": {
+            "src": "media/posters/jason-bourne-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Jason_Bourne_(film)"
+          }
+        },
+        {
+          "title": "Criminal",
+          "year": 2016,
+          "type": "film",
+          "scene": "Croydon College became CIA HQ, a lab and a fugitive's hideout. There's a shoot-out on College Road, George Street and Dingwall Road, and a night scene in the Park Lane underpass.",
+          "poster": {
+            "src": "media/posters/criminal-2016-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Criminal_(2016_film)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/CroydonCollege.jpg?width=800",
+        "credit": "CroydonCollege via Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:CroydonCollege.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://www.movie-locations.com/movies/j/Jason-Bourne.php",
+        "https://croydonfilmoffice.co.uk/2016/07/15/the-heart-of-the-action-croydons-getting-a-reputation-for-attracting-blockbusters/",
+        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/"
+      ],
+      "confidence": "high",
+      "confidence_note": "Several sources agree. The KML pin is between the two buildings."
+    },
+    {
+      "id": "fairfield-halls",
+      "name": "Fairfield Halls",
+      "address": "Park Lane, CR9 1DG",
+      "lat": 51.37282,
+      "lng": -0.09685,
+      "films": [
+        {
+          "title": "The Da Vinci Code",
+          "year": 2006,
+          "type": "film",
+          "scene": "Fairfield's Concert Hall plays the lecture hall where Robert Langdon (Tom Hanks) gives his talk on symbols.",
+          "poster": {
+            "src": "media/posters/the-da-vinci-code-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (The da vinci code final.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/The_Da_Vinci_Code_(film)"
+          }
+        },
+        {
+          "title": "Cuban Fury",
+          "year": 2014,
+          "type": "film",
+          "scene": "The flashbacks and the salsa competition in the final scene.",
+          "poster": {
+            "src": "media/posters/cuban-fury.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Cuban Fury.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Cuban_Fury"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Halls_-_London.jpg?width=800",
+        "credit": "Jim Linwood via Wikimedia Commons",
+        "license": "CC BY 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Halls_-_London.jpg"
+      },
+      "sources": [
+        "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
+        "https://www.london-now.co.uk/news/24085156.9-movies-filmed-croydon-might-not-realise/",
+        "Croydonites Crollywood 2026 listing (mentions The Da Vinci Code)"
+      ],
+      "confidence": "high",
+      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb."
+    },
+    {
+      "id": "made-in-dagenham",
+      "name": "Park Lane / Fairfield forecourt",
+      "address": "Park Lane, CR0",
+      "lat": 51.3732,
+      "lng": -0.09776,
+      "films": [
+        {
+          "title": "Made in Dagenham",
+          "year": 2010,
+          "type": "film",
+          "scene": "Croydon's 1960s concrete stands in for 1968 Westminster and Dagenham. Scenes were shot on St George's Walk and at Fairfield Halls.",
+          "poster": {
+            "src": "media/posters/made-in-dagenham.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Made in dagenham poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Hall,_Croydon_-_geograph.org.uk_-_2819880.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Hall,_Croydon_-_geograph.org.uk_-_2819880.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/"
+      ],
+      "confidence": "medium",
+      "confidence_note": "The map pin has no description, and the scene details are generic."
+    },
+    {
+      "id": "heads-of-state-sgw",
+      "name": "St George's Walk (the 'Warsaw' street)",
+      "address": "St George's Walk, CR0 1PB",
+      "lat": 51.37321,
+      "lng": -0.09857,
+      "films": [
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "On 20–21 June 2023 the arcade was dressed overnight as a Polish high street, with a nightclub, Polish shopfronts, posters and graffiti, for the Warsaw chase with Idris Elba, John Cena and Priyanka Chopra Jonas. Richard's Heads of State: Redux recreates these scenes.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg"
+      },
+      "sources": [
+        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
+        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
+        "https://www.croydonites.com/programme/redux-heads-of-state"
+      ],
+      "confidence": "high",
+      "confidence_note": "Several press sources, plus Croydonites saying the Warsaw chase was filmed in the town centre. The exact frame-by-frame spots are for Richard to refine."
+    },
+    {
+      "id": "american-assassin",
+      "name": "St George's Walk (Park Street end)",
+      "address": "St George's Walk, CR0 1YJ",
+      "lat": 51.3729,
+      "lng": -0.09851,
+      "films": [
+        {
+          "title": "American Assassin",
+          "year": 2017,
+          "type": "film",
+          "scene": "St George's Walk is transformed into an Istanbul quarter for Michael Keaton and Dylan O'Brien. This is the subject of Richard's 2018 American Assassin: Redux.",
+          "poster": {
+            "src": "media/posters/american-assassin.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (American Assassin.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/American_Assassin"
+          }
+        },
+        {
+          "title": "Black Mirror: Bandersnatch",
+          "year": 2018,
+          "type": "TV/interactive film",
+          "scene": "Retro 1984 shopfronts, including the Tuckersoft-era high street, were fitted on the now-demolished half of the Walk.",
+          "poster": {
+            "src": "media/posters/black-mirror-bandersnatch.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Black mirror bandersnatch poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Black_Mirror:_Bandersnatch"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St._George's_Walk_2015.JPG?width=800",
+        "credit": "Eagleash via Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:St._George's_Walk_2015.JPG"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://www.copsecroydon.co.uk/event/local-evening-walk-no-hall/",
+        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859"
+      ],
+      "confidence": "high",
+      "confidence_note": "Map pins for both titles are about 15m apart. Bandersnatch's half of the Walk has been demolished."
+    },
+    {
+      "id": "the-bill",
+      "name": "Katharine Street / Park Street corner",
+      "address": "Katharine Street, CR0",
+      "lat": 51.37299,
+      "lng": -0.09948,
+      "films": [
+        {
+          "title": "The Bill",
+          "year": 1984,
+          "type": "TV",
+          "scene": "The long-running police drama often filmed in central Croydon, around Surrey Street and St George's House (the Nestlé Building).",
+          "poster": {
+            "src": "media/posters/the-bill.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (The Bill UK TV Series Title 2002.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/The_Bill"
+          }
+        }
+      ],
+      "image": null,
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://en-academic.com/dic.nsf/enwiki/273044"
+      ],
+      "confidence": "low",
+      "confidence_note": "Map pin has no description, so the specific episode or scene is unknown."
+    },
+    {
+      "id": "heads-of-state-carpark",
+      "name": "Surrey Street car park (rooftop)",
+      "address": "Surrey Street car park, Exchange Square, CR0",
+      "lat": 51.37242,
+      "lng": -0.10238,
+      "films": [
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "An explosion (silenced for the neighbours) and stunt action filmed on the roof of the multi-storey car park next to Overton's Yard. You can view it from street level; the roof deck is the on-screen spot.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg"
+      },
+      "sources": [
+        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
+        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/",
+        "Nominatim/OSM (parking, Surrey Street)"
+      ],
+      "confidence": "medium",
+      "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position."
+    },
+    {
+      "id": "heads-of-state-apollo",
+      "name": "Apollo House, Wellesley Road",
+      "address": "Apollo House, Wellesley Road, CR0",
+      "lat": 51.37714,
+      "lng": -0.09828,
+      "films": [
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "The scene after the Overton's Yard chase was filmed outside Apollo House, with Lunar House (the Home Office immigration building) in the background. Not to be confused with Peep Show's fictional 'Apollo House', which was actually Zodiac Court in West Croydon.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
+        "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg"
+      },
+      "sources": [
+        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (comment linking to Crollywood)",
+        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight (Zodiac Court / Apollo House note)",
+        "Nominatim/OSM (Apollo House)"
+      ],
+      "confidence": "medium",
+      "confidence_note": "Only one source (a Reddit comment, possibly by Richard) places the scene here. The building position is verified in OSM. Check against the film."
+    },
+    {
+      "id": "girl-group",
+      "name": "Whitgift Centre: the main stage (by the former Superdry)",
+      "address": "Whitgift Centre, enter from North End",
+      "lat": 51.37625,
+      "lng": -0.1,
+      "films": [
+        {
+          "title": "Girl Group (Rebel Wilson)",
+          "year": 2026,
+          "type": "film",
+          "scene": "In September 2025 Rebel Wilson wrote, directed and starred in this musical comedy, shot over a week on a stage set built in the Whitgift near the former Superdry unit, with fans watching from the first-floor balcony. Wilson plays a former girl-band star who mentors teenage wannabes. Co-stars include Jennifer Coolidge, Randall Park, Sheridan Smith, Sally Hawkins and Nicole Scherzinger. It premiered at TIFF on 11 Sept 2026; UK release TBC."
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_center_center_interior_-_panoramio.jpg?width=800",
+        "credit": "Panoramio user via Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_center_center_interior_-_panoramio.jpg"
+      },
+      "sources": [
+        "https://insidecroydon.com/2025/09/10/whitgift-becomes-centre-stage-for-rebel-wilsons-new-movie/",
+        "https://deadline.com/2025/09/rebel-wilson-girl-group-the-deb-randall-park-1236553365/",
+        "https://en.wikipedia.org/wiki/Girl_Group_(film)",
+        "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift"
+      ],
+      "confidence": "low",
+      "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC."
+    }
+  ]
+}

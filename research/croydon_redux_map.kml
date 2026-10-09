@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>CROYDON REDUX</name>
+    <description><![CDATA[Route travels clockwise from Matthew's Yard]]></description>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-FF5252-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-FF5252-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-FF5252">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-FF5252-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-FF5252-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="poly-A52714-1-0-normal">
+      <LineStyle>
+        <color>ff1427a5</color>
+        <width>0.001</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>001427a5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <Style id="poly-A52714-1-0-highlight">
+      <LineStyle>
+        <color>ff1427a5</color>
+        <width>0.0015</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>001427a5</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+    <StyleMap id="poly-A52714-1-0">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-A52714-1-0-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-A52714-1-0-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Untitled layer</name>
+      <Placemark>
+        <name>Matthews Yard </name>
+        <description>Start and Finish </description>
+        <styleUrl>#icon-1899-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            -0.101380999999947,51.37222,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Dark Knight Rises</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1006848,51.3785445,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Man Who Knew Too Little </name>
+        <description>Roundabout Scene </description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -0.095551,51.3769373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Velvet Goldmine</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.098024,51.375638,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Criminal, Jason Bourne</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0960177,51.3730261,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>American Assassin</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0985122,51.3729859,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Made In Daghenham</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0977612,51.3732003,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Konga 1961</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1002502,51.371057,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Brazil</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1229149,51.3804848,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Black Mirror - Bandersnatch</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0985122,51.3728386,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The IT Crowd</name>
+        <description><![CDATA[The Whitgift Shopping Centre<br>Moss shoplifts some copies of Grand Designs from the shop while he and Roy are bunking off in episode #405 "Bad Boys".]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1012534,51.3760131,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Terry & June]]></name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0995404,51.3767064,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Bill </name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0994778,51.3729859,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Peep Show</name>
+        <description>Canterbury House, Sydenham Road.                  The office where Sophie and Mark first met. JLB moved buildings a few times in later series, but this will always be the original. Now being converted to flats so its interior, where they shot on location, is long gone.</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0976995,51.3775232,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Peep Show</name>
+        <description><![CDATA[Loop Bar<br>(“Shooshh”, Crown Hill). Where Mark plays pool (badly) with his nemesis Jeff. You probably can’t play pool there anymore, unfortunately, but it's still one of Croydon's more lively nightspots. ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1012038,51.3737369,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Peep Show</name>
+        <description><![CDATA[Registry office where Jez marries Nancy<br>(Former Croydon Registry Office, Mint walk) Sadly demolished to make way for Croydon Council's new headquarters but at least that saves Jez from some pretty painful memories. ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1000249,51.3717419,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Route</name>
+        <description>Clockwise</description>
+        <styleUrl>#poly-A52714-1-0</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                -0.1013875,51.3724233,0
+                -0.1001644,51.3727448,0
+                -0.0985122,51.3729591,0
+                -0.0970745,51.3731467,0
+                -0.0965166,51.3726109,0
+                -0.0966024,51.3732538,0
+                -0.0969028,51.3741914,0
+                -0.0982761,51.3761738,0
+                -0.095551,51.3769105,0
+                -0.095787,51.3775935,0
+                -0.0968599,51.3772721,0
+                -0.0972891,51.3778882,0
+                -0.0991774,51.3774328,0
+                -0.0998211,51.3784239,0
+                -0.1022673,51.37754,0
+                -0.1014733,51.3759193,0
+                -0.1004004,51.3737494,0
+                -0.1017094,51.3734949,0
+                -0.1011515,51.372651,0
+                -0.1013875,51.3724233,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000">
+<title>CROLLYWOOD: Croydon Movie Location Walk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Hollywood-sign style logo (reused on gate + header) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 600 150">
+      <path d="M0 150 L0 112 Q60 70 130 80 Q190 50 260 62 Q330 30 410 52 Q480 40 540 66 Q575 76 600 70 L600 150 Z" fill="#3a3a3a"/>
+      <path d="M0 150 L0 128 Q90 100 170 110 Q260 92 340 104 Q430 88 520 102 L600 96 L600 150 Z" fill="#1f1f1f"/>
+      <g fill="#fff" font-family="Anton, 'Arial Narrow', Impact, sans-serif" font-size="68" stroke="#000" stroke-width="1">
+        <text x="14"  y="98"  transform="rotate(-2 14 98)">C</text>
+        <text x="72"  y="92"  transform="rotate(1 72 92)">R</text>
+        <text x="130" y="84"  transform="rotate(-1 130 84)">O</text>
+        <text x="190" y="80"  transform="rotate(2 190 80)">L</text>
+        <text x="240" y="76"  transform="rotate(-2 240 76)">L</text>
+        <text x="290" y="70"  transform="rotate(1 290 70)">Y</text>
+        <text x="350" y="68"  transform="rotate(-1 350 68)">W</text>
+        <text x="428" y="72"  transform="rotate(2 428 72)">O</text>
+        <text x="486" y="78"  transform="rotate(-2 486 78)">O</text>
+        <text x="544" y="86"  transform="rotate(1 544 86)">D</text>
+      </g>
+      <g stroke="#bbb" stroke-width="1.2">
+        <line x1="30" y1="100" x2="30" y2="114"/><line x1="90" y1="94" x2="90" y2="108"/><line x1="148" y1="86" x2="148" y2="100"/>
+        <line x1="200" y1="82" x2="200" y2="96"/><line x1="250" y1="78" x2="250" y2="92"/><line x1="306" y1="72" x2="306" y2="86"/>
+        <line x1="376" y1="70" x2="376" y2="84"/><line x1="446" y1="74" x2="446" y2="88"/><line x1="504" y1="80" x2="504" y2="94"/><line x1="560" y1="88" x2="560" y2="102"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="gate" hidden>
+  <div class="gate-inner">
+    <svg class="gate-logo" role="img" aria-label="CROLLYWOOD"><use href="#logo"/></svg>
+    <p class="gate-sub">A self-guided walk through Croydon's movie locations<br>by Richard DeDomenici</p>
+    <form id="gateForm" autocomplete="off">
+      <input id="gatePw" type="password" placeholder="Password" aria-label="Password" autocapitalize="off">
+      <button type="submit">Enter</button>
+    </form>
+    <p id="gateMsg" class="gate-msg"></p>
+  </div>
+</div>
+
+<header id="topbar">
+  <svg class="logo" role="img" aria-label="CROLLYWOOD"><use href="#logo"/></svg>
+  <div class="top-actions">
+    <button id="creditsBtn" aria-label="Credits">Credits</button>
+    <button id="locateBtn" title="Start live location">◉ Track</button>
+  </div>
+</header>
+<div id="map"></div>
+<div id="statusbar">
+  <span id="gpsStatus">Location off</span>
+  <span id="nextInfo"></span>
+  <label class="toggle"><input type="checkbox" id="autoArrive" checked> Auto-arrive</label>
+</div>
+<section id="panel" class="collapsed" aria-live="polite">
+  <div id="panelHandle" role="button" aria-label="Expand stop details"></div>
+  <div id="panelHead">
+    <button id="prevBtn" aria-label="Previous stop">◀</button>
+    <div id="stopHeading"><span id="stopNum"></span><span id="stopName"></span></div>
+    <button id="nextBtn" aria-label="Next stop">▶</button>
+  </div>
+  <div id="panelBody"></div>
+</section>
+
+<div id="credits" hidden>
+  <div class="credits-inner">
+    <button id="creditsClose" aria-label="Close credits">✕</button>
+    <svg class="credits-logo" role="img" aria-label="CROLLYWOOD"><use href="#logo"/></svg>
+    <h2>Credits</h2>
+    <p><strong>Created by Richard DeDomenici</strong>: <a href="https://dedomenici.com" target="_blank" rel="noopener">dedomenici.com</a></p>
+    <p>Part of <strong>The Redux Project</strong>: <a href="https://thereduxproject.com" target="_blank" rel="noopener">thereduxproject.com</a></p>
+    <p>With <strong>Croydonites Festival</strong>: <a href="https://www.croydonites.com" target="_blank" rel="noopener">croydonites.com</a></p>
+    <p>Tour start and finish: <a href="https://www.davidleancinema.org.uk" target="_blank" rel="noopener">David Lean Cinema</a>, Croydon Clocktower.</p>
+    <h3>Map &amp; route</h3>
+    <p>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> (ODbL). Walking route by <a href="https://routing.openstreetmap.de" target="_blank" rel="noopener">OSRM / routing.openstreetmap.de</a>. Map library <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>.</p>
+    <h3>Location photos</h3>
+    <ul id="photoCredits"></ul>
+    <h3>Posters &amp; artwork</h3>
+    <p class="small">Film posters and title cards are © their respective rights holders. They come from Wikipedia and are shown at low resolution only to identify each film.</p>
+    <ul id="posterCredits"></ul>
+    <h3>Research sources</h3>
+    <p class="small">Each stop lists its sources and a confidence rating. The main source is Richard DeDomenici's own 'CROYDON REDUX' map, plus local press (Inside Croydon, MyLondon, Your Local Guardian), movie-locations.com, London on Location, IMDb and others.</p>
+    <p><button id="lockBtn" class="linkish">Lock app again</button></p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="app.js"></script>
+</body>
+</html>
