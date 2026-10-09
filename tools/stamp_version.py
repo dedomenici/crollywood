@@ -5,6 +5,7 @@ import re, time
 v = time.strftime("%Y%m%d%H%M%S")
 h = open("index.html").read()
 h = re.sub(r'(href="style\.css)(\?v=[^"]*)?"', r'\1?v=%s"' % v, h)
+h = re.sub(r'(src="config\.js)(\?v=[^"]*)?"', r'\1?v=%s"' % v, h)
 h = re.sub(r'(src="app\.js)(\?v=[^"]*)?"', r'\1?v=%s"' % v, h)
 h = re.sub(r"window\.CROLLY_BUILD='[^']*'", "window.CROLLY_BUILD='%s'" % v, h)
 if "window.CROLLY_BUILD" not in h:

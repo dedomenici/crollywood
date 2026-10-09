@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261009180218';
+  var BUILD = '20261009180729';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -149,7 +149,7 @@
   }
   function tourDurationText() {
     var p = state.preset; if (!p) return '';
-    var dwell = state.data.dwell_min_per_stop || 4;
+    var dwell = p.dwell_min || state.data.dwell_min_per_stop || 4;
     return presetSummary(p) + ' (' + Math.round(p.walk_s / 60) + ' min walking + ~' + dwell + ' min per stop)';
   }
 
@@ -435,7 +435,7 @@
     if (g.follow) panToVisible(p);
     log('fix', { lat: p[0], lng: p[1], acc: c.accuracy });
     checkArrival(p, c.accuracy);
-    updateStatus();
+    updateStatus(); if (look.open) updateLook();
   }
   function onPosError(err) {
     var g = state.geo, msg;
@@ -572,6 +572,137 @@
     $('photoCredits').innerHTML = ph.join(''); $('posterCredits').innerHTML = po.join('');
   }
 
+  /* ---------- Look-through mode (immersive) ----------
+     Background: Google StreetViewPanorama with motionTracking when config.js has GOOGLE_MAPS_KEY,
+     otherwise the rear camera (getUserMedia), otherwise the stop photo. A compass arrow (DeviceOrientation
+     heading vs bearing to the stop) points the way; mini map shows the red dot. */
+  var look = { open: false, stream: null, heading: null, headingSrc: null, stopIdx: 0, map: null, me: null, stopMk: null, pano: null, oriTimer: null, mode: null };
+  function lookStop() {
+    if (inPanel()) return state.mode === 'start' ? 0 : state.current;
+    if (state.tour.active) return state.tour.target;
+    if (state.geo.me) { var bi = 0, bd = 1e12; state.stops.forEach(function (s, i) { var d = haversine(state.geo.me, ll(s)); if (d < bd) { bd = d; bi = i; } }); return bi; }
+    return 0;
+  }
+  function lookMsg(m) { if (m !== undefined) look.msg = m; var t = (look.msg || '') + (look.note ? ' · ' + look.note : ''); $('lookStatus').textContent = t; log('look-status', t); }
+  function onOrient(e) {
+    var h = null, src = null;
+    if (typeof e.webkitCompassHeading === 'number' && !isNaN(e.webkitCompassHeading)) { h = e.webkitCompassHeading; src = 'ios-compass'; }
+    else if (e.absolute && typeof e.alpha === 'number') { h = 360 - e.alpha; src = 'absolute-alpha'; }
+    else if (e.type === 'deviceorientation' && typeof e.alpha === 'number' && look.headingSrc !== 'absolute-alpha') { h = null; src = 'relative-only'; }
+    if (h === null) { if (!look.headingSrc) look.headingSrc = src; return; }
+    var so = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
+    look.heading = (h + so + 360) % 360; look.headingSrc = src;
+    if (look.note) { look.note = ''; lookMsg(); }
+    updateLook();
+  }
+  function updateLook() {
+    if (!look.open) return;
+    var s = state.stops[look.stopIdx], g = state.geo;
+    if (look.map) {
+      if (g.me) { if (!look.me) look.me = L.circleMarker(g.me, { radius: 6, color: '#fff', weight: 2, fillColor: '#ff1a1a', fillOpacity: 1 }).addTo(look.map); else look.me.setLatLng(g.me); }
+      var b = g.me ? L.latLngBounds([g.me, ll(s)]) : null;
+      if (b && haversine(g.me, ll(s)) > 40) look.map.fitBounds(b, { padding: [14, 14], maxZoom: 18, animate: false }); else look.map.setView(ll(s), 17, { animate: false });
+    }
+    if (look.mode === 'pano') { $('lookCompass').hidden = true; return; }
+    $('lookCompass').hidden = false;
+    if (!g.me) { $('lookDist').textContent = g.watchId === null ? 'Location off' : 'Finding you…'; $('lookArrow').style.transform = 'rotate(0deg)'; $('lookArrow').classList.add('dim'); return; }
+    var brg = bearing(g.me, ll(s)), d = arrivalDist(g.me, s);
+    var rel = look.heading === null ? brg : brg - look.heading; // without a compass the arrow is north-up
+    $('lookArrow').classList.toggle('dim', look.heading === null);
+    $('lookArrow').style.transform = 'rotate(' + Math.round(rel) + 'deg)';
+    $('lookDist').textContent = (d < 35 ? 'You are here · ' : fmtDist(d) + ' ' + compass(brg) + ' · ') + s.order + '. ' + s.name + (look.heading === null ? ' (arrow: north-up)' : '');
+    state.lookRel = rel;
+  }
+  function loadGoogleMaps(key) {
+    if (window.google && window.google.maps && window.google.maps.StreetViewPanorama) return Promise.resolve(window.google.maps);
+    return new Promise(function (res, rej) {
+      var cb = '__crollyGmReady' + Date.now();
+      window[cb] = function () { res(window.google.maps); };
+      window.gm_authFailure = function () { rej(new Error('Google Maps key rejected')); if (look.mode === 'pano') startCamera(); };
+      var sc = document.createElement('script'); sc.async = true; sc.onerror = function () { rej(new Error('Google Maps failed to load')); };
+      sc.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(key) + '&callback=' + cb + '&v=weekly';
+      document.head.appendChild(sc);
+      setTimeout(function () { rej(new Error('Google Maps timed out')); }, 12000);
+    });
+  }
+  function showStill() {
+    var s = state.stops[look.stopIdx], img = s.image && (s.image.src || s.image.url);
+    look.mode = 'still'; $('look').dataset.bg = 'still';
+    $('lookStill').style.backgroundImage = img ? 'url("' + img.replace(/"/g, '%22') + '")' : 'none';
+  }
+  function startCamera() {
+    var v = $('lookCam');
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { showStill(); lookMsg('No camera access in this browser: showing the location photo instead.'); return Promise.resolve(); }
+    return navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false }).then(function (st) {
+      if (!look.open) { st.getTracks().forEach(function (t) { t.stop(); }); return; }
+      look.stream = st; v.srcObject = st; look.mode = 'camera'; $('look').dataset.bg = 'camera';
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+      lookMsg('Camera view: hold up your phone and follow the arrow.');
+    }).catch(function (e) {
+      showStill(); log('look-camera-error', e.name);
+      lookMsg(e.name === 'NotAllowedError' ? 'Camera permission denied: showing the location photo. Allow the camera in your browser settings to look through.' : 'Camera unavailable (' + e.name + '): showing the location photo instead.');
+    });
+  }
+  function openLook() {
+    if (!state.stops.length) return;
+    look.open = true; look.heading = null; look.headingSrc = null; look.mode = null; look.note = ''; look.msg = '';
+    look.stopIdx = lookStop();
+    var s = state.stops[look.stopIdx], f = s.films[0] || {};
+    $('look').hidden = false; $('look').dataset.bg = '';
+    $('lookTitle').textContent = s.order + '. ' + (f.title || s.name) + (f.year ? ' (' + f.year + ')' : '');
+    $('lookText').textContent = f.scene || '';
+    $('lookClip').innerHTML = hasMedia('clips', s.clip) ? '<video src="' + esc(s.clip) + '" controls playsinline preload="metadata"></video>'
+      : '<div class="placeholder look-ph">🎬 Movie clip placeholder: <code>' + esc(s.clip) + '</code></div>';
+    lookMsg('Starting…'); log('look-open', s.id);
+    var fs = document.documentElement.requestFullscreen; if (fs) { try { var fp = document.documentElement.requestFullscreen(); if (fp && fp.catch) fp.catch(function () {}); } catch (e) {} }
+    // motion permission (iOS 13+ needs a user gesture: this runs inside the button tap)
+    var DOE = window.DeviceOrientationEvent, perm = Promise.resolve('granted');
+    if (DOE && typeof DOE.requestPermission === 'function') perm = DOE.requestPermission().catch(function () { return 'denied'; });
+    perm.then(function (r) {
+      if (!look.open) return;
+      log('look-motion-permission', r);
+      if (r !== 'granted') { look.note = 'Motion access denied: arrow points north-up (iPhone: allow Motion & Orientation for this site).'; lookMsg(); }
+      window.addEventListener('deviceorientationabsolute', onOrient); window.addEventListener('deviceorientation', onOrient);
+      clearTimeout(look.oriTimer);
+      look.oriTimer = setTimeout(function () { if (look.open && look.heading === null && look.mode !== 'pano') { log('look-no-compass'); if (!look.note) { look.note = 'No compass reading: arrow points north-up.'; lookMsg(); } } }, 3500);
+    });
+    if (state.geo.watchId === null) startTracking();
+    // mini map
+    if (!look.map) {
+      look.map = L.map('lookMap', { zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, touchZoom: false, boxZoom: false, keyboard: false });
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 20, maxNativeZoom: 19 }).addTo(look.map);
+    }
+    if (look.stopMk) look.map.removeLayer(look.stopMk);
+    look.stopMk = L.circleMarker(ll(s), { radius: 7, color: '#000', weight: 2, fillColor: ACCENT, fillOpacity: 1 }).addTo(look.map);
+    setTimeout(function () { if (look.map) { look.map.invalidateSize(); updateLook(); } }, 60);
+    // background
+    var key = (window.CROLLY_CONFIG && window.CROLLY_CONFIG.GOOGLE_MAPS_KEY || '').trim();
+    if (key) {
+      look.mode = 'pano'; $('look').dataset.bg = 'pano'; lookMsg('Loading Street View…');
+      loadGoogleMaps(key).then(function (gm) {
+        if (!look.open) return;
+        var pt = svPoint(s);
+        look.pano = new gm.StreetViewPanorama($('lookPano'), { position: { lat: pt[0], lng: pt[1] }, pov: { heading: svHeading(s), pitch: 0 },
+          motionTracking: true, motionTrackingControl: true, addressControl: false, fullscreenControl: false, linksControl: true, panControl: false, zoomControl: false });
+        log('look-pano', { lat: pt[0], lng: pt[1] });
+        lookMsg('Street View: move your phone to look around.');
+      }).catch(function (e) { log('look-pano-error', e.message); lookMsg(e.message + ': using the camera instead.'); look.mode = null; startCamera(); });
+    } else startCamera();
+    updateLook();
+  }
+  function closeLook() {
+    look.open = false;
+    window.removeEventListener('deviceorientationabsolute', onOrient); window.removeEventListener('deviceorientation', onOrient);
+    clearTimeout(look.oriTimer);
+    if (look.stream) { look.stream.getTracks().forEach(function (t) { t.stop(); }); look.stream = null; }
+    $('lookCam').srcObject = null; $('lookPano').innerHTML = ''; look.pano = null;
+    $('lookClip').innerHTML = '';
+    $('look').hidden = true;
+    if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(function () {});
+    log('look-close');
+  }
+  state.lookState = look;
+
   /* ---------- wiring ---------- */
   $('homeBtn').onclick = goHome;
   $('closeBtn').onclick = goHome;
@@ -588,6 +719,8 @@
   };
   $('fitBtn').onclick = function () { setFollow(false); fitRoute(); };
   $('aboutBtn').onclick = function () { $('credits').hidden = false; };
+  $('lookBtn').onclick = openLook;
+  $('lookClose').onclick = closeLook;
   $('creditsClose').onclick = function () { $('credits').hidden = true; };
   $('lockBtn').onclick = function () { localStorage.removeItem(LS.unlock); location.reload(); };
   window.addEventListener('resize', function () { layoutMapBtns(); });

@@ -1066,6 +1066,39 @@
   "dwell_min_per_stop": 4,
   "presets": [
     {
+      "id": "60",
+      "label": "1 hr",
+      "target_min": 60,
+      "route": "route_60.geojson",
+      "stop_ids": [
+        "david-lean",
+        "american-assassin",
+        "heads-of-state-sgw",
+        "terry-and-june",
+        "dark-knight-rises",
+        "opalite",
+        "matthews-yard",
+        "konga",
+        "finale"
+      ],
+      "legs_m": [
+        92,
+        35,
+        550,
+        312,
+        473,
+        508,
+        170,
+        238,
+        0
+      ],
+      "distance_m": 2378,
+      "walk_s": 1906,
+      "est_min": 60,
+      "dwell_min": 3.5,
+      "must_keep_only": false
+    },
+    {
       "id": "highlights",
       "label": "Highlights",
       "target_min": 75,
