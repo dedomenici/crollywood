@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261009204503';
+  var BUILD = '20261009204939';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -798,9 +798,10 @@
     var ticks = $('durTicks').querySelectorAll('button');
     function idx() { return ps.indexOf(state.preset); }
     function place(f, label) { // f = 0..1 along the usable track (thumb stays inside the slider)
-      var W = sl.clientWidth, tw = thumb.offsetWidth || 96, x = tw / 2 + f * (W - tw);
-      thumb.style.left = x + 'px'; $('durFill').style.width = x + 'px';
-      ticks.forEach(function (t, i) { t.style.left = (tw / 2 + i / (n - 1) * (W - tw)) + 'px'; });
+      if (label) $('durChipText').textContent = label;
+      var pos = function (g) { return 'calc(' + (g * 100) + '% + ' + (0.5 - g) + ' * var(--tw))'; };
+      thumb.style.left = pos(f); $('durFill').style.width = pos(f);
+      ticks.forEach(function (t, i) { t.style.left = pos(i / (n - 1)); });
       if (label) $('durChipText').textContent = label;
     }
     function sync() {
@@ -870,3 +871,5 @@ function trimEnds(line, m){ if(!line||line.length<3) return line;
   function cut(a){ var out=a.slice(), left=m; while(out.length>2){ var p=L.latLng(out[0]), q=L.latLng(out[1]), d=p.distanceTo(q);
     if(d>left){ var f=left/d; out[0]=[p.lat+(q.lat-p.lat)*f, p.lng+(q.lng-p.lng)*f]; break; } left-=d; out.shift(); } return out; }
   return cut(cut(line).reverse()).reverse(); }
+
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){window.dispatchEvent(new Event('resize'));});
