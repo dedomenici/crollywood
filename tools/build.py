@@ -75,6 +75,9 @@ for i, s in enumerate(ordered):
     s["clip"] = f"media/clips/{s['id']}.mp4"
     s["audio"] = f"media/audio/{s['id']}.mp3"
     s["leg_to_next_m"] = round(route["legs"][i]["distance"])
+    # where the walking route actually passes the stop (pins often sit inside buildings / malls)
+    wp = r["waypoints"][i]
+    s["route_snap"] = {"lat": round(wp["location"][1], 6), "lng": round(wp["location"][0], 6), "offset_m": round(wp.get("distance", 0))}
 gj = {"type": "FeatureCollection", "features": [{"type": "Feature",
       "properties": {"name": "Crollywood walking loop", "distance_m": round(route["distance"]), "duration_s": round(route["duration"]),
                      "source": "OSRM foot profile, routing.openstreetmap.de; © OpenStreetMap contributors (ODbL)",

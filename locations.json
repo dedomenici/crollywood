@@ -43,7 +43,12 @@
       "order": 1,
       "clip": "media/clips/david-lean.mp4",
       "audio": "media/audio/david-lean.mp3",
-      "leg_to_next_m": 92
+      "leg_to_next_m": 92,
+      "route_snap": {
+        "lat": 51.372374,
+        "lng": -0.09901,
+        "offset_m": 27
+      }
     },
     {
       "id": "american-assassin",
@@ -92,7 +97,12 @@
       "order": 2,
       "clip": "media/clips/american-assassin.mp4",
       "audio": "media/audio/american-assassin.mp3",
-      "leg_to_next_m": 127
+      "leg_to_next_m": 127,
+      "route_snap": {
+        "lat": 51.3729,
+        "lng": -0.098541,
+        "offset_m": 2
+      }
     },
     {
       "id": "the-bill",
@@ -123,7 +133,12 @@
       "order": 3,
       "clip": "media/clips/the-bill.mp4",
       "audio": "media/audio/the-bill.mp3",
-      "leg_to_next_m": 92
+      "leg_to_next_m": 92,
+      "route_snap": {
+        "lat": 51.373286,
+        "lng": -0.099582,
+        "offset_m": 34
+      }
     },
     {
       "id": "heads-of-state-sgw",
@@ -161,7 +176,12 @@
       "order": 4,
       "clip": "media/clips/heads-of-state-sgw.mp4",
       "audio": "media/audio/heads-of-state-sgw.mp3",
-      "leg_to_next_m": 82
+      "leg_to_next_m": 82,
+      "route_snap": {
+        "lat": 51.37321,
+        "lng": -0.098567,
+        "offset_m": 0
+      }
     },
     {
       "id": "made-in-dagenham",
@@ -198,7 +218,12 @@
       "order": 5,
       "clip": "media/clips/made-in-dagenham.mp4",
       "audio": "media/audio/made-in-dagenham.mp3",
-      "leg_to_next_m": 107
+      "leg_to_next_m": 107,
+      "route_snap": {
+        "lat": 51.373117,
+        "lng": -0.097729,
+        "offset_m": 9
+      }
     },
     {
       "id": "fairfield-halls",
@@ -247,7 +272,12 @@
       "order": 6,
       "clip": "media/clips/fairfield-halls.mp4",
       "audio": "media/audio/fairfield-halls.mp3",
-      "leg_to_next_m": 132
+      "leg_to_next_m": 132,
+      "route_snap": {
+        "lat": 51.37282,
+        "lng": -0.096871,
+        "offset_m": 1
+      }
     },
     {
       "id": "criminal-bourne",
@@ -297,7 +327,12 @@
       "order": 7,
       "clip": "media/clips/criminal-bourne.mp4",
       "audio": "media/audio/criminal-bourne.mp3",
-      "leg_to_next_m": 354
+      "leg_to_next_m": 354,
+      "route_snap": {
+        "lat": 51.373054,
+        "lng": -0.096027,
+        "offset_m": 3
+      }
     },
     {
       "id": "velvet-goldmine",
@@ -334,7 +369,12 @@
       "order": 8,
       "clip": "media/clips/velvet-goldmine.mp4",
       "audio": "media/audio/velvet-goldmine.mp3",
-      "leg_to_next_m": 297
+      "leg_to_next_m": 297,
+      "route_snap": {
+        "lat": 51.375638,
+        "lng": -0.098028,
+        "offset_m": 1
+      }
     },
     {
       "id": "man-who-knew-too-little",
@@ -371,7 +411,12 @@
       "order": 9,
       "clip": "media/clips/man-who-knew-too-little.mp4",
       "audio": "media/audio/man-who-knew-too-little.mp3",
-      "leg_to_next_m": 350
+      "leg_to_next_m": 350,
+      "route_snap": {
+        "lat": 51.376891,
+        "lng": -0.095564,
+        "offset_m": 6
+      }
     },
     {
       "id": "peep-show-canterbury",
@@ -408,7 +453,12 @@
       "order": 10,
       "clip": "media/clips/peep-show-canterbury.mp4",
       "audio": "media/audio/peep-show-canterbury.mp3",
-      "leg_to_next_m": 106
+      "leg_to_next_m": 106,
+      "route_snap": {
+        "lat": 51.377863,
+        "lng": -0.097717,
+        "offset_m": 27
+      }
     },
     {
       "id": "heads-of-state-apollo",
@@ -446,7 +496,12 @@
       "order": 11,
       "clip": "media/clips/heads-of-state-apollo.mp4",
       "audio": "media/audio/heads-of-state-apollo.mp3",
-      "leg_to_next_m": 375
+      "leg_to_next_m": 375,
+      "route_snap": {
+        "lat": 51.377207,
+        "lng": -0.09803,
+        "offset_m": 19
+      }
     },
     {
       "id": "dark-knight-rises",
@@ -484,7 +539,12 @@
       "order": 12,
       "clip": "media/clips/dark-knight-rises.mp4",
       "audio": "media/audio/dark-knight-rises.mp3",
-      "leg_to_next_m": 312
+      "leg_to_next_m": 312,
+      "route_snap": {
+        "lat": 51.379079,
+        "lng": -0.100037,
+        "offset_m": 30
+      }
     },
     {
       "id": "terry-and-june",
@@ -535,7 +595,12 @@
       "order": 13,
       "clip": "media/clips/terry-and-june.mp4",
       "audio": "media/audio/terry-and-june.mp3",
-      "leg_to_next_m": 228
+      "leg_to_next_m": 228,
+      "route_snap": {
+        "lat": 51.376837,
+        "lng": -0.099136,
+        "offset_m": 31
+      }
     },
     {
       "id": "opalite",
@@ -574,7 +639,12 @@
       "order": 14,
       "clip": "media/clips/opalite.mp4",
       "audio": "media/audio/opalite.mp3",
-      "leg_to_next_m": 53
+      "leg_to_next_m": 53,
+      "route_snap": {
+        "lat": 51.37587,
+        "lng": -0.100156,
+        "offset_m": 9
+      }
     },
     {
       "id": "girl-group",
@@ -608,7 +678,12 @@
       "order": 15,
       "clip": "media/clips/girl-group.mp4",
       "audio": "media/audio/girl-group.mp3",
-      "leg_to_next_m": 247
+      "leg_to_next_m": 247,
+      "route_snap": {
+        "lat": 51.376225,
+        "lng": -0.100093,
+        "offset_m": 7
+      }
     },
     {
       "id": "it-crowd",
@@ -645,7 +720,12 @@
       "order": 16,
       "clip": "media/clips/it-crowd.mp4",
       "audio": "media/audio/it-crowd.mp3",
-      "leg_to_next_m": 374
+      "leg_to_next_m": 374,
+      "route_snap": {
+        "lat": 51.376003,
+        "lng": -0.101305,
+        "offset_m": 4
+      }
     },
     {
       "id": "peep-show-loop-bar",
@@ -681,7 +761,12 @@
       "order": 17,
       "clip": "media/clips/peep-show-loop-bar.mp4",
       "audio": "media/audio/peep-show-loop-bar.mp3",
-      "leg_to_next_m": 171
+      "leg_to_next_m": 171,
+      "route_snap": {
+        "lat": 51.373719,
+        "lng": -0.101289,
+        "offset_m": 7
+      }
     },
     {
       "id": "heads-of-state-overtons",
@@ -720,7 +805,12 @@
       "order": 18,
       "clip": "media/clips/heads-of-state-overtons.mp4",
       "audio": "media/audio/heads-of-state-overtons.mp3",
-      "leg_to_next_m": 191
+      "leg_to_next_m": 191,
+      "route_snap": {
+        "lat": 51.372762,
+        "lng": -0.101861,
+        "offset_m": 0
+      }
     },
     {
       "id": "heads-of-state-carpark",
@@ -758,7 +848,12 @@
       "order": 19,
       "clip": "media/clips/heads-of-state-carpark.mp4",
       "audio": "media/audio/heads-of-state-carpark.mp3",
-      "leg_to_next_m": 120
+      "leg_to_next_m": 120,
+      "route_snap": {
+        "lat": 51.372302,
+        "lng": -0.102299,
+        "offset_m": 14
+      }
     },
     {
       "id": "matthews-yard",
@@ -790,7 +885,12 @@
       "order": 20,
       "clip": "media/clips/matthews-yard.mp4",
       "audio": "media/audio/matthews-yard.mp3",
-      "leg_to_next_m": 170
+      "leg_to_next_m": 170,
+      "route_snap": {
+        "lat": 51.372358,
+        "lng": -0.101109,
+        "offset_m": 0
+      }
     },
     {
       "id": "konga",
@@ -827,7 +927,12 @@
       "order": 21,
       "clip": "media/clips/konga.mp4",
       "audio": "media/audio/konga.mp3",
-      "leg_to_next_m": 95
+      "leg_to_next_m": 95,
+      "route_snap": {
+        "lat": 51.371059,
+        "lng": -0.100255,
+        "offset_m": 0
+      }
     },
     {
       "id": "peep-show-registry",
@@ -863,7 +968,12 @@
       "order": 22,
       "clip": "media/clips/peep-show-registry.mp4",
       "audio": "media/audio/peep-show-registry.mp3",
-      "leg_to_next_m": 199
+      "leg_to_next_m": 199,
+      "route_snap": {
+        "lat": 51.371673,
+        "lng": -0.100004,
+        "offset_m": 8
+      }
     }
   ]
 }
