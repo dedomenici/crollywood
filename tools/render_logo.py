@@ -121,8 +121,8 @@ for (bx, by, lw, lh, s, rot, c) in boxes:
 # letter faces: off-white sheet metal, sunlit gradient, dust, horizontal panel seams, thin edge depth
 face_tex = np.zeros((h, w, 3), np.float32)
 g = np.linspace(0, 1, h)[:, None]
-face_tex[:] = 247
-face_tex *= (1 - 0.07 * (np.array(Image.fromarray((rng.random((h // 40, w // 40)) * 255).astype(np.uint8)).resize((w, h), Image.BICUBIC), np.float32) / 255))[..., None]
+face_tex[:] = 253
+face_tex *= (1 - 0.045 * (np.array(Image.fromarray((rng.random((h // 40, w // 40)) * 255).astype(np.uint8)).resize((w, h), Image.BICUBIC), np.float32) / 255))[..., None]
 face_tex *= (1 - 0.035 * rng.random((h, w)).astype(np.float32))[..., None]
 face_tex[..., 2] *= 0.975; face_tex[..., 1] *= 0.99   # warm off-white
 face = Image.fromarray(face_tex.clip(0, 255).astype(np.uint8))
@@ -132,7 +132,7 @@ for (bx, by, lw, lh, s, rot, c) in boxes:
     side = P(outer[0], bx + 6 * SS * s, by + 3 * SS * s, sx, sy, rot, lw / 2, lh / 2)
     md.polygon(side, fill=255)
     for hp in holes: md.polygon(P(hp, bx + 6 * SS * s, by + 3 * SS * s, sx, sy, rot, lw / 2, lh / 2), fill=0)
-    img.paste((150, 146, 136), (0, 0), m)            # metal edge / depth (right + bottom)
+    img.paste((168, 164, 154), (0, 0), m)            # metal edge / depth (right + bottom)
     m = Image.new("L", (w, h), 0); md = ImageDraw.Draw(m)
     md.polygon(P(outer[0], bx, by, sx, sy, rot, lw / 2, lh / 2), fill=255)
     for hp in holes: md.polygon(P(hp, bx, by, sx, sy, rot, lw / 2, lh / 2), fill=0)
@@ -140,7 +140,7 @@ for (bx, by, lw, lh, s, rot, c) in boxes:
     shade = Image.new("L", (w, h), 0); shd = ImageDraw.Draw(shade)
     for k in range(40):
         f = k / 40; yv = by + lh * f
-        shd.rectangle((bx - lw, yv, bx + 2 * lw, yv + lh / 40 + 2), fill=int(38 * max(0, f - 0.45) / 0.55))
+        shd.rectangle((bx - lw, yv, bx + 2 * lw, yv + lh / 40 + 2), fill=int(22 * max(0, f - 0.55) / 0.45))
     lf = Image.composite(Image.new("RGB", (w, h), (176, 160, 136)), face, shade)
     # horizontal panel seams + faint vertical seams
     sm = ImageDraw.Draw(lf)
