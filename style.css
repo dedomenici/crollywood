@@ -288,3 +288,8 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 #topbar{background:#4d9b9f}
 .logo-btn{max-width:none}
 .logo-btn picture,.logo-btn .logo{object-fit:cover}
+/* --- round 8c: logo stretches full width, GPS moved onto map --- */
+#topbar{border-bottom:0;box-sizing:border-box}
+.logo-btn{left:0;right:0;width:100vw;max-width:none;margin:0}
+.logo-btn picture,.logo-btn .logo{width:100%;height:100%;object-fit:fill}
+.top-actions{position:fixed;top:calc(var(--topH) + 8px);right:8px;z-index:1001}
