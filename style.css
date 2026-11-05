@@ -317,3 +317,10 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 #home #durSlider{width:100%!important;margin-left:0;margin-right:0}
 .dur-slider{--tw:112px}.dur-thumb{width:var(--tw);box-sizing:border-box;text-align:center;padding-left:4px;padding-right:4px}
 #home .chips{margin-top:14px}
+
+/* location vs film media sections */
+.section-label{font-size:11px;color:var(--accent,#00a9a4);margin:12px 0 4px;text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+.film-media{margin:8px 0 12px}
+.film-media .carousel{margin-top:4px}
+.film-media video{width:100%;border-radius:8px;background:#000;margin:4px 0 8px;max-height:280px}
+.film-media audio{width:100%;margin:4px 0 8px}

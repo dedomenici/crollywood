@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261105162515';
+  var BUILD = '20261105163006';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -163,57 +163,91 @@
   }
 
   /* ---------- stop panel: carousel + media ---------- */
-  function slides(s) {
+  function locationSlides(s) {
     var out = [], photoSrc = s.image && (s.image.src || s.image.url);
     out.push(photoSrc
       ? '<figure class="slide"><span class="tag">Location</span><img src="' + esc(photoSrc) + '" alt="' + esc(s.name) + '" loading="lazy"' +
-        (s.image.src && s.image.url ? ' data-fallback="' + esc(s.image.url) + '"' : '') + '><figcaption>' + esc(s.image.credit || '') + ' · ' + esc(s.image.license || '') + '</figcaption></figure>'
+        (s.image.src && s.image.url ? ' data-fallback="' + esc(s.image.url) + '"' : '') + '><figcaption>' + esc(s.image.credit || '') + (s.image.license ? ' · ' + esc(s.image.license) : '') + '</figcaption></figure>'
       : '<figure class="slide"><span class="tag">Location</span><img src="media/images/' + esc(s.id) + '.jpg" alt="" data-ph="📷 Location photo placeholder: add media/images/' + esc(s.id) + '.jpg"></figure>');
     (s.gallery || []).forEach(function (g) {
       if (!g || !g.src) return;
       if (photoSrc && g.src === photoSrc) return;
-      out.push('<figure class="slide"><span class="tag">' + esc(g.tag || 'Photo') + '</span><img src="' + esc(g.src) + '" alt="" loading="lazy"><figcaption>' + esc(g.credit || '') + '</figcaption></figure>');
-    });
-    s.films.forEach(function (f) {
-      if (f.poster) out.push('<figure class="slide poster"><span class="tag">Poster</span><img src="' + esc(f.poster.src) + '" alt="' + esc(f.title) + ' poster" loading="lazy"><figcaption>' + esc(f.title) + ': ' + esc(f.poster.credit) + '</figcaption></figure>');
-      else if (f.type !== 'venue' && f.type !== 'redux') out.push('<figure class="slide poster"><span class="tag">Poster</span><div class="placeholder">🎞 ' + esc(f.title) + '<br>poster not yet available<br>(add to media/posters/)</div></figure>');
+      out.push('<figure class="slide"><span class="tag">' + esc(g.tag || 'Location') + '</span><img src="' + esc(g.src) + '" alt="" loading="lazy"><figcaption>' + esc(g.credit || '') + '</figcaption></figure>');
     });
     return out;
   }
-  function carouselHTML(s) {
-    var sl = slides(s);
-    var dots = sl.length > 1 ? '<div class="dots">' + sl.map(function (_, i) { return '<button data-i="' + i + '" class="' + (i ? '' : 'on') + '" aria-label="Slide ' + (i + 1) + '"></button>'; }).join('') + '</div>' : '';
-    return '<div class="carousel"><div class="track" id="track">' + sl.join('') + '</div>' + dots + '</div>';
+  function filmSlides(s) {
+    var out = [], seen = {};
+    (s.film_gallery || []).forEach(function (g) {
+      if (!g || !g.src || seen[g.src]) return;
+      seen[g.src] = 1;
+      out.push('<figure class="slide"><span class="tag">' + esc(g.tag || 'Film') + '</span><img src="' + esc(g.src) + '" alt="" loading="lazy"><figcaption>' + esc(g.credit || '') + '</figcaption></figure>');
+    });
+    s.films.forEach(function (f) {
+      if (f.poster) {
+        if (seen[f.poster.src]) return;
+        seen[f.poster.src] = 1;
+        out.push('<figure class="slide poster"><span class="tag">Poster</span><img src="' + esc(f.poster.src) + '" alt="' + esc(f.title) + ' poster" loading="lazy"><figcaption>' + esc(f.title) + ': ' + esc(f.poster.credit) + '</figcaption></figure>');
+      } else if (f.type !== 'venue' && f.type !== 'redux') {
+        out.push('<figure class="slide poster"><span class="tag">Poster</span><div class="placeholder">🎞 ' + esc(f.title) + '<br>poster not yet available</div></figure>');
+      }
+    });
+    return out;
+  }
+  function carouselBlock(sl, trackId, dotsClass) {
+    if (!sl.length) return '';
+    var dots = sl.length > 1 ? '<div class="dots ' + (dotsClass || '') + '">' + sl.map(function (_, i) { return '<button data-i="' + i + '" data-track="' + trackId + '" class="' + (i ? '' : 'on') + '" aria-label="Slide ' + (i + 1) + '"></button>'; }).join('') + '</div>' : '';
+    return '<div class="carousel"><div class="track" id="' + trackId + '">' + sl.join('') + '</div>' + dots + '</div>';
+  }
+  function locationCarouselHTML(s) {
+    return '<div class="section-label">Location</div>' + carouselBlock(locationSlides(s), 'trackLoc', 'dots-loc');
+  }
+  function filmMediaHTML(s) {
+    var hasClip = !!(s.clip && hasMedia('clips', s.clip));
+    var hasAud = !!(s.audio && hasMedia('audio', s.audio));
+    var films = filmSlides(s);
+    var clip = s.clip
+      ? (hasClip
+          ? '<video controls playsinline preload="metadata" src="' + esc(s.clip) + '"></video>'
+          : '<div class="placeholder">🎬 Film clip coming soon</div>')
+      : '';
+    var aud = s.audio
+      ? (hasAud
+          ? '<audio controls preload="metadata" src="' + esc(s.audio) + '"></audio>'
+          : '')
+      : '';
+    if (!clip && !aud && !films.length) return '';
+    var h = '<div class="film-media card"><div class="section-label">From the film</div>';
+    if (clip) h += '<div class="media-label">Clip</div><div id="clipSlot">' + clip + '</div>';
+    if (aud) h += '<div class="media-label">Narration</div><div id="audioSlot">' + aud + '</div>';
+    if (films.length) h += '<div class="media-label">Images</div>' + carouselBlock(films, 'trackFilm', 'dots-film');
+    h += '</div>';
+    return h;
   }
   function wireCarousel() {
-    var track = $('track'); if (!track) return;
-    track.querySelectorAll('img').forEach(function (img) {
-      img.addEventListener('error', function () {
-        if (img.dataset.fallback && img.src.indexOf(img.dataset.fallback) < 0) { img.src = img.dataset.fallback; return; }
-        img.outerHTML = '<div class="placeholder">' + esc(img.dataset.ph || 'Image unavailable') + '</div>';
+    document.querySelectorAll('.carousel .track').forEach(function (track) {
+      track.querySelectorAll('img').forEach(function (img) {
+        img.addEventListener('error', function () {
+          if (img.dataset.fallback && img.src.indexOf(img.dataset.fallback) < 0) { img.src = img.dataset.fallback; return; }
+          img.outerHTML = '<div class="placeholder">' + esc(img.dataset.ph || 'Image unavailable') + '</div>';
+        });
       });
+      var dots = document.querySelectorAll('.dots button[data-track="' + track.id + '"]');
+      if (!dots.length) dots = track.parentNode.querySelectorAll('.dots button');
+      dots.forEach(function (d) { d.onclick = function () { track.scrollTo({ left: (track.clientWidth + 8) * (+d.dataset.i), behavior: 'smooth' }); }; });
+      track.addEventListener('scroll', function () {
+        var i = Math.round(track.scrollLeft / (track.clientWidth + 8));
+        dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+      }, { passive: true });
     });
-    var dots = document.querySelectorAll('.dots button');
-    dots.forEach(function (d) { d.onclick = function () { track.scrollTo({ left: (track.clientWidth + 8) * (+d.dataset.i), behavior: 'smooth' }); }; });
-    track.addEventListener('scroll', function () {
-      var i = Math.round(track.scrollLeft / (track.clientWidth + 8));
-      dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
-    }, { passive: true });
   }
   // Only request clips/narration listed in media/manifest.json (written by tools/stamp_version.py); otherwise show the placeholder.
   state.media = { clips: [], audio: [] };
   function hasMedia(kind, path) { var f = String(path || '').split('/').pop(); return (state.media[kind] || []).indexOf(f) >= 0; }
-  function mediaHTML(s) {
-    var clip = hasMedia('clips', s.clip) ? '<video controls playsinline preload="metadata" src="' + esc(s.clip) + '"></video>'
-      : '<div class="placeholder">🎬 Video clip placeholder<br><code>' + esc(s.clip) + '</code></div>';
-    var aud = hasMedia('audio', s.audio) ? '<audio controls preload="metadata" src="' + esc(s.audio) + '"></audio>'
-      : '<div class="placeholder" style="height:60px">🎧 Narration placeholder: <code>' + esc(s.audio) + '</code></div>';
-    return '<div class="media-label">Clip</div><div id="clipSlot">' + clip + '</div><div class="media-label">Narration</div><div id="audioSlot">' + aud + '</div>';
-  }
   function wireMedia(s) {
     var v = document.querySelector('#clipSlot video'), a = document.querySelector('#audioSlot audio');
-    if (v) v.addEventListener('error', function () { $('clipSlot').innerHTML = '<div class="placeholder">🎬 Video clip placeholder<br><code>' + esc(s.clip) + '</code></div>'; });
-    if (a) a.addEventListener('error', function () { $('audioSlot').innerHTML = '<div class="placeholder" style="height:60px">🎧 Narration placeholder: <code>' + esc(s.audio) + '</code></div>'; });
+    if (v) v.addEventListener('error', function () { $('clipSlot').innerHTML = '<div class="placeholder">🎬 Film clip unavailable</div>'; });
+    if (a) a.addEventListener('error', function () { $('audioSlot').innerHTML = ''; });
   }
   function renderPanel(banner) {
     var s = state.stops[state.current];
@@ -221,12 +255,12 @@
     $('stopName').textContent = s.name;
     var h = banner ? '<div class="arrived-banner">' + esc(banner) + '</div>' : '';
     h += '<div class="card"><div class="addr">' + esc(s.address || '') + '</div><div class="dist" id="panelDist"></div></div>';
-    h += carouselHTML(s);
+    h += locationCarouselHTML(s);
     s.films.forEach(function (f) {
       h += '<div class="film card"><h3>' + esc(f.title) + (f.year ? ' (' + esc(f.year) + ')' : '') + '</h3><div class="meta">' + esc(f.type || '') + '</div><p>' + esc(f.scene) + '</p></div>';
     });
+    h += filmMediaHTML(s);
     if (s.link) h += '<a class="big-btn link-btn" href="' + esc(s.link.url) + '" target="_blank" rel="noopener">' + esc(s.link.label) + ' ↗</a>';
-    h += '<div class="card">' + mediaHTML(s) + '</div>';
     h += '<div class="card">';
     var nxi = state.current + 1;
     if (state.tour.active) { nxi = state.tour.target !== state.current ? state.tour.target : nextUnvisitedAfter(state.current); if (nxi < 0) nxi = state.stops.length - 1; }

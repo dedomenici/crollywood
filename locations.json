@@ -96,7 +96,7 @@
       ],
       "image": {
         "src": "media/photos/american-assassin.jpg",
-        "credit": "WHSmith — Black Mirror: Bandersnatch set, St George's Walk (Richard DeDomenici)",
+        "credit": "St George's Walk — WHSmith / Bandersnatch dressing (location)",
         "license": "User-supplied tour photograph"
       },
       "sources": [
@@ -117,25 +117,31 @@
         "lng": -0.098541,
         "offset_m": 2
       },
-      "gallery": [
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/american-assassin.jpg",
+          "credit": "WHSmith — Black Mirror: Bandersnatch",
+          "tag": "Bandersnatch"
+        },
         {
           "src": "media/photos/american-assassin-wimpy.jpg",
-          "credit": "Wimpy — Black Mirror: Bandersnatch set, St George's Walk",
+          "credit": "Wimpy — Black Mirror: Bandersnatch",
           "tag": "Bandersnatch"
         },
         {
           "src": "media/photos/american-assassin-redfields.jpg",
-          "credit": "Redfields / Pizza Hut — Bandersnatch-era dressing, St George's Walk",
+          "credit": "Redfields / Pizza Hut — Bandersnatch-era set",
           "tag": "Bandersnatch"
         },
         {
           "src": "media/photos/american-assassin-soleil.jpg",
-          "credit": "SOLEIL — Bandersnatch-era shopfront, St George's Walk",
+          "credit": "SOLEIL — Bandersnatch-era shopfront",
           "tag": "Bandersnatch"
         },
         {
           "src": "media/photos/american-assassin-capri.jpg",
-          "credit": "Period Capri + Mini Cab — Bandersnatch-era street, St George's Walk",
+          "credit": "Period Capri — Bandersnatch-era street",
           "tag": "Bandersnatch"
         }
       ]
@@ -180,7 +186,15 @@
         "lat": 51.373286,
         "lng": -0.099582,
         "offset_m": 34
-      }
+      },
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/the-bill.jpg",
+          "credit": "The Bill — then/now alley composite",
+          "tag": "Film"
+        }
+      ]
     },
     {
       "id": "heads-of-state-sgw",
@@ -270,13 +284,8 @@
         "lng": -0.097729,
         "offset_m": 9
       },
-      "gallery": [
-        {
-          "src": "media/photos/american-assassin.jpg",
-          "credit": "Nearby Bandersnatch WHSmith set on St George's Walk",
-          "tag": "Nearby"
-        }
-      ]
+      "gallery": [],
+      "film_gallery": []
     },
     {
       "id": "fairfield-halls",
@@ -310,7 +319,7 @@
       ],
       "image": {
         "src": "media/photos/fairfield-halls.jpg",
-        "credit": "Richard DeDomenici (Fairfield Halls Concert Hall interior)",
+        "credit": "Fairfield Halls Concert Hall (location)",
         "license": "User-supplied tour photograph"
       },
       "sources": [
@@ -330,7 +339,20 @@
         "lat": 51.37282,
         "lng": -0.096871,
         "offset_m": 1
-      }
+      },
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/fairfield-halls-film.jpg",
+          "credit": "The Da Vinci Code — Robert Langdon lecture",
+          "tag": "Film still"
+        },
+        {
+          "src": "media/photos/fairfield-halls-lecture.jpg",
+          "credit": "The Da Vinci Code — lecture hall wide",
+          "tag": "Film still"
+        }
+      ]
     },
     {
       "id": "criminal-bourne",
@@ -387,7 +409,9 @@
         "lat": 51.373054,
         "lng": -0.096027,
         "offset_m": 3
-      }
+      },
+      "film_gallery": [],
+      "gallery": []
     },
     {
       "id": "velvet-goldmine",
@@ -431,7 +455,9 @@
         "lat": 51.375638,
         "lng": -0.098028,
         "offset_m": 1
-      }
+      },
+      "film_gallery": [],
+      "gallery": []
     },
     {
       "id": "man-who-knew-too-little",
@@ -475,7 +501,9 @@
         "lat": 51.376891,
         "lng": -0.095564,
         "offset_m": 6
-      }
+      },
+      "film_gallery": [],
+      "gallery": []
     },
     {
       "id": "peep-show-canterbury",
@@ -497,9 +525,11 @@
         }
       ],
       "image": {
-        "src": "media/photos/peep-show-canterbury.jpg",
-        "credit": "Peep Show film still (JLB Credit / Zodiac House exterior); supplied for tour identification",
-        "license": "Film still © its rights holder; fair dealing for criticism/review of filming location"
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg?width=800",
+        "credit": "Canterbury House / Zodiac House (location)",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg",
+        "src": "media/photos/peep-show-canterbury.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -517,7 +547,20 @@
         "lat": 51.377863,
         "lng": -0.097717,
         "offset_m": 27
-      }
+      },
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/peep-show-canterbury.jpg",
+          "credit": "Peep Show — JLB Credit exterior",
+          "tag": "Film still"
+        },
+        {
+          "src": "media/photos/peep-show-canterbury-still.jpg",
+          "credit": "Peep Show — JLB Credit sign",
+          "tag": "Film still"
+        }
+      ]
     },
     {
       "id": "heads-of-state-apollo",
@@ -665,7 +708,15 @@
         "lat": 51.376837,
         "lng": -0.099136,
         "offset_m": 31
-      }
+      },
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/terry-and-june-chelsea-girl.jpg",
+          "credit": "Chelsea Girl / Mr Doodle — Bandersnatch, Whitgift",
+          "tag": "Bandersnatch"
+        }
+      ]
     },
     {
       "id": "opalite",
@@ -1013,7 +1064,9 @@
         "lat": 51.371059,
         "lng": -0.100255,
         "offset_m": 0
-      }
+      },
+      "film_gallery": [],
+      "gallery": []
     },
     {
       "id": "peep-show-registry",
