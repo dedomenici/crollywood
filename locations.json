@@ -85,7 +85,7 @@
       ],
       "image": {
         "src": "media/photos/american-assassin.jpg",
-        "credit": "Richard DeDomenici (Bandersnatch-era WHSmith set, St George's Walk)",
+        "credit": "Richard DeDomenici — WHSmith set, St George's Walk (Bandersnatch era)",
         "license": "User-supplied tour photograph"
       },
       "sources": [
@@ -105,7 +105,29 @@
         "lat": 51.3729,
         "lng": -0.098541,
         "offset_m": 2
-      }
+      },
+      "gallery": [
+        {
+          "src": "media/photos/american-assassin-wimpy.jpg",
+          "credit": "Wimpy, St George's Walk",
+          "tag": "Wimpy"
+        },
+        {
+          "src": "media/photos/american-assassin-redfields.jpg",
+          "credit": "Redfields / Pizza Hut set, St George's Walk",
+          "tag": "Redfields"
+        },
+        {
+          "src": "media/photos/american-assassin-soleil.jpg",
+          "credit": "SOLEIL shopfront set",
+          "tag": "Soleil"
+        },
+        {
+          "src": "media/photos/american-assassin-capri.jpg",
+          "credit": "Period Capri + Mini Cab, St George's Walk",
+          "tag": "Capri"
+        }
+      ]
     },
     {
       "id": "the-bill",
@@ -169,11 +191,9 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg",
-        "src": "media/photos/heads-of-state-sgw.jpg"
+        "src": "media/photos/american-assassin-redfields.jpg",
+        "credit": "Richard DeDomenici — Redfields / Pizza Hut set, St George's Walk",
+        "license": "User-supplied tour photograph"
       },
       "sources": [
         "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
@@ -192,14 +212,31 @@
         "lat": 51.37321,
         "lng": -0.098567,
         "offset_m": 0
-      }
+      },
+      "gallery": [
+        {
+          "src": "media/photos/american-assassin-redfields.jpg",
+          "credit": "Period dressing on St George's Walk",
+          "tag": "Set"
+        },
+        {
+          "src": "media/photos/american-assassin-wimpy.jpg",
+          "credit": "Wimpy, St George's Walk",
+          "tag": "Wimpy"
+        },
+        {
+          "src": "media/photos/american-assassin.jpg",
+          "credit": "WHSmith set, St George's Walk",
+          "tag": "WHSmith"
+        }
+      ]
     },
     {
       "id": "made-in-dagenham",
-      "name": "Park Lane / Fairfield forecourt",
-      "address": "Park Lane, CR0",
-      "lat": 51.3732,
-      "lng": -0.09776,
+      "name": "St George's Walk (Made in Dagenham)",
+      "address": "St George's Walk, CR0 1PB",
+      "lat": 51.37315,
+      "lng": -0.09845,
       "films": [
         {
           "title": "Made in Dagenham",
@@ -236,7 +273,19 @@
         "lat": 51.373117,
         "lng": -0.097729,
         "offset_m": 9
-      }
+      },
+      "gallery": [
+        {
+          "src": "media/photos/american-assassin-wimpy.jpg",
+          "credit": "Wimpy on St George's Walk (period street)",
+          "tag": "Wimpy"
+        },
+        {
+          "src": "media/photos/american-assassin.jpg",
+          "credit": "WHSmith set nearby on St George's Walk",
+          "tag": "WHSmith"
+        }
+      ]
     },
     {
       "id": "fairfield-halls",
