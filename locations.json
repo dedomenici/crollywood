@@ -81,11 +81,22 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Black mirror bandersnatch poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Black_Mirror:_Bandersnatch"
           }
+        },
+        {
+          "title": "Made in Dagenham",
+          "year": 2010,
+          "type": "film",
+          "scene": "The Equal Pay Act bike ride was shot on St George's Walk — same arcade as the Bandersnatch dressing.",
+          "poster": {
+            "src": "media/posters/made-in-dagenham.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia, used for identification",
+            "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
+          }
         }
       ],
       "image": {
         "src": "media/photos/american-assassin.jpg",
-        "credit": "Richard DeDomenici — WHSmith set, St George's Walk (Bandersnatch era)",
+        "credit": "WHSmith — Black Mirror: Bandersnatch set, St George's Walk (Richard DeDomenici)",
         "license": "User-supplied tour photograph"
       },
       "sources": [
@@ -98,7 +109,7 @@
       "priority": 5,
       "must_keep": false,
       "order": 2,
-      "clip": "media/clips/american-assassin.mp4",
+      "clip": "media/clips/made-in-dagenham.mp4",
       "audio": "media/audio/american-assassin.mp3",
       "leg_to_next_m": 127,
       "route_snap": {
@@ -109,23 +120,23 @@
       "gallery": [
         {
           "src": "media/photos/american-assassin-wimpy.jpg",
-          "credit": "Wimpy, St George's Walk",
-          "tag": "Wimpy"
+          "credit": "Wimpy — Black Mirror: Bandersnatch set, St George's Walk",
+          "tag": "Bandersnatch"
         },
         {
           "src": "media/photos/american-assassin-redfields.jpg",
-          "credit": "Redfields / Pizza Hut set, St George's Walk",
-          "tag": "Redfields"
+          "credit": "Redfields / Pizza Hut — Bandersnatch-era dressing, St George's Walk",
+          "tag": "Bandersnatch"
         },
         {
           "src": "media/photos/american-assassin-soleil.jpg",
-          "credit": "SOLEIL shopfront set",
-          "tag": "Soleil"
+          "credit": "SOLEIL — Bandersnatch-era shopfront, St George's Walk",
+          "tag": "Bandersnatch"
         },
         {
           "src": "media/photos/american-assassin-capri.jpg",
-          "credit": "Period Capri + Mini Cab, St George's Walk",
-          "tag": "Capri"
+          "credit": "Period Capri + Mini Cab — Bandersnatch-era street, St George's Walk",
+          "tag": "Bandersnatch"
         }
       ]
     },
@@ -191,9 +202,11 @@
         }
       ],
       "image": {
-        "src": "media/photos/american-assassin-redfields.jpg",
-        "credit": "Richard DeDomenici — Redfields / Pizza Hut set, St George's Walk",
-        "license": "User-supplied tour photograph"
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg",
+        "src": "media/photos/heads-of-state-sgw.jpg"
       },
       "sources": [
         "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
@@ -212,24 +225,7 @@
         "lat": 51.37321,
         "lng": -0.098567,
         "offset_m": 0
-      },
-      "gallery": [
-        {
-          "src": "media/photos/american-assassin-redfields.jpg",
-          "credit": "Period dressing on St George's Walk",
-          "tag": "Set"
-        },
-        {
-          "src": "media/photos/american-assassin-wimpy.jpg",
-          "credit": "Wimpy, St George's Walk",
-          "tag": "Wimpy"
-        },
-        {
-          "src": "media/photos/american-assassin.jpg",
-          "credit": "WHSmith set, St George's Walk",
-          "tag": "WHSmith"
-        }
-      ]
+      }
     },
     {
       "id": "made-in-dagenham",
@@ -276,14 +272,9 @@
       },
       "gallery": [
         {
-          "src": "media/photos/american-assassin-wimpy.jpg",
-          "credit": "Wimpy on St George's Walk (period street)",
-          "tag": "Wimpy"
-        },
-        {
           "src": "media/photos/american-assassin.jpg",
-          "credit": "WHSmith set nearby on St George's Walk",
-          "tag": "WHSmith"
+          "credit": "Nearby Bandersnatch WHSmith set on St George's Walk",
+          "tag": "Nearby"
         }
       ]
     },
