@@ -84,11 +84,9 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St._George's_Walk_2015.JPG?width=800",
-        "credit": "Eagleash via Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:St._George's_Walk_2015.JPG",
-        "src": "media/photos/american-assassin.jpg"
+        "src": "media/photos/american-assassin.jpg",
+        "credit": "Richard DeDomenici (Bandersnatch-era WHSmith set, St George's Walk)",
+        "license": "User-supplied tour photograph"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -128,7 +126,11 @@
           }
         }
       ],
-      "image": null,
+      "image": {
+        "src": "media/photos/the-bill.jpg",
+        "credit": "Richard DeDomenici / location then–now composite (The Bill alley, Croydon)",
+        "license": "User-supplied tour media; film frame within composite © its rights holder, reproduced under fair dealing for criticism/review of filming location"
+      },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
         "https://en-academic.com/dic.nsf/enwiki/273044"
@@ -267,11 +269,9 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Halls_-_London.jpg?width=800",
-        "credit": "Jim Linwood via Wikimedia Commons",
-        "license": "CC BY 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Halls_-_London.jpg",
-        "src": "media/photos/fairfield-halls.jpg"
+        "src": "media/photos/fairfield-halls.jpg",
+        "credit": "Richard DeDomenici (Fairfield Halls Concert Hall interior)",
+        "license": "User-supplied tour photograph"
       },
       "sources": [
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
@@ -457,11 +457,9 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg",
-        "src": "media/photos/peep-show-canterbury.jpg"
+        "src": "media/photos/peep-show-canterbury.jpg",
+        "credit": "Peep Show film still (JLB Credit / Zodiac House exterior); supplied for tour identification",
+        "license": "Film still © its rights holder; fair dealing for criticism/review of filming location"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",

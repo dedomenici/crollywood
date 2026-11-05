@@ -1,0 +1,8 @@
+All 7 user clips wired (2026-11-05):
+  konga.mp4                     ← KONGA title card
+  terry-and-june.mp4            ← June Whitfield / East Croydon BR
+  criminal-bourne.mp4           ← street chase (Mercedes KW14 VMA) — primary stop clip
+  criminal-bourne-hospital.mp4  ← Waltham General lobby (Criminal) — extra, not in locations.json clip field
+  velvet-goldmine.mp4           ← NEW YORK 1984
+  made-in-dagenham.mp4          ← Equal Pay Act / St George's Walk bikes
+  man-who-knew-too-little.mp4   ← Bill Murray Mini / police
