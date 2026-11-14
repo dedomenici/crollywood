@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261114055437';
+  var BUILD = '20261114062242';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -229,17 +229,37 @@
     var slot = document.getElementById('ytSlot');
     if (slot) slot.innerHTML = '';
   }
+  function stopClips(s) {
+    var out = [], seen = {};
+    function add(src, label) {
+      if (!src || seen[src]) return;
+      seen[src] = 1;
+      out.push({ src: src, label: label || '', available: hasMedia('clips', src) });
+    }
+    var usedStop = false;
+    ((s && s.films) || []).forEach(function (f) {
+      if (f && f.clip) add(f.clip, f.title);
+      else if (s.clip && !usedStop) { add(s.clip, f && f.title); usedStop = true; }
+    });
+    add(s && s.clip, '');
+    return out;
+  }
   function filmMediaHTML(s) {
-    var hasClip = !!(s.clip && hasMedia('clips', s.clip));
     var hasAud = !!(s.audio && hasMedia('audio', s.audio));
     var films = filmSlides(s);
     var yids = youtubeIds(s);
     var yt = yids.map(youtubeEmbedHTML).join('');
-    var clip = s.clip
-      ? (hasClip
-          ? '<video controls playsinline preload="metadata" src="' + esc(s.clip) + '"></video>'
-          : (yt ? '' : '<div class="placeholder">🎬 Film clip coming soon</div>'))
-      : '';
+    var clips = stopClips(s);
+    var available = clips.filter(function (c) { return c.available; });
+    var clip = '';
+    if (available.length) {
+      clip = available.map(function (c) {
+        var label = available.length > 1 && c.label ? '<div class="media-label">' + esc(c.label) + '</div>' : '';
+        return label + '<video controls playsinline preload="metadata" src="' + esc(c.src) + '"></video>';
+      }).join('');
+    } else if (clips.length && !yt) {
+      clip = '<div class="placeholder">🎬 Film clip coming soon</div>';
+    }
     var aud = s.audio
       ? (hasAud
           ? '<audio controls preload="metadata" src="' + esc(s.audio) + '"></audio>'
@@ -275,8 +295,12 @@
   state.media = { clips: [], audio: [] };
   function hasMedia(kind, path) { var f = String(path || '').split('/').pop(); return (state.media[kind] || []).indexOf(f) >= 0; }
   function wireMedia(s) {
-    var v = document.querySelector('#clipSlot video'), a = document.querySelector('#audioSlot audio');
-    if (v) v.addEventListener('error', function () { $('clipSlot').innerHTML = '<div class="placeholder">🎬 Film clip unavailable</div>'; });
+    document.querySelectorAll('#clipSlot video').forEach(function (v) {
+      v.addEventListener('error', function () {
+        v.outerHTML = '<div class="placeholder">🎬 Film clip unavailable</div>';
+      });
+    });
+    var a = document.querySelector('#audioSlot audio');
     if (a) a.addEventListener('error', function () { $('audioSlot').innerHTML = ''; });
   }
   function renderPanel(banner) {
