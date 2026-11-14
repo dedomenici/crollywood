@@ -418,7 +418,7 @@
           "title": "Heads of State",
           "year": 2025,
           "type": "film",
-          "scene": "Filmed around the base of Apollo House, with Lunar House (the Home Office immigration building) in the background. This is the scene after the Overton's Yard chase. Not to be confused with Peep Show's fictional 'Apollo House', which was actually Zodiac Court in West Croydon.",
+          "scene": "Filmed around the base of Apollo House, with Lunar House (the Home Office immigration building) in the background. This is the scene after the Overton's Yard chase.",
           "poster": {
             "src": "media/posters/heads-of-state-2025-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
@@ -436,7 +436,7 @@
       },
       "sources": [
         "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (comment linking to Crollywood)",
-        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight (Zodiac Court / Apollo House note)",
+        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight",
         "OpenStreetMap: pin on Sydenham Road (way 22824446) between Apollo House (way 165182397, south) and Lunar House (way 215645196, north), the two hexagonal towers"
       ],
       "confidence": "high",
@@ -455,8 +455,8 @@
     },
     {
       "id": "peep-show-canterbury",
-      "name": "Canterbury House, Sydenham Road",
-      "address": "Sydenham Road, CR0",
+      "name": "Canterbury House (Peep Show's JLB Building)",
+      "address": "Canterbury House, 2-6 Sydenham Road, CR0 2EX",
       "lat": 51.37764,
       "lng": -0.09755,
       "films": [
@@ -464,7 +464,7 @@
           "title": "Peep Show",
           "year": 2003,
           "type": "TV",
-          "scene": "The JLB Credit office where Mark and Sophie first met. It's being converted to flats, so the interior they filmed in is gone.",
+          "scene": "The JLB Credit office where Mark and Sophie first met. In real life the building is Canterbury House, 2-6 Sydenham Road; it has been converted to flats, so the interior they filmed in is gone.",
           "poster": {
             "src": "media/posters/peep-show-british-tv-series.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Peep Show logo.jpg), used for identification",
@@ -474,17 +474,18 @@
       ],
       "image": {
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg?width=800",
-        "credit": "Canterbury House / Zodiac House (location)",
+        "credit": "Stephen Richards via Geograph / Wikimedia Commons",
         "license": "CC BY-SA 2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg",
-        "src": "media/photos/peep-show-canterbury.jpg"
+        "src": "media/photos/canterbury-house.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "Nominatim/OSM"
+        "OpenStreetMap: Canterbury House, Sydenham Road (relation 2862729), postcode CR0 2EX; centroid 51.377644, -0.097549",
+        "https://www.reddit.com/r/MitchellAndWebb/comments/a4vfzb/the_jlb_building_was_converted_into_flats/"
       ],
       "confidence": "high",
-      "confidence_note": "Detailed description on the map, and the building is verified in OSM.",
+      "confidence_note": "The Peep Show JLB Credit exterior is Canterbury House, 2-6 Sydenham Road. OSM relation 2862729 matches this pin. The building has been converted to flats.",
       "priority": 5,
       "must_keep": true,
       "gallery": [],

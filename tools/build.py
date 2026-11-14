@@ -24,7 +24,7 @@ os.makedirs("media/photos", exist_ok=True)
 for s in stops:
     im = s.get("image")
     if im and im.get("url"):
-        p = f"media/photos/{s['id']}.jpg"
+        p = im.get("src") or f"media/photos/{s['id']}.jpg"
         if not os.path.exists(p):
             open(p, "wb").write(get(im["url"], raw=True)); time.sleep(0.5)
         im["src"] = p
