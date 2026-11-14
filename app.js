@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261114064526';
+  var BUILD = '20261114065256';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -274,6 +274,12 @@
     var slot = document.getElementById('ytSlot');
     if (slot) slot.innerHTML = '';
   }
+  function filmClipList(f) {
+    if (!f) return [];
+    if (Array.isArray(f.clips) && f.clips.length) return f.clips.filter(Boolean);
+    if (Array.isArray(f.clip)) return f.clip.filter(Boolean);
+    return f.clip ? [f.clip] : [];
+  }
   function stopClips(s) {
     var out = [], seen = {};
     function add(src, label) {
@@ -283,8 +289,14 @@
     }
     var usedStop = false;
     ((s && s.films) || []).forEach(function (f) {
-      if (f && f.clip) add(f.clip, filmTitle(f));
-      else if (s.clip && !usedStop) { add(s.clip, f && filmTitle(f)); usedStop = true; }
+      var clips = filmClipList(f);
+      if (clips.length) {
+        clips.forEach(function (src, i) {
+          var label = filmTitle(f);
+          if (clips.length > 1) label += ' (' + (i + 1) + ')';
+          add(src, label);
+        });
+      } else if (s.clip && !usedStop) { add(s.clip, f && filmTitle(f)); usedStop = true; }
     });
     add(s && s.clip, '');
     return out;

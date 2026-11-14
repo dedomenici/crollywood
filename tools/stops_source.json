@@ -499,9 +499,9 @@
     {
       "id": "dark-knight-rises",
       "name": "Delta Point, Wellesley Road",
-      "address": "35 Wellesley Road (by West Croydon station)",
-      "lat": 51.37907,
-      "lng": -0.10047,
+      "address": "St Michael's Road, south side of Delta Point, CR0 2GY",
+      "lat": 51.37849,
+      "lng": -0.10049,
       "films": [
         {
           "title": "The Dark Knight Rises",
@@ -512,25 +512,38 @@
             "src": "media/posters/the-dark-knight-rises.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Dark knight rises poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/The_Dark_Knight_Rises"
-          }
+          },
+          "youtube": "7gFwvozMHR4"
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_Point,_Croydon_-_geograph.org.uk_-_2044845.jpg?width=1280",
+        "credit": "Stacey Harris via Geograph / Wikimedia Commons (courtyard / atrium)",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg",
-        "src": "media/photos/dark-knight-rises.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Delta_Point,_Croydon_-_geograph.org.uk_-_2044845.jpg",
+        "src": "media/photos/delta-point-courtyard.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
         "https://movie-locations.com/movies/d/Dark-Knight-Rises.php",
-        "https://www.yourlocalguardian.co.uk/news/9033781.building-facing-destruction-as-new-batman-filmed-in-croydon/"
+        "https://www.yourlocalguardian.co.uk/news/9033781.building-facing-destruction-as-new-batman-filmed-in-croydon/",
+        "https://www.openstreetmap.org/relation/2862730",
+        "https://www.openstreetmap.org/way/36145186"
       ],
       "confidence": "high",
-      "confidence_note": "Several sources agree. The KML pin was about 60m south, so this uses the OSM building position.",
+      "confidence_note": "Several sources agree this is Gotham General Hospital in The Dark Knight Rises (2012). The pin sits on St Michael's Road along the south facade of Delta Point (OSM relation 2862730; road way 36145186), on the pavement between the building and the carriageway.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "gallery": [
+        {
+          "src": "media/photos/dark-knight-rises.jpg",
+          "credit": "geograph.org.uk contributor via Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg"
+        }
+      ]
     },
     {
       "id": "terry-and-june",
@@ -605,7 +618,8 @@
             "src": "media/posters/opalite-song.png",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Taylor Swift - Opalite.png), used for identification",
             "page": "https://en.wikipedia.org/wiki/Opalite_(song)"
-          }
+          },
+          "clip": "media/clips/opalite-whitgift.mp4"
         }
       ],
       "image": {
@@ -624,7 +638,8 @@
       "confidence": "high",
       "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "clip": null
     },
     {
       "id": "girl-group",
@@ -635,9 +650,13 @@
       "films": [
         {
           "title": "Girl Group (Rebel Wilson)",
-          "year": 2026,
-          "type": "film",
-          "scene": "In September 2025 Rebel Wilson wrote, directed and starred in this musical comedy, shot over a week on a stage set built in the Whitgift near the former Superdry unit, with fans watching from the first-floor balcony. Wilson plays a former girl-band star who mentors teenage wannabes. Co-stars include Jennifer Coolidge, Randall Park, Sheridan Smith, Sally Hawkins and Nicole Scherzinger. It premiered at TIFF on 11 Sept 2026; UK release TBC."
+          "year": "2026, forthcoming",
+          "type": "forthcoming film",
+          "scene": "In September 2025 Rebel Wilson wrote, directed and starred in this musical comedy, shot over a week on a stage set built in the Whitgift near the former Superdry unit, with fans watching from the first-floor balcony. Wilson plays a former girl-band star who mentors teenage wannabes. Co-stars include Jennifer Coolidge, Randall Park, Sheridan Smith, Sally Hawkins and Nicole Scherzinger. It premiered at TIFF on 11 Sept 2026; UK release TBC.",
+          "clips": [
+            "media/clips/girl-group-whitgift-1.mp4",
+            "media/clips/girl-group-whitgift-2.mp4"
+          ]
         }
       ],
       "image": {
@@ -656,7 +675,8 @@
       "confidence": "low",
       "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "clip": null
     },
     {
       "id": "it-crowd",
