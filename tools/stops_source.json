@@ -264,6 +264,45 @@
       "film_gallery": []
     },
     {
+      "id": "velvet-goldmine",
+      "name": "George Street / Wellesley Road (above the underpass)",
+      "address": "George Street at Wellesley Road, CR0",
+      "lat": 51.37429,
+      "lng": -0.09688,
+      "films": [
+        {
+          "title": "Velvet Goldmine",
+          "year": 1998,
+          "type": "film",
+          "scene": "The shot looking north from here, on the pavement above the Wellesley Road underpass, was meant to show New York in 1984 — a nightmarish street scene as Christian Bale's journalist Arthur moves through town.",
+          "poster": {
+            "src": "media/posters/velvet-goldmine.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (VelvetGoldminePoster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Velvet_Goldmine"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg",
+        "src": "media/photos/velvet-goldmine.jpg"
+      },
+      "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://londononlocation.co.uk/films/velvet-goldmine/",
+        "OpenStreetMap: George Street footway over the Croydon Underpass (A212 / Wellesley Road), way 199735152"
+      ],
+      "confidence": "high",
+      "confidence_note": "The camera position is the pavement on George Street where it crosses above the Wellesley Road / A212 underpass, looking north.",
+      "priority": 2,
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": [],
+      "clip": "media/clips/velvet-goldmine.mp4"
+    },
+    {
       "id": "criminal-bourne",
       "name": "College Green: the old School of Art (Segas House)",
       "address": "College Green / Park Lane, CR0",
@@ -313,43 +352,6 @@
       "gallery": [],
       "film_gallery": [],
       "clip": null
-    },
-    {
-      "id": "velvet-goldmine",
-      "name": "Wellesley Road (looking north)",
-      "address": "Wellesley Road, CR0",
-      "lat": 51.37564,
-      "lng": -0.09802,
-      "films": [
-        {
-          "title": "Velvet Goldmine",
-          "year": 1998,
-          "type": "film",
-          "scene": "Croydon stands in for 1980s New York. The 'nightmarish' street scene looks north along Wellesley Road as Christian Bale's journalist Arthur moves through town.",
-          "poster": {
-            "src": "media/posters/velvet-goldmine.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (VelvetGoldminePoster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Velvet_Goldmine"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg",
-        "src": "media/photos/velvet-goldmine.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://londononlocation.co.uk/films/velvet-goldmine/"
-      ],
-      "confidence": "medium",
-      "confidence_note": "The street is confirmed, but the exact camera position is approximate.",
-      "priority": 2,
-      "must_keep": false,
-      "gallery": [],
-      "film_gallery": []
     },
     {
       "id": "man-who-knew-too-little",

@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 4069,
-  "route_duration_s": 3258,
+  "route_distance_m": 4034,
+  "route_duration_s": 3230,
   "stops": [
     {
       "id": "david-lean",
@@ -350,7 +350,7 @@
       "film_gallery": [],
       "order": 5,
       "audio": "media/audio/croydon-college.mp3",
-      "leg_to_next_m": 288,
+      "leg_to_next_m": 110,
       "route_snap": {
         "lat": 51.373755,
         "lng": -0.096007,
@@ -359,16 +359,16 @@
     },
     {
       "id": "velvet-goldmine",
-      "name": "Wellesley Road (looking north)",
-      "address": "Wellesley Road, CR0",
-      "lat": 51.37564,
-      "lng": -0.09802,
+      "name": "George Street / Wellesley Road (above the underpass)",
+      "address": "George Street at Wellesley Road, CR0",
+      "lat": 51.37429,
+      "lng": -0.09688,
       "films": [
         {
           "title": "Velvet Goldmine",
           "year": 1998,
           "type": "film",
-          "scene": "Croydon stands in for 1980s New York. The 'nightmarish' street scene looks north along Wellesley Road as Christian Bale's journalist Arthur moves through town.",
+          "scene": "The shot looking north from here, on the pavement above the Wellesley Road underpass, was meant to show New York in 1984 — a nightmarish street scene as Christian Bale's journalist Arthur moves through town.",
           "poster": {
             "src": "media/posters/velvet-goldmine.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (VelvetGoldminePoster.jpg), used for identification",
@@ -385,21 +385,22 @@
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://londononlocation.co.uk/films/velvet-goldmine/"
+        "https://londononlocation.co.uk/films/velvet-goldmine/",
+        "OpenStreetMap: George Street footway over the Croydon Underpass (A212 / Wellesley Road), way 199735152"
       ],
-      "confidence": "medium",
-      "confidence_note": "The street is confirmed, but the exact camera position is approximate.",
+      "confidence": "high",
+      "confidence_note": "The camera position is the pavement on George Street where it crosses above the Wellesley Road / A212 underpass, looking north.",
       "priority": 2,
       "must_keep": false,
       "gallery": [],
       "film_gallery": [],
-      "order": 6,
       "clip": "media/clips/velvet-goldmine.mp4",
+      "order": 6,
       "audio": "media/audio/velvet-goldmine.mp3",
-      "leg_to_next_m": 297,
+      "leg_to_next_m": 440,
       "route_snap": {
-        "lat": 51.375638,
-        "lng": -0.098028,
+        "lat": 51.374285,
+        "lng": -0.09688,
         "offset_m": 1
       }
     },
@@ -1246,8 +1247,8 @@
         107,
         132,
         106,
-        288,
-        297,
+        110,
+        440,
         350,
         106,
         375,
@@ -1263,8 +1264,8 @@
         199,
         0
       ],
-      "distance_m": 4069,
-      "walk_s": 3258,
+      "distance_m": 4034,
+      "walk_s": 3230,
       "est_min": 130,
       "must_keep_only": false
     }
