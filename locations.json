@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 3815,
-  "route_duration_s": 3057,
+  "route_distance_m": 4054,
+  "route_duration_s": 3246,
   "stops": [
     {
       "id": "david-lean",
@@ -353,7 +353,7 @@
       "clip": "media/clips/velvet-goldmine.mp4",
       "order": 5,
       "audio": "media/audio/velvet-goldmine.mp3",
-      "leg_to_next_m": 278,
+      "leg_to_next_m": 440,
       "route_snap": {
         "lat": 51.374285,
         "lng": -0.09688,
@@ -362,10 +362,10 @@
     },
     {
       "id": "man-who-knew-too-little",
-      "name": "Apollo House, Lansdowne Road",
-      "address": "Apollo House, Lansdowne Road, CR0 9YA",
-      "lat": 51.37638,
-      "lng": -0.09803,
+      "name": "Dingwall Road / Lansdowne Road roundabout",
+      "address": "Dingwall Road, CR0",
+      "lat": 51.37694,
+      "lng": -0.09555,
       "films": [
         {
           "title": "The Man Who Knew Too Little",
@@ -377,18 +377,6 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (The_Man_Who_Knew_Too_Little.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/The_Man_Who_Knew_Too_Little"
           }
-        },
-        {
-          "title": "Heads of State",
-          "year": 2025,
-          "type": "film",
-          "scene": "Filmed around the base of Apollo House, with Lunar House (the Home Office immigration building) in the background.",
-          "poster": {
-            "src": "media/posters/heads-of-state-2025-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          },
-          "clip": "media/clips/heads-of-state-apollo-house.mp4"
         }
       ],
       "image": {
@@ -401,10 +389,10 @@
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
         "https://londononlocation.co.uk/films/man-who-knew-too-little-the/",
-        "OpenStreetMap: Apollo House (way 165182397). Pin on the north pavement of Lansdowne Road (ways 199735111 / 1555156753, sidewalk on the building side), immediately south of the Apollo House footprint, between the building and the road."
+        "OpenStreetMap: Dingwall Road / Lansdowne Road gyratory (ways 1548865683, 1548865688, 1548865687, 1548865686); centroid 51.376974, -0.095559, 4 m from this pin"
       ],
       "confidence": "high",
-      "confidence_note": "Pin placed on the north pavement of Lansdowne Road, immediately south of Apollo House (OSM way 165182397), between the building and the road. The Man Who Knew Too Little scene is the nearby Dingwall Road / Lansdowne Road roundabout.",
+      "confidence_note": "Map pin and London on Location agree. OSM confirms the Dingwall Road / Lansdowne Road gyratory at this position.",
       "priority": 3,
       "must_keep": false,
       "clip": "media/clips/man-who-knew-too-little.mp4",
@@ -412,11 +400,57 @@
       "film_gallery": [],
       "order": 6,
       "audio": "media/audio/man-who-knew-too-little.mp3",
-      "leg_to_next_m": 242,
+      "leg_to_next_m": 409,
       "route_snap": {
-        "lat": 51.376339,
-        "lng": -0.098037,
-        "offset_m": 5
+        "lat": 51.376891,
+        "lng": -0.095564,
+        "offset_m": 6
+      }
+    },
+    {
+      "id": "heads-of-state-apollo",
+      "name": "Apollo House, Sydenham Road",
+      "address": "Sydenham Road, between Apollo House and Lunar House, CR0",
+      "lat": 51.37764,
+      "lng": -0.09848,
+      "films": [
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "Filmed around the base of Apollo House, with Lunar House (the Home Office immigration building) in the background. This is the scene after the Overton's Yard chase. Not to be confused with Peep Show's fictional 'Apollo House', which was actually Zodiac Court in West Croydon.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          },
+          "clip": "media/clips/heads-of-state-apollo-house.mp4"
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
+        "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg",
+        "src": "media/photos/heads-of-state-apollo.jpg"
+      },
+      "sources": [
+        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (comment linking to Crollywood)",
+        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight (Zodiac Court / Apollo House note)",
+        "OpenStreetMap: pin on Sydenham Road (way 22824446) between Apollo House (way 165182397, south) and Lunar House (way 215645196, north), the two hexagonal towers"
+      ],
+      "confidence": "high",
+      "confidence_note": "Pin placed on Sydenham Road in the gap between Apollo House (south) and Lunar House (north), the two hexagonal Home Office towers. Building footprints from OSM.",
+      "priority": 3,
+      "must_keep": false,
+      "clip": "media/clips/heads-of-state-apollo-house.mp4",
+      "order": 7,
+      "audio": "media/audio/heads-of-state-apollo.mp3",
+      "leg_to_next_m": 59,
+      "route_snap": {
+        "lat": 51.377639,
+        "lng": -0.098479,
+        "offset_m": 0
       }
     },
     {
@@ -466,59 +500,14 @@
           "tag": "Film still"
         }
       ],
-      "order": 7,
+      "order": 8,
       "clip": "media/clips/peep-show-canterbury.mp4",
       "audio": "media/audio/peep-show-canterbury.mp3",
-      "leg_to_next_m": 106,
+      "leg_to_next_m": 332,
       "route_snap": {
         "lat": 51.377863,
         "lng": -0.097717,
         "offset_m": 27
-      }
-    },
-    {
-      "id": "heads-of-state-apollo",
-      "name": "Apollo House, Wellesley Road",
-      "address": "Apollo House, Wellesley Road, CR0",
-      "lat": 51.37714,
-      "lng": -0.09828,
-      "films": [
-        {
-          "title": "Heads of State",
-          "year": 2025,
-          "type": "film",
-          "scene": "The scene after the Overton's Yard chase was filmed outside Apollo House, with Lunar House (the Home Office immigration building) in the background. Not to be confused with Peep Show's fictional 'Apollo House', which was actually Zodiac Court in West Croydon.",
-          "poster": {
-            "src": "media/posters/heads-of-state-2025-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
-        "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg",
-        "src": "media/photos/heads-of-state-apollo.jpg"
-      },
-      "sources": [
-        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (comment linking to Crollywood)",
-        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight (Zodiac Court / Apollo House note)",
-        "Nominatim/OSM (Apollo House)"
-      ],
-      "confidence": "medium",
-      "confidence_note": "Only one source (a Reddit comment, possibly by Richard) places the scene here. The building position is verified in OSM. Check against the film.",
-      "priority": 3,
-      "must_keep": false,
-      "order": 8,
-      "clip": "media/clips/heads-of-state-apollo.mp4",
-      "audio": "media/audio/heads-of-state-apollo.mp3",
-      "leg_to_next_m": 375,
-      "route_snap": {
-        "lat": 51.377207,
-        "lng": -0.09803,
-        "offset_m": 19
       }
     },
     {
@@ -1106,8 +1095,8 @@
         "heads-of-state-sgw",
         "fairfield-halls",
         "criminal-bourne",
-        "man-who-knew-too-little",
         "peep-show-canterbury",
+        "heads-of-state-apollo",
         "dark-knight-rises",
         "terry-and-june",
         "girl-group",
@@ -1120,9 +1109,9 @@
         107,
         298,
         88,
-        423,
-        242,
-        332,
+        654,
+        59,
+        273,
         312,
         263,
         53,
@@ -1131,8 +1120,8 @@
         238,
         0
       ],
-      "distance_m": 3132,
-      "walk_s": 2510,
+      "distance_m": 3122,
+      "walk_s": 2501,
       "est_min": 90,
       "must_keep_only": false
     },
@@ -1148,8 +1137,8 @@
         "criminal-bourne",
         "velvet-goldmine",
         "man-who-knew-too-little",
-        "heads-of-state-apollo",
         "peep-show-canterbury",
+        "heads-of-state-apollo",
         "dark-knight-rises",
         "terry-and-june",
         "opalite",
@@ -1166,10 +1155,10 @@
         298,
         88,
         176,
-        278,
-        285,
-        106,
-        332,
+        440,
+        350,
+        59,
+        273,
         312,
         228,
         53,
@@ -1181,9 +1170,9 @@
         238,
         0
       ],
-      "distance_m": 3759,
-      "walk_s": 3012,
-      "est_min": 118,
+      "distance_m": 3880,
+      "walk_s": 3107,
+      "est_min": 120,
       "must_keep_only": false
     },
     {
@@ -1198,8 +1187,8 @@
         "criminal-bourne",
         "velvet-goldmine",
         "man-who-knew-too-little",
-        "peep-show-canterbury",
         "heads-of-state-apollo",
+        "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
         "opalite",
@@ -1217,10 +1206,10 @@
         298,
         88,
         176,
-        278,
-        242,
-        106,
-        375,
+        440,
+        409,
+        59,
+        332,
         312,
         228,
         53,
@@ -1233,9 +1222,9 @@
         199,
         0
       ],
-      "distance_m": 3815,
-      "walk_s": 3057,
-      "est_min": 123,
+      "distance_m": 4054,
+      "walk_s": 3246,
+      "est_min": 126,
       "must_keep_only": false
     }
   ],
