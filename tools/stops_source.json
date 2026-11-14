@@ -320,10 +320,10 @@
     },
     {
       "id": "man-who-knew-too-little",
-      "name": "Dingwall Road / Lansdowne Road roundabout",
-      "address": "Dingwall Road, CR0",
-      "lat": 51.37694,
-      "lng": -0.09555,
+      "name": "Apollo House, Lansdowne Road",
+      "address": "Apollo House, Lansdowne Road, CR0 9YA",
+      "lat": 51.37638,
+      "lng": -0.09803,
       "films": [
         {
           "title": "The Man Who Knew Too Little",
@@ -335,6 +335,18 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (The_Man_Who_Knew_Too_Little.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/The_Man_Who_Knew_Too_Little"
           }
+        },
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "Filmed around the base of Apollo House, with Lunar House (the Home Office immigration building) in the background.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          },
+          "clip": null
         }
       ],
       "image": {
@@ -346,12 +358,14 @@
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://londononlocation.co.uk/films/man-who-knew-too-little-the/"
+        "https://londononlocation.co.uk/films/man-who-knew-too-little-the/",
+        "OpenStreetMap: Apollo House (way 165182397). Pin on the north pavement of Lansdowne Road (ways 199735111 / 1555156753, sidewalk on the building side), immediately south of the Apollo House footprint, between the building and the road."
       ],
       "confidence": "high",
-      "confidence_note": "Map pin and London on Location agree.",
+      "confidence_note": "Pin placed on the north pavement of Lansdowne Road, immediately south of Apollo House (OSM way 165182397), between the building and the road. The Man Who Knew Too Little scene is the nearby Dingwall Road / Lansdowne Road roundabout.",
       "priority": 3,
       "must_keep": false,
+      "clip": "media/clips/man-who-knew-too-little.mp4",
       "gallery": [],
       "film_gallery": []
     },

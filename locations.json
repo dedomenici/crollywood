@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 4086,
-  "route_duration_s": 3272,
+  "route_distance_m": 3815,
+  "route_duration_s": 3057,
   "stops": [
     {
       "id": "david-lean",
@@ -353,7 +353,7 @@
       "clip": "media/clips/velvet-goldmine.mp4",
       "order": 5,
       "audio": "media/audio/velvet-goldmine.mp3",
-      "leg_to_next_m": 440,
+      "leg_to_next_m": 278,
       "route_snap": {
         "lat": 51.374285,
         "lng": -0.09688,
@@ -362,10 +362,10 @@
     },
     {
       "id": "man-who-knew-too-little",
-      "name": "Dingwall Road / Lansdowne Road roundabout",
-      "address": "Dingwall Road, CR0",
-      "lat": 51.37694,
-      "lng": -0.09555,
+      "name": "Apollo House, Lansdowne Road",
+      "address": "Apollo House, Lansdowne Road, CR0 9YA",
+      "lat": 51.37638,
+      "lng": -0.09803,
       "films": [
         {
           "title": "The Man Who Knew Too Little",
@@ -377,6 +377,18 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (The_Man_Who_Knew_Too_Little.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/The_Man_Who_Knew_Too_Little"
           }
+        },
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "Filmed around the base of Apollo House, with Lunar House (the Home Office immigration building) in the background.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          },
+          "clip": null
         }
       ],
       "image": {
@@ -388,22 +400,23 @@
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://londononlocation.co.uk/films/man-who-knew-too-little-the/"
+        "https://londononlocation.co.uk/films/man-who-knew-too-little-the/",
+        "OpenStreetMap: Apollo House (way 165182397). Pin on the north pavement of Lansdowne Road (ways 199735111 / 1555156753, sidewalk on the building side), immediately south of the Apollo House footprint, between the building and the road."
       ],
       "confidence": "high",
-      "confidence_note": "Map pin and London on Location agree.",
+      "confidence_note": "Pin placed on the north pavement of Lansdowne Road, immediately south of Apollo House (OSM way 165182397), between the building and the road. The Man Who Knew Too Little scene is the nearby Dingwall Road / Lansdowne Road roundabout.",
       "priority": 3,
       "must_keep": false,
+      "clip": "media/clips/man-who-knew-too-little.mp4",
       "gallery": [],
       "film_gallery": [],
       "order": 6,
-      "clip": "media/clips/man-who-knew-too-little.mp4",
       "audio": "media/audio/man-who-knew-too-little.mp3",
-      "leg_to_next_m": 350,
+      "leg_to_next_m": 242,
       "route_snap": {
-        "lat": 51.376891,
-        "lng": -0.095564,
-        "offset_m": 6
+        "lat": 51.376339,
+        "lng": -0.098037,
+        "offset_m": 5
       }
     },
     {
@@ -1093,6 +1106,7 @@
         "heads-of-state-sgw",
         "fairfield-halls",
         "criminal-bourne",
+        "man-who-knew-too-little",
         "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
@@ -1106,7 +1120,8 @@
         107,
         298,
         88,
-        654,
+        423,
+        242,
         332,
         312,
         263,
@@ -1116,9 +1131,9 @@
         238,
         0
       ],
-      "distance_m": 3122,
-      "walk_s": 2501,
-      "est_min": 86,
+      "distance_m": 3132,
+      "walk_s": 2510,
+      "est_min": 90,
       "must_keep_only": false
     },
     {
@@ -1131,9 +1146,10 @@
         "heads-of-state-sgw",
         "fairfield-halls",
         "criminal-bourne",
+        "velvet-goldmine",
         "man-who-knew-too-little",
-        "peep-show-canterbury",
         "heads-of-state-apollo",
+        "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
         "opalite",
@@ -1149,10 +1165,11 @@
         107,
         298,
         88,
-        586,
-        350,
+        176,
+        278,
+        285,
         106,
-        375,
+        332,
         312,
         228,
         53,
@@ -1164,9 +1181,9 @@
         238,
         0
       ],
-      "distance_m": 4000,
-      "walk_s": 3203,
-      "est_min": 117,
+      "distance_m": 3759,
+      "walk_s": 3012,
+      "est_min": 118,
       "must_keep_only": false
     },
     {
@@ -1200,8 +1217,8 @@
         298,
         88,
         176,
-        440,
-        350,
+        278,
+        242,
         106,
         375,
         312,
@@ -1216,9 +1233,9 @@
         199,
         0
       ],
-      "distance_m": 4086,
-      "walk_s": 3272,
-      "est_min": 127,
+      "distance_m": 3815,
+      "walk_s": 3057,
+      "est_min": 123,
       "must_keep_only": false
     }
   ],
