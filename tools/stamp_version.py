@@ -16,6 +16,25 @@ j = re.sub(r"var BUILD = '[^']*';", "var BUILD = '%s';" % v, j)
 open("app.js", "w").write(j)
 # media manifest: the app only requests clips/narration that actually exist (no 404s for placeholders)
 import os, json
-man = {d: sorted(f for f in os.listdir("media/" + d) if not f.startswith(".")) if os.path.isdir("media/" + d) else [] for d in ("clips", "audio")}
+def listfiles(d, exts=None):
+    path = os.path.join("media", d)
+    if not os.path.isdir(path):
+        return []
+    out = []
+    for f in os.listdir(path):
+        if f.startswith("."):
+            continue
+        fp = os.path.join(path, f)
+        if not os.path.isfile(fp):
+            continue
+        if exts and not f.lower().endswith(exts):
+            continue
+        out.append(f)
+    return sorted(out)
+man = {
+    "clips": listfiles("clips", (".mp4",)),
+    "audio": listfiles("audio"),
+    "clip_posters": listfiles("clips/posters", (".jpg", ".jpeg", ".webp", ".png")),
+}
 open("media/manifest.json", "w").write(json.dumps(man) + "\n")
 print("build", v, "| media:", {k: len(x) for k, x in man.items()})

@@ -51,7 +51,18 @@
       "confidence": "high",
       "confidence_note": "Venue location verified via OSM.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "clip": null,
+      "gallery": [
+        {
+          "src": "media/photos/david-lean-cinema.jpg",
+          "credit": "David Lean Cinema, via davidleancinema.org.uk",
+          "license": "© David Lean Cinema; used with credit for venue identification",
+          "tag": "Location",
+          "url": "https://www.davidleancinema.org.uk/wp-content/uploads/2026/07/audience.jpg",
+          "page": "https://www.davidleancinema.org.uk/about/"
+        }
+      ]
     },
     {
       "id": "heads-of-state-sgw",
@@ -176,14 +187,26 @@
             "page": "https://en.wikipedia.org/wiki/The_Da_Vinci_Code_(film)"
           },
           "clip": "media/clips/da-vinci-code-fairfield.mp4"
+        },
+        {
+          "title": "Terry & June",
+          "year": "1979–1987",
+          "type": "TV",
+          "scene": "The sitcom was set in Purley, and its opening titles were filmed around the Whitgift Centre and Fairfield Halls area.",
+          "poster": {
+            "src": "media/posters/terry-and-june.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Terry And June.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Terry_and_June"
+          },
+          "clip": "media/clips/terry-and-june.mp4"
         }
       ],
       "image": {
-        "src": "media/photos/fairfield-halls-exterior.jpg",
-        "credit": "Stephen Richards via Geograph / Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Halls_at_night_-_geograph.org.uk_-_7061729.jpg?width=1024",
-        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Halls_at_night_-_geograph.org.uk_-_7061729.jpg"
+        "src": "media/photos/fairfield-halls-day.jpg",
+        "credit": "Matt Brown (Matt From London) via Flickr",
+        "license": "CC BY 2.0",
+        "url": "https://live.staticflickr.com/65535/48715029058_c447d0f3cc_h.jpg",
+        "page": "https://www.flickr.com/photos/londonmatt/48715029058/"
       },
       "sources": [
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
@@ -197,6 +220,14 @@
       "priority": 4,
       "must_keep": false,
       "gallery": [
+        {
+          "src": "media/photos/fairfield-halls-exterior.jpg",
+          "credit": "Stephen Richards via Geograph / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Halls_at_night_-_geograph.org.uk_-_7061729.jpg?width=1024",
+          "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Halls_at_night_-_geograph.org.uk_-_7061729.jpg",
+          "tag": "Location"
+        },
         {
           "src": "media/photos/fairfield-halls.jpg",
           "credit": "Fairfield Halls Concert Hall (location)",
@@ -220,22 +251,11 @@
     },
     {
       "id": "criminal-bourne",
-      "name": "Croydon College: the old School of Art (Segas House)",
+      "name": "Croydon College",
       "address": "College Green / Park Lane, CR0",
       "lat": 51.37303,
       "lng": -0.09602,
       "films": [
-        {
-          "title": "Jason Bourne",
-          "year": 2016,
-          "type": "film",
-          "scene": "The old Croydon School of Art's photographic studio doubles as a Berlin warehouse for a Matt Damon fight scene, while the CIA watches the windows. The Bourne crew filmed around this Fairfield / college campus in 2015.",
-          "poster": {
-            "src": "media/posters/jason-bourne-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Jason_Bourne_(film)"
-          }
-        },
         {
           "title": "Criminal",
           "year": 2016,
@@ -245,6 +265,18 @@
             "src": "media/posters/criminal-2016-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Criminal_(2016_film)"
+          },
+          "clip": "media/clips/criminal-bourne.mp4"
+        },
+        {
+          "title": "Jason Bourne",
+          "year": 2016,
+          "type": "film",
+          "scene": "The old Croydon School of Art's photographic studio doubles as a Berlin warehouse for a Matt Damon fight scene, while the CIA watches the windows. The Bourne crew filmed around this Fairfield / college campus in 2015.",
+          "poster": {
+            "src": "media/posters/jason-bourne-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Jason_Bourne_(film)"
           }
         }
       ],
@@ -280,7 +312,7 @@
         }
       ],
       "film_gallery": [],
-      "clip": "media/clips/criminal-bourne.mp4"
+      "clip": null
     },
     {
       "id": "velvet-goldmine",
@@ -481,11 +513,8 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_Wellesley_Road_entrance.jpg?width=1280",
-        "credit": "Hzh via Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_Wellesley_Road_entrance.jpg",
-        "src": "media/photos/whitgift-wellesley.jpg"
+        "src": "media/photos/whitgift-wellesley-ramp.jpg",
+        "credit": "Image: Google Street View"
       },
       "sources": [
         "OpenStreetMap / TfL NaPTAN: Whitgift Centre bus stop WL (node 469790212, atco 490014614E15) at 51.376113, -0.098430, bearing north. Pin placed 10 m north on the Whitgift Centre (west) pavement of Wellesley Road.",
@@ -498,7 +527,16 @@
       "confidence_note": "Bus stop WL is verified in OSM and TfL. The pin is 10 m north of the stop, on the pavement between Wellesley Road and the Whitgift Centre east facade. The car-arrival scene is as described by Richard.",
       "priority": 4,
       "must_keep": false,
-      "gallery": [],
+      "gallery": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_Wellesley_Road_entrance.jpg?width=1280",
+          "credit": "Hzh via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_Wellesley_Road_entrance.jpg",
+          "src": "media/photos/whitgift-wellesley.jpg",
+          "tag": "Location"
+        }
+      ],
       "film_gallery": [],
       "clip": null
     },
@@ -519,7 +557,7 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Dark knight rises poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/The_Dark_Knight_Rises"
           },
-          "youtube": "7gFwvozMHR4"
+          "clip": "media/clips/dark-knight-rises-delta-point.mp4"
         }
       ],
       "image": {
@@ -549,7 +587,8 @@
           "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg?width=800",
           "page": "https://commons.wikimedia.org/wiki/File:Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg"
         }
-      ]
+      ],
+      "clip": null
     },
     {
       "id": "whitgift-inside",
@@ -596,7 +635,12 @@
           "clips": [
             "media/clips/girl-group-whitgift-1.mp4",
             "media/clips/girl-group-whitgift-2.mp4"
-          ]
+          ],
+          "poster": {
+            "src": "media/posters/girl-group-2026.jpg",
+            "credit": "Poster/artwork © its rights holder; official TIFF / Live Nation Studios poster, used for identification",
+            "page": "https://tiff.net/films/girl-group"
+          }
         },
         {
           "title": "Terry & June",
@@ -743,14 +787,6 @@
           "src": "media/photos/overtons-yard-4.jpg",
           "credit": "Richard DeDomenici",
           "tag": "Location"
-        },
-        {
-          "src": "media/photos/heads-of-state-carpark.jpg",
-          "credit": "geograph.org.uk contributor via Wikimedia Commons",
-          "license": "CC BY-SA 2.0",
-          "tag": "Location",
-          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg?width=800",
-          "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg"
         }
       ]
     },
@@ -844,11 +880,11 @@
         "label": "What's on at the David Lean Cinema"
       },
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Clocktower_seen_from_Queen's_gardens.jpg?width=800",
-        "credit": "Looshluz via Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_seen_from_Queen's_gardens.jpg",
-        "src": "media/photos/finale.jpg"
+        "src": "media/photos/clocktower-entrance.jpg",
+        "credit": "Dylan Moore via Geograph / Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Clocktower,_Croydon_-_geograph.org.uk_-_7627411.jpg?width=1280",
+        "page": "https://commons.wikimedia.org/wiki/File:The_Clocktower,_Croydon_-_geograph.org.uk_-_7627411.jpg"
       },
       "sources": [
         "https://www.davidleancinema.org.uk"
@@ -856,7 +892,26 @@
       "confidence": "high",
       "confidence_note": "Tour finish point: the same venue as stop 1.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "clip": null,
+      "gallery": [
+        {
+          "src": "media/photos/david-lean-bar.jpg",
+          "credit": "David Lean Cinema, via davidleancinema.org.uk",
+          "license": "© David Lean Cinema; used with credit for venue identification",
+          "tag": "Location",
+          "url": "https://www.davidleancinema.org.uk/wp-content/uploads/2026/10/our-bar.jpg",
+          "page": "https://www.davidleancinema.org.uk/visit/our-bar/"
+        },
+        {
+          "src": "media/photos/finale.jpg",
+          "credit": "Looshluz via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Clocktower_seen_from_Queen's_gardens.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_seen_from_Queen's_gardens.jpg"
+        }
+      ]
     }
   ],
   "close_loop": false,

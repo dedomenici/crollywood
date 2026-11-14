@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261114073822';
+  var BUILD = '20261114082744';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -235,7 +235,7 @@
         if (seen[f.poster.src]) return;
         seen[f.poster.src] = 1;
         out.push('<figure class="slide poster"><span class="tag">Poster</span><img src="' + esc(f.poster.src) + '" alt="' + esc(filmTitle(f)) + ' poster" loading="lazy"><figcaption>' + esc(filmTitle(f)) + ': ' + esc(f.poster.credit) + '</figcaption></figure>');
-      } else if (f.type !== 'venue' && f.type !== 'redux') {
+      } else if (f.type !== 'venue' && !/redux/i.test(f.type || '') && !/redux/i.test(f.title || '')) {
         out.push('<figure class="slide poster"><span class="tag">Poster</span><div class="placeholder">🎞 ' + esc(filmTitle(f)) + '<br>poster not yet available</div></figure>');
       }
     });
@@ -312,8 +312,9 @@
     var clip = '';
     if (available.length) {
       clip = available.map(function (c) {
-        var label = available.length > 1 && c.label ? '<div class="media-label">' + esc(c.label) + '</div>' : '';
-        return label + '<video controls playsinline preload="metadata" src="' + esc(c.src) + '"></video>';
+        var showLabel = c.label && (available.length > 1 || ((s.films || []).length > 1));
+        var label = showLabel ? '<div class="media-label">' + esc(c.label) + '</div>' : '';
+        return label + videoHTML(c.src);
       }).join('');
     } else if (clips.length && !yt) {
       clip = '<div class="placeholder">🎬 Film clip coming soon</div>';
@@ -350,8 +351,18 @@
     });
   }
   // Only request clips/narration listed in media/manifest.json (written by tools/stamp_version.py); otherwise show the placeholder.
-  state.media = { clips: [], audio: [] };
+  state.media = { clips: [], audio: [], clip_posters: [] };
   function hasMedia(kind, path) { var f = String(path || '').split('/').pop(); return (state.media[kind] || []).indexOf(f) >= 0; }
+  function clipPoster(src) {
+    var f = String(src || '').split('/').pop().replace(/\.mp4$/i, '');
+    if (!f) return '';
+    var p = 'media/clips/posters/' + f + '.jpg';
+    return hasMedia('clip_posters', p) ? p : '';
+  }
+  function videoHTML(src) {
+    var p = clipPoster(src);
+    return '<video controls playsinline preload="metadata"' + (p ? ' poster="' + esc(p) + '"' : '') + ' src="' + esc(src) + '"></video>';
+  }
   function wireMedia(s) {
     document.querySelectorAll('#clipSlot video').forEach(function (v) {
       v.addEventListener('error', function () {
@@ -827,8 +838,9 @@
     $('look').hidden = false; $('look').dataset.bg = '';
     $('lookTitle').textContent = s.order + '. ' + (f.title ? filmTitle(f) : s.name);
     $('lookText').textContent = f.scene || '';
-    $('lookClip').innerHTML = hasMedia('clips', s.clip) ? '<video src="' + esc(s.clip) + '" controls playsinline preload="metadata"></video>'
-      : '<div class="placeholder look-ph">🎬 Movie clip placeholder: <code>' + esc(s.clip) + '</code></div>';
+    var lookClips = stopClips(s).filter(function (c) { return c.available; });
+    var lookSrc = (lookClips[0] || {}).src;
+    $('lookClip').innerHTML = lookSrc ? videoHTML(lookSrc) : '';
     lookMsg('Starting…'); log('look-open', s.id);
     var fs = document.documentElement.requestFullscreen; if (fs) { try { var fp = document.documentElement.requestFullscreen(); if (fp && fp.catch) fp.catch(function () {}); } catch (e) {} }
     // motion permission (iOS 13+ needs a user gesture: this runs inside the button tap)
@@ -1015,7 +1027,7 @@
     if (state.tour.active) setHomeMsg('Tour in progress. Tap RESUME TOUR to turn location back on.');
   }
   fetch('media/manifest.json?v=' + BUILD).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
-    .then(function (m) { state.media = { clips: m.clips || [], audio: m.audio || [] }; return fetch('locations.json?v=' + BUILD); })
+    .then(function (m) { state.media = { clips: m.clips || [], audio: m.audio || [], clip_posters: m.clip_posters || [] }; return fetch('locations.json?v=' + BUILD); })
     .then(function (r) { return r.json(); }).then(init)
     .catch(function (e) { setHomeMsg('Could not load locations.json: ' + e.message, true); console.error(e); });
 
