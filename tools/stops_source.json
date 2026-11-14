@@ -704,7 +704,7 @@
           "title": "Heads of State",
           "year": 2025,
           "type": "film",
-          "scene": "Part of the night-time 'Warsaw' chase, filmed 20–21 June 2023. A car chase and crash were shot along Overton's Yard, the short service road where Granaries nightclub used to be, beside the Surrey Street car park.",
+          "scene": "Part of the night-time 'Warsaw' chase, filmed 20–21 June 2023. A car chase and crash were shot along Overton's Yard, the short service road where Granaries nightclub used to be, beside the Surrey Street car park. An explosion (silenced for the neighbours) and stunt action were also filmed on the roof of that multi-storey car park. You can view the car park from street level; the roof deck is the on-screen spot.",
           "poster": {
             "src": "media/posters/heads-of-state-2025-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
@@ -722,10 +722,11 @@
         "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
         "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (r/croydon thread)",
         "Nominatim/OSM (Overton's Yard)",
-        "https://www.openstreetmap.org/way/15238883"
+        "https://www.openstreetmap.org/way/15238883",
+        "Nominatim/OSM (parking, Surrey Street)"
       ],
       "confidence": "high",
-      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
+      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched. Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names the Surrey Street car park next door; that rooftop identification is medium-confidence.",
       "priority": 4,
       "must_keep": false,
       "clip": null,
@@ -744,44 +745,16 @@
           "src": "media/photos/overtons-yard-4.jpg",
           "credit": "Richard DeDomenici",
           "tag": "Location"
+        },
+        {
+          "src": "media/photos/heads-of-state-carpark.jpg",
+          "credit": "geograph.org.uk contributor via Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg"
         }
       ]
-    },
-    {
-      "id": "heads-of-state-carpark",
-      "name": "Surrey Street car park (rooftop)",
-      "address": "Surrey Street car park, Exchange Square, CR0",
-      "lat": 51.37242,
-      "lng": -0.10238,
-      "films": [
-        {
-          "title": "Heads of State",
-          "year": 2025,
-          "type": "film",
-          "scene": "An explosion (silenced for the neighbours) and stunt action filmed on the roof of the multi-storey car park next to Overton's Yard. You can view it from street level; the roof deck is the on-screen spot.",
-          "poster": {
-            "src": "media/posters/heads-of-state-2025-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg",
-        "src": "media/photos/heads-of-state-carpark.jpg"
-      },
-      "sources": [
-        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
-        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/",
-        "Nominatim/OSM (parking, Surrey Street)"
-      ],
-      "confidence": "medium",
-      "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
-      "priority": 3,
-      "must_keep": false
     },
     {
       "id": "konga",

@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 3917,
-  "route_duration_s": 3142,
+  "route_distance_m": 3710,
+  "route_duration_s": 2976,
   "stops": [
     {
       "id": "david-lean",
@@ -795,7 +795,7 @@
           "title": "Heads of State",
           "year": 2025,
           "type": "film",
-          "scene": "Part of the night-time 'Warsaw' chase, filmed 20–21 June 2023. A car chase and crash were shot along Overton's Yard, the short service road where Granaries nightclub used to be, beside the Surrey Street car park.",
+          "scene": "Part of the night-time 'Warsaw' chase, filmed 20–21 June 2023. A car chase and crash were shot along Overton's Yard, the short service road where Granaries nightclub used to be, beside the Surrey Street car park. An explosion (silenced for the neighbours) and stunt action were also filmed on the roof of that multi-storey car park. You can view the car park from street level; the roof deck is the on-screen spot.",
           "poster": {
             "src": "media/posters/heads-of-state-2025-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
@@ -813,10 +813,11 @@
         "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
         "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (r/croydon thread)",
         "Nominatim/OSM (Overton's Yard)",
-        "https://www.openstreetmap.org/way/15238883"
+        "https://www.openstreetmap.org/way/15238883",
+        "Nominatim/OSM (parking, Surrey Street)"
       ],
       "confidence": "high",
-      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
+      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched. Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names the Surrey Street car park next door; that rooftop identification is medium-confidence.",
       "priority": 4,
       "must_keep": false,
       "clip": null,
@@ -835,60 +836,23 @@
           "src": "media/photos/overtons-yard-4.jpg",
           "credit": "Richard DeDomenici",
           "tag": "Location"
+        },
+        {
+          "src": "media/photos/heads-of-state-carpark.jpg",
+          "credit": "geograph.org.uk contributor via Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg"
         }
       ],
       "order": 12,
       "audio": "media/audio/heads-of-state-overtons.mp3",
-      "leg_to_next_m": 191,
+      "leg_to_next_m": 260,
       "route_snap": {
         "lat": 51.372762,
         "lng": -0.101861,
         "offset_m": 0
-      }
-    },
-    {
-      "id": "heads-of-state-carpark",
-      "name": "Surrey Street car park (rooftop)",
-      "address": "Surrey Street car park, Exchange Square, CR0",
-      "lat": 51.37242,
-      "lng": -0.10238,
-      "films": [
-        {
-          "title": "Heads of State",
-          "year": 2025,
-          "type": "film",
-          "scene": "An explosion (silenced for the neighbours) and stunt action filmed on the roof of the multi-storey car park next to Overton's Yard. You can view it from street level; the roof deck is the on-screen spot.",
-          "poster": {
-            "src": "media/posters/heads-of-state-2025-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg",
-        "src": "media/photos/heads-of-state-carpark.jpg"
-      },
-      "sources": [
-        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
-        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/",
-        "Nominatim/OSM (parking, Surrey Street)"
-      ],
-      "confidence": "medium",
-      "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
-      "priority": 3,
-      "must_keep": false,
-      "order": 13,
-      "clip": "media/clips/heads-of-state-carpark.mp4",
-      "audio": "media/audio/heads-of-state-carpark.mp3",
-      "leg_to_next_m": 276,
-      "route_snap": {
-        "lat": 51.372302,
-        "lng": -0.102299,
-        "offset_m": 14
       }
     },
     {
@@ -927,7 +891,7 @@
       "must_keep": true,
       "gallery": [],
       "film_gallery": [],
-      "order": 14,
+      "order": 13,
       "clip": "media/clips/konga.mp4",
       "audio": "media/audio/konga.mp3",
       "leg_to_next_m": 95,
@@ -970,7 +934,7 @@
       "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate.",
       "priority": 2,
       "must_keep": false,
-      "order": 15,
+      "order": 14,
       "clip": "media/clips/peep-show-registry.mp4",
       "audio": "media/audio/peep-show-registry.mp3",
       "leg_to_next_m": 199,
@@ -1012,7 +976,7 @@
       "confidence_note": "Tour finish point: the same venue as stop 1.",
       "priority": 5,
       "must_keep": true,
-      "order": 16,
+      "order": 15,
       "clip": "media/clips/finale.mp4",
       "audio": "media/audio/finale.mp3",
       "leg_to_next_m": 0,
@@ -1148,7 +1112,6 @@
         "all-of-us-strangers",
         "whitgift-inside",
         "heads-of-state-overtons",
-        "heads-of-state-carpark",
         "konga",
         "peep-show-registry",
         "finale"
@@ -1165,15 +1128,14 @@
         351,
         141,
         516,
-        191,
-        276,
+        260,
         95,
         199,
         0
       ],
-      "distance_m": 3528,
-      "walk_s": 2830,
-      "est_min": 107,
+      "distance_m": 3321,
+      "walk_s": 2663,
+      "est_min": 100,
       "must_keep_only": false
     },
     {
@@ -1194,7 +1156,6 @@
         "dark-knight-rises",
         "whitgift-inside",
         "heads-of-state-overtons",
-        "heads-of-state-carpark",
         "konga",
         "peep-show-registry",
         "finale"
@@ -1211,15 +1172,14 @@
         351,
         430,
         516,
-        191,
-        276,
+        260,
         95,
         199,
         0
       ],
-      "distance_m": 3917,
-      "walk_s": 3142,
-      "est_min": 112,
+      "distance_m": 3710,
+      "walk_s": 2976,
+      "est_min": 106,
       "must_keep_only": false
     }
   ],
