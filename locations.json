@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 4034,
-  "route_duration_s": 3230,
+  "route_distance_m": 4140,
+  "route_duration_s": 3315,
   "stops": [
     {
       "id": "david-lean",
@@ -164,7 +164,7 @@
       "clip": "media/clips/made-in-dagenham.mp4",
       "order": 2,
       "audio": "media/audio/heads-of-state-sgw.mp3",
-      "leg_to_next_m": 107,
+      "leg_to_next_m": 279,
       "route_snap": {
         "lat": 51.373117,
         "lng": -0.097725,
@@ -174,9 +174,9 @@
     {
       "id": "fairfield-halls",
       "name": "Fairfield Halls",
-      "address": "Park Lane, CR9 1DG",
-      "lat": 51.37282,
-      "lng": -0.09685,
+      "address": "Park Lane / College Green, CR9 1DG",
+      "lat": 51.37274,
+      "lng": -0.09525,
       "films": [
         {
           "title": "The Da Vinci Code",
@@ -209,10 +209,11 @@
       "sources": [
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
         "https://www.london-now.co.uk/news/24085156.9-movies-filmed-croydon-might-not-realise/",
-        "Croydonites Crollywood 2026 listing (mentions The Da Vinci Code)"
+        "Croydonites Crollywood 2026 listing (mentions The Da Vinci Code)",
+        "OpenStreetMap: pavement on the north (College Green) frontage of Fairfield Halls, immediately outside the main entrance foyer (footway 1310803837, adjacent to building way 26595743)"
       ],
       "confidence": "high",
-      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb.",
+      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb. Pin is on the east side of Park Lane / Wellesley Road, on the pavement outside the main College Green entrance.",
       "priority": 4,
       "must_keep": false,
       "gallery": [],
@@ -231,16 +232,16 @@
       "order": 3,
       "clip": "media/clips/fairfield-halls.mp4",
       "audio": "media/audio/fairfield-halls.mp3",
-      "leg_to_next_m": 132,
+      "leg_to_next_m": 106,
       "route_snap": {
-        "lat": 51.37282,
-        "lng": -0.096871,
-        "offset_m": 1
+        "lat": 51.37274,
+        "lng": -0.09525,
+        "offset_m": 0
       }
     },
     {
       "id": "criminal-bourne",
-      "name": "College Green: the old School of Art (Segas House)",
+      "name": "Croydon College: the old School of Art (Segas House)",
       "address": "College Green / Park Lane, CR0",
       "lat": 51.37303,
       "lng": -0.09602,
@@ -249,7 +250,7 @@
           "title": "Jason Bourne",
           "year": 2016,
           "type": "film",
-          "scene": "The old Croydon School of Art's photographic studio doubles as a Berlin warehouse for a Matt Damon fight scene, while the CIA watches the windows.",
+          "scene": "The old Croydon School of Art's photographic studio doubles as a Berlin warehouse for a Matt Damon fight scene, while the CIA watches the windows. The Bourne crew filmed around this Fairfield / college campus in 2015.",
           "poster": {
             "src": "media/posters/jason-bourne-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
@@ -260,7 +261,7 @@
           "title": "Criminal",
           "year": 2016,
           "type": "film",
-          "scene": "Croydon College became CIA HQ, a lab and a fugitive's hideout. There's a shoot-out on College Road, George Street and Dingwall Road, and a night scene in the Park Lane underpass.",
+          "scene": "Croydon College became CIA headquarters, medical labs and a fugitive hideout. A shoot-out was filmed on College Road, George Street and Dingwall Road, a helicopter landed at the campus, and a night scene was shot in the Park Lane underpass. The college's multi-storey car park, which stood nearby, has since been demolished.",
           "poster": {
             "src": "media/posters/criminal-2016-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
@@ -279,81 +280,34 @@
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
         "https://www.movie-locations.com/movies/j/Jason-Bourne.php",
         "https://croydonfilmoffice.co.uk/2016/07/15/the-heart-of-the-action-croydons-getting-a-reputation-for-attracting-blockbusters/",
-        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/"
-      ],
-      "confidence": "high",
-      "confidence_note": "Several sources agree. The KML pin is between the two buildings.",
-      "priority": 4,
-      "must_keep": false,
-      "gallery": [],
-      "film_gallery": [],
-      "clip": null,
-      "order": 4,
-      "audio": "media/audio/criminal-bourne.mp3",
-      "leg_to_next_m": 106,
-      "route_snap": {
-        "lat": 51.373054,
-        "lng": -0.096027,
-        "offset_m": 3
-      }
-    },
-    {
-      "id": "croydon-college",
-      "name": "Croydon College, College Road",
-      "address": "College Road, CR9 1DX",
-      "lat": 51.37373,
-      "lng": -0.096,
-      "films": [
-        {
-          "title": "Criminal",
-          "year": 2016,
-          "type": "film",
-          "scene": "Croydon College on College Road became CIA headquarters, medical labs and a fugitive hideout. A shoot-out was filmed on College Road, and a helicopter landed at the campus. The college's multi-storey car park, which stood here, has since been demolished.",
-          "poster": {
-            "src": "media/posters/criminal-2016-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Criminal_(2016_film)"
-          }
-        },
-        {
-          "title": "Jason Bourne",
-          "year": 2016,
-          "type": "film",
-          "scene": "The Bourne crew also filmed around this Fairfield / college campus in 2015. The old School of Art on College Green, just south of here, doubled as a Berlin warehouse for a Matt Damon fight scene.",
-          "poster": {
-            "src": "media/posters/jason-bourne-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Jason_Bourne_(film)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_College.JPG?width=800",
-        "credit": "Pafcool2 via Wikimedia Commons",
-        "license": "Public domain",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon_College.JPG",
-        "src": "media/photos/croydon-college.jpg"
-      },
-      "clip": "media/clips/criminal-bourne.mp4",
-      "sources": [
+        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/",
         "https://www.imdb.com/title/tt3014866/locations/",
         "https://www.yourlocalguardian.co.uk/news/11503081.hollywood-a-listers-arrive-in-croydon-to-begin-shooting-blockbuster-thriller/",
-        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/",
         "https://www.croydonadvertiser.co.uk/news/celebs-tv/secret-locations-brad-pitt-matt-531610",
         "Nominatim/OSM geocode of Croydon College, College Road"
       ],
       "confidence": "high",
-      "confidence_note": "Criminal at Croydon College, College Road, is well sourced (IMDb, local press). The college's multi-storey car park on College Road has been demolished. Jason Bourne was filmed at the adjacent School of Art / Fairfield campus, not specifically in the car park.",
+      "confidence_note": "Several sources agree on both films at the college campus. The pin is at the old School of Art on College Green. Criminal also used College Road, the campus helicopter landing, and the now-demolished college car park.",
       "priority": 4,
       "must_keep": false,
-      "gallery": [],
+      "gallery": [
+        {
+          "src": "media/photos/croydon-college.jpg",
+          "credit": "Pafcool2 via Wikimedia Commons",
+          "license": "Public domain",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_College.JPG?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Croydon_College.JPG"
+        }
+      ],
       "film_gallery": [],
-      "order": 5,
-      "audio": "media/audio/croydon-college.mp3",
-      "leg_to_next_m": 110,
+      "clip": "media/clips/criminal-bourne.mp4",
+      "order": 4,
+      "audio": "media/audio/criminal-bourne.mp3",
+      "leg_to_next_m": 176,
       "route_snap": {
-        "lat": 51.373755,
-        "lng": -0.096007,
+        "lat": 51.373054,
+        "lng": -0.096027,
         "offset_m": 3
       }
     },
@@ -395,7 +349,7 @@
       "gallery": [],
       "film_gallery": [],
       "clip": "media/clips/velvet-goldmine.mp4",
-      "order": 6,
+      "order": 5,
       "audio": "media/audio/velvet-goldmine.mp3",
       "leg_to_next_m": 440,
       "route_snap": {
@@ -440,7 +394,7 @@
       "must_keep": false,
       "gallery": [],
       "film_gallery": [],
-      "order": 7,
+      "order": 6,
       "clip": "media/clips/man-who-knew-too-little.mp4",
       "audio": "media/audio/man-who-knew-too-little.mp3",
       "leg_to_next_m": 350,
@@ -497,7 +451,7 @@
           "tag": "Film still"
         }
       ],
-      "order": 8,
+      "order": 7,
       "clip": "media/clips/peep-show-canterbury.mp4",
       "audio": "media/audio/peep-show-canterbury.mp3",
       "leg_to_next_m": 106,
@@ -542,7 +496,7 @@
       "confidence_note": "Only one source (a Reddit comment, possibly by Richard) places the scene here. The building position is verified in OSM. Check against the film.",
       "priority": 3,
       "must_keep": false,
-      "order": 9,
+      "order": 8,
       "clip": "media/clips/heads-of-state-apollo.mp4",
       "audio": "media/audio/heads-of-state-apollo.mp3",
       "leg_to_next_m": 375,
@@ -587,7 +541,7 @@
       "confidence_note": "Several sources agree. The KML pin was about 60m south, so this uses the OSM building position.",
       "priority": 5,
       "must_keep": true,
-      "order": 10,
+      "order": 9,
       "clip": "media/clips/dark-knight-rises.mp4",
       "audio": "media/audio/dark-knight-rises.mp3",
       "leg_to_next_m": 312,
@@ -653,7 +607,7 @@
           "tag": "Bandersnatch"
         }
       ],
-      "order": 11,
+      "order": 10,
       "clip": "media/clips/terry-and-june.mp4",
       "audio": "media/audio/terry-and-june.mp3",
       "leg_to_next_m": 228,
@@ -699,7 +653,7 @@
       "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site.",
       "priority": 5,
       "must_keep": true,
-      "order": 12,
+      "order": 11,
       "clip": "media/clips/opalite.mp4",
       "audio": "media/audio/opalite.mp3",
       "leg_to_next_m": 53,
@@ -740,7 +694,7 @@
       "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC.",
       "priority": 5,
       "must_keep": true,
-      "order": 13,
+      "order": 12,
       "clip": "media/clips/girl-group.mp4",
       "audio": "media/audio/girl-group.mp3",
       "leg_to_next_m": 247,
@@ -784,7 +738,7 @@
       "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed.",
       "priority": 4,
       "must_keep": false,
-      "order": 14,
+      "order": 13,
       "clip": "media/clips/it-crowd.mp4",
       "audio": "media/audio/it-crowd.mp3",
       "leg_to_next_m": 374,
@@ -827,7 +781,7 @@
       "confidence_note": "From DeDomenici's map; venue may have changed name.",
       "priority": 2,
       "must_keep": false,
-      "order": 15,
+      "order": 14,
       "clip": "media/clips/peep-show-loop-bar.mp4",
       "audio": "media/audio/peep-show-loop-bar.mp3",
       "leg_to_next_m": 171,
@@ -873,7 +827,7 @@
       "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
       "priority": 4,
       "must_keep": false,
-      "order": 16,
+      "order": 15,
       "clip": "media/clips/heads-of-state-overtons.mp4",
       "audio": "media/audio/heads-of-state-overtons.mp3",
       "leg_to_next_m": 191,
@@ -918,7 +872,7 @@
       "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
       "priority": 3,
       "must_keep": false,
-      "order": 17,
+      "order": 16,
       "clip": "media/clips/heads-of-state-carpark.mp4",
       "audio": "media/audio/heads-of-state-carpark.mp3",
       "leg_to_next_m": 276,
@@ -964,7 +918,7 @@
       "must_keep": true,
       "gallery": [],
       "film_gallery": [],
-      "order": 18,
+      "order": 17,
       "clip": "media/clips/konga.mp4",
       "audio": "media/audio/konga.mp3",
       "leg_to_next_m": 95,
@@ -1007,7 +961,7 @@
       "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate.",
       "priority": 2,
       "must_keep": false,
-      "order": 19,
+      "order": 18,
       "clip": "media/clips/peep-show-registry.mp4",
       "audio": "media/audio/peep-show-registry.mp3",
       "leg_to_next_m": 199,
@@ -1049,7 +1003,7 @@
       "confidence_note": "Tour finish point: the same venue as stop 1.",
       "priority": 5,
       "must_keep": true,
-      "order": 20,
+      "order": 19,
       "clip": "media/clips/finale.mp4",
       "audio": "media/audio/finale.mp3",
       "leg_to_next_m": 0,
@@ -1101,30 +1055,30 @@
       "stop_ids": [
         "david-lean",
         "heads-of-state-sgw",
-        "fairfield-halls",
         "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
         "girl-group",
         "opalite",
+        "heads-of-state-overtons",
         "konga",
         "finale"
       ],
       "legs_m": [
         162,
-        107,
-        686,
+        680,
         332,
         312,
         263,
         53,
-        619,
+        516,
+        260,
         238,
         0
       ],
-      "distance_m": 2772,
-      "walk_s": 2224,
-      "est_min": 73,
+      "distance_m": 2817,
+      "walk_s": 2260,
+      "est_min": 74,
       "must_keep_only": false
     },
     {
@@ -1137,7 +1091,6 @@
         "heads-of-state-sgw",
         "fairfield-halls",
         "criminal-bourne",
-        "croydon-college",
         "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
@@ -1149,10 +1102,9 @@
       ],
       "legs_m": [
         162,
-        107,
-        132,
+        279,
         106,
-        588,
+        654,
         332,
         312,
         263,
@@ -1162,9 +1114,9 @@
         238,
         0
       ],
-      "distance_m": 3069,
-      "walk_s": 2459,
-      "est_min": 89,
+      "distance_m": 3175,
+      "walk_s": 2544,
+      "est_min": 86,
       "must_keep_only": false
     },
     {
@@ -1177,7 +1129,6 @@
         "heads-of-state-sgw",
         "fairfield-halls",
         "criminal-bourne",
-        "croydon-college",
         "man-who-knew-too-little",
         "peep-show-canterbury",
         "heads-of-state-apollo",
@@ -1186,6 +1137,7 @@
         "opalite",
         "girl-group",
         "it-crowd",
+        "peep-show-loop-bar",
         "heads-of-state-overtons",
         "heads-of-state-carpark",
         "konga",
@@ -1193,10 +1145,9 @@
       ],
       "legs_m": [
         162,
-        107,
-        132,
+        279,
         106,
-        492,
+        586,
         350,
         106,
         375,
@@ -1204,15 +1155,16 @@
         228,
         53,
         247,
-        515,
+        374,
+        171,
         191,
         276,
         238,
         0
       ],
-      "distance_m": 3890,
-      "walk_s": 3116,
-      "est_min": 116,
+      "distance_m": 4053,
+      "walk_s": 3245,
+      "est_min": 118,
       "must_keep_only": false
     },
     {
@@ -1225,7 +1177,6 @@
         "heads-of-state-sgw",
         "fairfield-halls",
         "criminal-bourne",
-        "croydon-college",
         "velvet-goldmine",
         "man-who-knew-too-little",
         "peep-show-canterbury",
@@ -1244,10 +1195,9 @@
       ],
       "legs_m": [
         162,
-        107,
-        132,
+        279,
         106,
-        110,
+        176,
         440,
         350,
         106,
@@ -1264,9 +1214,9 @@
         199,
         0
       ],
-      "distance_m": 4034,
-      "walk_s": 3230,
-      "est_min": 130,
+      "distance_m": 4140,
+      "walk_s": 3315,
+      "est_min": 127,
       "must_keep_only": false
     }
   ],

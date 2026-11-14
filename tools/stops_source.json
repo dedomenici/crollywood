@@ -157,9 +157,9 @@
     {
       "id": "fairfield-halls",
       "name": "Fairfield Halls",
-      "address": "Park Lane, CR9 1DG",
-      "lat": 51.37282,
-      "lng": -0.09685,
+      "address": "Park Lane / College Green, CR9 1DG",
+      "lat": 51.37274,
+      "lng": -0.09525,
       "films": [
         {
           "title": "The Da Vinci Code",
@@ -192,10 +192,11 @@
       "sources": [
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
         "https://www.london-now.co.uk/news/24085156.9-movies-filmed-croydon-might-not-realise/",
-        "Croydonites Crollywood 2026 listing (mentions The Da Vinci Code)"
+        "Croydonites Crollywood 2026 listing (mentions The Da Vinci Code)",
+        "OpenStreetMap: pavement on the north (College Green) frontage of Fairfield Halls, immediately outside the main entrance foyer (footway 1310803837, adjacent to building way 26595743)"
       ],
       "confidence": "high",
-      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb.",
+      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb. Pin is on the east side of Park Lane / Wellesley Road, on the pavement outside the main College Green entrance.",
       "priority": 4,
       "must_keep": false,
       "gallery": [],
@@ -213,55 +214,68 @@
       ]
     },
     {
-      "id": "croydon-college",
-      "name": "Croydon College, College Road",
-      "address": "College Road, CR9 1DX",
-      "lat": 51.37373,
-      "lng": -0.096,
+      "id": "criminal-bourne",
+      "name": "Croydon College: the old School of Art (Segas House)",
+      "address": "College Green / Park Lane, CR0",
+      "lat": 51.37303,
+      "lng": -0.09602,
       "films": [
-        {
-          "title": "Criminal",
-          "year": 2016,
-          "type": "film",
-          "scene": "Croydon College on College Road became CIA headquarters, medical labs and a fugitive hideout. A shoot-out was filmed on College Road, and a helicopter landed at the campus. The college's multi-storey car park, which stood here, has since been demolished.",
-          "poster": {
-            "src": "media/posters/criminal-2016-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Criminal_(2016_film)"
-          }
-        },
         {
           "title": "Jason Bourne",
           "year": 2016,
           "type": "film",
-          "scene": "The Bourne crew also filmed around this Fairfield / college campus in 2015. The old School of Art on College Green, just south of here, doubled as a Berlin warehouse for a Matt Damon fight scene.",
+          "scene": "The old Croydon School of Art's photographic studio doubles as a Berlin warehouse for a Matt Damon fight scene, while the CIA watches the windows. The Bourne crew filmed around this Fairfield / college campus in 2015.",
           "poster": {
             "src": "media/posters/jason-bourne-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Jason_Bourne_(film)"
           }
+        },
+        {
+          "title": "Criminal",
+          "year": 2016,
+          "type": "film",
+          "scene": "Croydon College became CIA headquarters, medical labs and a fugitive hideout. A shoot-out was filmed on College Road, George Street and Dingwall Road, a helicopter landed at the campus, and a night scene was shot in the Park Lane underpass. The college's multi-storey car park, which stood nearby, has since been demolished.",
+          "poster": {
+            "src": "media/posters/criminal-2016-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Criminal_(2016_film)"
+          }
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_College.JPG?width=800",
-        "credit": "Pafcool2 via Wikimedia Commons",
-        "license": "Public domain",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon_College.JPG"
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/CroydonCollege.jpg?width=800",
+        "credit": "CroydonCollege via Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "page": "https://commons.wikimedia.org/wiki/File:CroydonCollege.jpg",
+        "src": "media/photos/criminal-bourne.jpg"
       },
-      "clip": "media/clips/criminal-bourne.mp4",
       "sources": [
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://www.movie-locations.com/movies/j/Jason-Bourne.php",
+        "https://croydonfilmoffice.co.uk/2016/07/15/the-heart-of-the-action-croydons-getting-a-reputation-for-attracting-blockbusters/",
+        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/",
         "https://www.imdb.com/title/tt3014866/locations/",
         "https://www.yourlocalguardian.co.uk/news/11503081.hollywood-a-listers-arrive-in-croydon-to-begin-shooting-blockbuster-thriller/",
-        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/",
         "https://www.croydonadvertiser.co.uk/news/celebs-tv/secret-locations-brad-pitt-matt-531610",
         "Nominatim/OSM geocode of Croydon College, College Road"
       ],
       "confidence": "high",
-      "confidence_note": "Criminal at Croydon College, College Road, is well sourced (IMDb, local press). The college's multi-storey car park on College Road has been demolished. Jason Bourne was filmed at the adjacent School of Art / Fairfield campus, not specifically in the car park.",
+      "confidence_note": "Several sources agree on both films at the college campus. The pin is at the old School of Art on College Green. Criminal also used College Road, the campus helicopter landing, and the now-demolished college car park.",
       "priority": 4,
       "must_keep": false,
-      "gallery": [],
-      "film_gallery": []
+      "gallery": [
+        {
+          "src": "media/photos/croydon-college.jpg",
+          "credit": "Pafcool2 via Wikimedia Commons",
+          "license": "Public domain",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_College.JPG?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Croydon_College.JPG"
+        }
+      ],
+      "film_gallery": [],
+      "clip": "media/clips/criminal-bourne.mp4"
     },
     {
       "id": "velvet-goldmine",
@@ -301,57 +315,6 @@
       "gallery": [],
       "film_gallery": [],
       "clip": "media/clips/velvet-goldmine.mp4"
-    },
-    {
-      "id": "criminal-bourne",
-      "name": "College Green: the old School of Art (Segas House)",
-      "address": "College Green / Park Lane, CR0",
-      "lat": 51.37303,
-      "lng": -0.09602,
-      "films": [
-        {
-          "title": "Jason Bourne",
-          "year": 2016,
-          "type": "film",
-          "scene": "The old Croydon School of Art's photographic studio doubles as a Berlin warehouse for a Matt Damon fight scene, while the CIA watches the windows.",
-          "poster": {
-            "src": "media/posters/jason-bourne-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Jason_Bourne_(film)"
-          }
-        },
-        {
-          "title": "Criminal",
-          "year": 2016,
-          "type": "film",
-          "scene": "Croydon College became CIA HQ, a lab and a fugitive's hideout. There's a shoot-out on College Road, George Street and Dingwall Road, and a night scene in the Park Lane underpass.",
-          "poster": {
-            "src": "media/posters/criminal-2016-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Criminal_(2016_film)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/CroydonCollege.jpg?width=800",
-        "credit": "CroydonCollege via Wikimedia Commons",
-        "license": "CC BY-SA 3.0",
-        "page": "https://commons.wikimedia.org/wiki/File:CroydonCollege.jpg",
-        "src": "media/photos/criminal-bourne.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://www.movie-locations.com/movies/j/Jason-Bourne.php",
-        "https://croydonfilmoffice.co.uk/2016/07/15/the-heart-of-the-action-croydons-getting-a-reputation-for-attracting-blockbusters/",
-        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/"
-      ],
-      "confidence": "high",
-      "confidence_note": "Several sources agree. The KML pin is between the two buildings.",
-      "priority": 4,
-      "must_keep": false,
-      "gallery": [],
-      "film_gallery": [],
-      "clip": null
     },
     {
       "id": "man-who-knew-too-little",
