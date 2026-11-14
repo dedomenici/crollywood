@@ -75,8 +75,10 @@ r = get(f"{OSRM}/route/v1/driving/{coords}?overview=full&geometries=geojson&step
 route = r["routes"][0]
 for i, s in enumerate(ordered):
     s["order"] = i + 1
-    s["clip"] = f"media/clips/{s['id']}.mp4"
-    s["audio"] = f"media/audio/{s['id']}.mp3"
+    if not s.get("clip"):
+        s["clip"] = f"media/clips/{s['id']}.mp4"
+    if not s.get("audio"):
+        s["audio"] = f"media/audio/{s['id']}.mp3"
     s["leg_to_next_m"] = round(route["legs"][i]["distance"]) if i < len(route["legs"]) else 0
     # where the walking route actually passes the stop (pins often sit inside buildings / malls)
     wp = r["waypoints"][i]

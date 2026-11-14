@@ -9,6 +9,14 @@
         "name": "Brazil (1985)",
         "reason": "Map pin at 51.3805,-0.1229 is about 1.6km west of the loop (Purley Way side), outside the walkable town-centre radius.",
         "source": "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
+      },
+      {
+        "name": "The Bill (Katharine Street / Park Street corner)",
+        "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
+      },
+      {
+        "name": "Matthews Yard",
+        "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
       }
     ]
   },
@@ -32,7 +40,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Clocktower_on_Katharine_Street_-_panoramio.jpg?width=800",
         "credit": "Panoramio user via Wikimedia Commons",
         "license": "CC BY-SA 3.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_on_Katharine_Street_-_panoramio.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_on_Katharine_Street_-_panoramio.jpg",
+        "src": "media/photos/david-lean.jpg"
       },
       "sources": [
         "User brief (start/end point)",
@@ -45,11 +54,11 @@
       "must_keep": true
     },
     {
-      "id": "american-assassin",
-      "name": "St George's Walk (Park Street end)",
-      "address": "St George's Walk, CR0 1YJ",
-      "lat": 51.3729,
-      "lng": -0.09851,
+      "id": "heads-of-state-sgw",
+      "name": "St George's Walk",
+      "address": "St George's Walk, CR0 1YL",
+      "lat": 51.373117,
+      "lng": -0.097725,
       "films": [
         {
           "title": "American Assassin",
@@ -60,7 +69,8 @@
             "src": "media/posters/american-assassin.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (American Assassin.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/American_Assassin"
-          }
+          },
+          "youtube": "bGEEVqr-KKc"
         },
         {
           "title": "Black Mirror: Bandersnatch",
@@ -72,60 +82,18 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Black mirror bandersnatch poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Black_Mirror:_Bandersnatch"
           }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St._George's_Walk_2015.JPG?width=800",
-        "credit": "Eagleash via Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:St._George's_Walk_2015.JPG"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://www.copsecroydon.co.uk/event/local-evening-walk-no-hall/",
-        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859"
-      ],
-      "confidence": "high",
-      "confidence_note": "Map pins for both titles are about 15m apart. Bandersnatch's half of the Walk has been demolished.",
-      "priority": 5,
-      "must_keep": false
-    },
-    {
-      "id": "the-bill",
-      "name": "Katharine Street / Park Street corner",
-      "address": "Katharine Street, CR0",
-      "lat": 51.37299,
-      "lng": -0.09948,
-      "films": [
+        },
         {
-          "title": "The Bill",
-          "year": 1984,
-          "type": "TV",
-          "scene": "The long-running police drama often filmed in central Croydon, around Surrey Street and St George's House (the Nestlé Building).",
+          "title": "Made in Dagenham",
+          "year": 2010,
+          "type": "film",
+          "scene": "The Equal Pay Act bike ride was shot on St George's Walk — same arcade as the Bandersnatch dressing.",
           "poster": {
-            "src": "media/posters/the-bill.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (The Bill UK TV Series Title 2002.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/The_Bill"
+            "src": "media/posters/made-in-dagenham.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Made in dagenham poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
           }
-        }
-      ],
-      "image": null,
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://en-academic.com/dic.nsf/enwiki/273044"
-      ],
-      "confidence": "low",
-      "confidence_note": "Map pin has no description, so the specific episode or scene is unknown.",
-      "priority": 1,
-      "must_keep": false
-    },
-    {
-      "id": "heads-of-state-sgw",
-      "name": "St George's Walk (the 'Warsaw' street)",
-      "address": "St George's Walk, CR0 1PB",
-      "lat": 51.37321,
-      "lng": -0.09857,
-      "films": [
+        },
         {
           "title": "Heads of State",
           "year": 2025,
@@ -147,46 +115,44 @@
       "sources": [
         "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
         "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
-        "https://www.croydonites.com/programme/redux-heads-of-state"
+        "https://www.croydonites.com/programme/redux-heads-of-state",
+        "OpenStreetMap / Nominatim geometry of St George's Walk pedestrian arcade (ways 632344066, 199735119, 26600903), midpoint ±25 m",
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://www.copsecroydon.co.uk/event/local-evening-walk-no-hall/"
       ],
       "confidence": "high",
-      "confidence_note": "Several press sources, plus Croydonites saying the Warsaw chase was filmed in the town centre. The exact frame-by-frame spots are for Richard to refine.",
+      "confidence_note": "Pin placed at the midpoint of St George's Walk, from OpenStreetMap geometry of the pedestrian arcade between Park Street and Park Lane. Bandersnatch's half of the Walk has been demolished.",
       "priority": 5,
-      "must_keep": true
-    },
-    {
-      "id": "made-in-dagenham",
-      "name": "Park Lane / Fairfield forecourt",
-      "address": "Park Lane, CR0",
-      "lat": 51.3732,
-      "lng": -0.09776,
-      "films": [
+      "must_keep": true,
+      "gallery": [],
+      "film_gallery": [
         {
-          "title": "Made in Dagenham",
-          "year": 2010,
-          "type": "film",
-          "scene": "Croydon's 1960s concrete stands in for 1968 Westminster and Dagenham. Scenes were shot on St George's Walk and at Fairfield Halls.",
-          "poster": {
-            "src": "media/posters/made-in-dagenham.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Made in dagenham poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
-          }
+          "src": "media/photos/american-assassin.jpg",
+          "credit": "WHSmith — Black Mirror: Bandersnatch",
+          "tag": "Bandersnatch"
+        },
+        {
+          "src": "media/photos/american-assassin-wimpy.jpg",
+          "credit": "Wimpy — Black Mirror: Bandersnatch",
+          "tag": "Bandersnatch"
+        },
+        {
+          "src": "media/photos/american-assassin-redfields.jpg",
+          "credit": "Redfields / Pizza Hut — Bandersnatch-era set",
+          "tag": "Bandersnatch"
+        },
+        {
+          "src": "media/photos/american-assassin-soleil.jpg",
+          "credit": "SOLEIL — Bandersnatch-era shopfront",
+          "tag": "Bandersnatch"
+        },
+        {
+          "src": "media/photos/american-assassin-capri.jpg",
+          "credit": "Period Capri — Bandersnatch-era street",
+          "tag": "Bandersnatch"
         }
       ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Hall,_Croydon_-_geograph.org.uk_-_2819880.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Hall,_Croydon_-_geograph.org.uk_-_2819880.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/"
-      ],
-      "confidence": "medium",
-      "confidence_note": "The map pin has no description, and the scene details are generic.",
-      "priority": 2,
-      "must_keep": false
+      "clip": "media/clips/made-in-dagenham.mp4"
     },
     {
       "id": "fairfield-halls",
@@ -219,10 +185,9 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Halls_-_London.jpg?width=800",
-        "credit": "Jim Linwood via Wikimedia Commons",
-        "license": "CC BY 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Halls_-_London.jpg"
+        "src": "media/photos/fairfield-halls.jpg",
+        "credit": "Fairfield Halls Concert Hall (location)",
+        "license": "User-supplied tour photograph"
       },
       "sources": [
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
@@ -232,7 +197,20 @@
       "confidence": "high",
       "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb.",
       "priority": 4,
-      "must_keep": false
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/fairfield-halls-film.jpg",
+          "credit": "The Da Vinci Code — Robert Langdon lecture",
+          "tag": "Film still"
+        },
+        {
+          "src": "media/photos/fairfield-halls-lecture.jpg",
+          "credit": "The Da Vinci Code — lecture hall wide",
+          "tag": "Film still"
+        }
+      ]
     },
     {
       "id": "criminal-bourne",
@@ -268,7 +246,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/CroydonCollege.jpg?width=800",
         "credit": "CroydonCollege via Wikimedia Commons",
         "license": "CC BY-SA 3.0",
-        "page": "https://commons.wikimedia.org/wiki/File:CroydonCollege.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:CroydonCollege.jpg",
+        "src": "media/photos/criminal-bourne.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -279,7 +258,9 @@
       "confidence": "high",
       "confidence_note": "Several sources agree. The KML pin is between the two buildings.",
       "priority": 4,
-      "must_keep": false
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": []
     },
     {
       "id": "velvet-goldmine",
@@ -304,7 +285,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon,_Wellesley_Road_-_geograph.org.uk_-_1777302.jpg",
+        "src": "media/photos/velvet-goldmine.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -313,7 +295,9 @@
       "confidence": "medium",
       "confidence_note": "The street is confirmed, but the exact camera position is approximate.",
       "priority": 2,
-      "must_keep": false
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": []
     },
     {
       "id": "man-who-knew-too-little",
@@ -338,7 +322,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dingwall_Road,_Croydon_-_geograph.org.uk_-_475506.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Dingwall_Road,_Croydon_-_geograph.org.uk_-_475506.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Dingwall_Road,_Croydon_-_geograph.org.uk_-_475506.jpg",
+        "src": "media/photos/man-who-knew-too-little.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -347,7 +332,9 @@
       "confidence": "high",
       "confidence_note": "Map pin and London on Location agree.",
       "priority": 3,
-      "must_keep": false
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": []
     },
     {
       "id": "peep-show-canterbury",
@@ -370,9 +357,10 @@
       ],
       "image": {
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "credit": "Canterbury House / Zodiac House (location)",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Canterbury_House,_Sydenham_Road_-_geograph.org.uk_-_2251638.jpg",
+        "src": "media/photos/peep-show-canterbury.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -381,7 +369,20 @@
       "confidence": "high",
       "confidence_note": "Detailed description on the map, and the building is verified in OSM.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/peep-show-canterbury.jpg",
+          "credit": "Peep Show — JLB Credit exterior",
+          "tag": "Film still"
+        },
+        {
+          "src": "media/photos/peep-show-canterbury-still.jpg",
+          "credit": "Peep Show — JLB Credit sign",
+          "tag": "Film still"
+        }
+      ]
     },
     {
       "id": "heads-of-state-apollo",
@@ -406,7 +407,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
         "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg",
+        "src": "media/photos/heads-of-state-apollo.jpg"
       },
       "sources": [
         "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (comment linking to Crollywood)",
@@ -441,7 +443,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Delta_Point,_Wellesley_Road,_Croydon_-_geograph.org.uk_-_1629615.jpg",
+        "src": "media/photos/dark-knight-rises.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -487,7 +490,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre,_Croydon,_1976.jpg?width=800",
         "credit": "John Shepherd via Wikimedia Commons",
         "license": "CC BY 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre,_Croydon,_1976.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre,_Croydon,_1976.jpg",
+        "src": "media/photos/terry-and-june.jpg"
       },
       "sources": [
         "https://www.imdb.com/title/tt21192142/locations/",
@@ -499,7 +503,15 @@
       "confidence": "high",
       "confidence_note": "All of Us Strangers: high (IMDb, Guardian, Inside Croydon). Terry & June titles: medium (Guardian and Inside Croydon mention the Whitgift title sequence). The ramp pin is approximate.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "gallery": [],
+      "film_gallery": [
+        {
+          "src": "media/photos/terry-and-june-chelsea-girl.jpg",
+          "credit": "Chelsea Girl / Mr Doodle — Bandersnatch, Whitgift",
+          "tag": "Bandersnatch"
+        }
+      ]
     },
     {
       "id": "opalite",
@@ -524,7 +536,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Whitgift_Centre,_Croydon_-_geograph.org.uk_-_694473.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:The_Whitgift_Centre,_Croydon_-_geograph.org.uk_-_694473.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:The_Whitgift_Centre,_Croydon_-_geograph.org.uk_-_694473.jpg",
+        "src": "media/photos/opalite.jpg"
       },
       "sources": [
         "https://www.standard.co.uk/showbiz/taylor-swift-fans-whitgift-shopping-centre-croydon-opalite-music-video-b1270477.html",
@@ -555,7 +568,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_center_center_interior_-_panoramio.jpg?width=800",
         "credit": "Panoramio user via Wikimedia Commons",
         "license": "CC BY-SA 3.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_center_center_interior_-_panoramio.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_center_center_interior_-_panoramio.jpg",
+        "src": "media/photos/girl-group.jpg"
       },
       "sources": [
         "https://insidecroydon.com/2025/09/10/whitgift-becomes-centre-stage-for-rebel-wilsons-new-movie/",
@@ -591,7 +605,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_North_End_entrance.jpg?width=800",
         "credit": "Hzh via Wikimedia Commons",
         "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_North_End_entrance.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_North_End_entrance.jpg",
+        "src": "media/photos/it-crowd.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -625,7 +640,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Crown_Hill,_Croydon_-_geograph.org.uk_-_6180140.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Crown_Hill,_Croydon_-_geograph.org.uk_-_6180140.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Crown_Hill,_Croydon_-_geograph.org.uk_-_6180140.jpg",
+        "src": "media/photos/peep-show-loop-bar.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
@@ -658,7 +674,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons (nearby Surrey Street)",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg",
+        "src": "media/photos/heads-of-state-overtons.jpg"
       },
       "sources": [
         "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
@@ -694,7 +711,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street,_Croydon_-_geograph.org.uk_-_583610.jpg",
+        "src": "media/photos/heads-of-state-carpark.jpg"
       },
       "sources": [
         "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
@@ -705,35 +723,6 @@
       "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
       "priority": 3,
       "must_keep": false
-    },
-    {
-      "id": "matthews-yard",
-      "name": "Matthews Yard",
-      "address": "Matthews Yard, off Surrey Street, CR0 1FF",
-      "lat": 51.37236,
-      "lng": -0.10111,
-      "films": [
-        {
-          "title": "American Assassin: Redux (Crollywood HQ)",
-          "year": 2018,
-          "type": "redux",
-          "scene": "Start and finish of the original 2018 Crollywood tour, and the venue of the American Assassin: Redux world premiere at Matthews Yard Theatre."
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Matthews_Yard,_Croydon,_CR0_(34398740191).jpg?width=800",
-        "credit": "Flickr user via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Matthews_Yard,_Croydon,_CR0_(34398740191).jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "http://www.justcroydon.com/events/5609/18-May-2018/culture/richard-dedomenici-american-assassin-redux"
-      ],
-      "confidence": "high",
-      "confidence_note": "Not a film location as such: the tour's original start point.",
-      "priority": 5,
-      "must_keep": true
     },
     {
       "id": "konga",
@@ -758,7 +747,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/High_Street,_Croydon_-_geograph.org.uk_-_2728006.jpg?width=800",
         "credit": "geograph.org.uk contributor via Wikimedia Commons",
         "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:High_Street,_Croydon_-_geograph.org.uk_-_2728006.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:High_Street,_Croydon_-_geograph.org.uk_-_2728006.jpg",
+        "src": "media/photos/konga.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
@@ -767,7 +757,9 @@
       "confidence": "high",
       "confidence_note": "Map pin plus movie-locations.com description agree.",
       "priority": 5,
-      "must_keep": true
+      "must_keep": true,
+      "gallery": [],
+      "film_gallery": []
     },
     {
       "id": "peep-show-registry",
@@ -792,7 +784,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Council.JPG?width=800",
         "credit": "A P Monblat via Wikimedia Commons (Bernard Weatherill House, built on the site)",
         "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Council.JPG"
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Council.JPG",
+        "src": "media/photos/peep-show-registry.jpg"
       },
       "sources": [
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
@@ -824,7 +817,8 @@
         "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Clocktower_seen_from_Queen's_gardens.jpg?width=800",
         "credit": "Looshluz via Wikimedia Commons",
         "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_seen_from_Queen's_gardens.jpg"
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_seen_from_Queen's_gardens.jpg",
+        "src": "media/photos/finale.jpg"
       },
       "sources": [
         "https://www.davidleancinema.org.uk"

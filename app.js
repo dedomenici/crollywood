@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261105163006';
+  var BUILD = '20261114032442';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -133,6 +133,7 @@
   }
   function goHome() {
     state.mode = 'home';
+    stopYoutube();
     $('panel').hidden = true; $('panel').style.transform = ''; setPeek(false, true); svOpen = false;
     $('home').hidden = false;
     renderHome(); refreshIcons(); layoutMapBtns(); fitRoute(); updateStatus(); updateStreetView();
@@ -202,22 +203,51 @@
   function locationCarouselHTML(s) {
     return '<div class="section-label">Location</div>' + carouselBlock(locationSlides(s), 'trackLoc', 'dots-loc');
   }
+  function youtubeId(val) {
+    var m = String(val || '').trim().match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:embed\/|shorts\/|watch\?.*?v=))([A-Za-z0-9_-]{11})|^([A-Za-z0-9_-]{11})$/);
+    return m ? (m[1] || m[2]) : '';
+  }
+  function youtubeIds(s) {
+    var ids = [], seen = {};
+    function add(v) {
+      var id = youtubeId(v);
+      if (id && !seen[id]) { seen[id] = 1; ids.push(id); }
+    }
+    add(s && s.youtube);
+    ((s && s.films) || []).forEach(function (f) { add(f && f.youtube); });
+    return ids;
+  }
+  function youtubeEmbedHTML(id) {
+    return '<div class="yt-wrap"><iframe class="yt-embed" src="https://www.youtube-nocookie.com/embed/' + esc(id) +
+      '?autoplay=1&mute=1&playsinline=1&rel=0" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+  }
+  function stopYoutube() {
+    document.querySelectorAll('#ytSlot iframe, iframe.yt-embed').forEach(function (f) {
+      try { f.src = 'about:blank'; } catch (e) {}
+      f.remove();
+    });
+    var slot = document.getElementById('ytSlot');
+    if (slot) slot.innerHTML = '';
+  }
   function filmMediaHTML(s) {
     var hasClip = !!(s.clip && hasMedia('clips', s.clip));
     var hasAud = !!(s.audio && hasMedia('audio', s.audio));
     var films = filmSlides(s);
+    var yids = youtubeIds(s);
+    var yt = yids.map(youtubeEmbedHTML).join('');
     var clip = s.clip
       ? (hasClip
           ? '<video controls playsinline preload="metadata" src="' + esc(s.clip) + '"></video>'
-          : '<div class="placeholder">🎬 Film clip coming soon</div>')
+          : (yt ? '' : '<div class="placeholder">🎬 Film clip coming soon</div>'))
       : '';
     var aud = s.audio
       ? (hasAud
           ? '<audio controls preload="metadata" src="' + esc(s.audio) + '"></audio>'
           : '')
       : '';
-    if (!clip && !aud && !films.length) return '';
+    if (!yt && !clip && !aud && !films.length) return '';
     var h = '<div class="film-media card"><div class="section-label">From the film</div>';
+    if (yt) h += '<div class="media-label">Video</div><div id="ytSlot">' + yt + '</div>';
     if (clip) h += '<div class="media-label">Clip</div><div id="clipSlot">' + clip + '</div>';
     if (aud) h += '<div class="media-label">Narration</div><div id="audioSlot">' + aud + '</div>';
     if (films.length) h += '<div class="media-label">Images</div>' + carouselBlock(films, 'trackFilm', 'dots-film');
@@ -272,9 +302,14 @@
     h += '<div class="sources">Sources: ' + s.sources.map(function (x) {
       return /^https?:/.test(x) ? '<a href="' + esc(x.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(x.split(' ')[0].replace(/^https?:\/\/(www\.)?/, '').slice(0, 48)) + '</a>' : esc(x);
     }).join(' · ') + '</div></div>';
+    stopYoutube();
     $('panelBody').innerHTML = h; $('panelBody').scrollTop = 0;
     wireCarousel(); wireMedia(s); renderNav();
-    $('visitBtn').onclick = function () { setVisited(s, !state.visited[s.id]); renderPanel(); };
+    $('visitBtn').onclick = function () {
+      setVisited(s, !state.visited[s.id]);
+      var b = $('visitBtn');
+      if (b) b.textContent = state.visited[s.id] ? '✓ Visited' : 'Mark visited';
+    };
     $('dirBtn').onclick = function () {
       var from = state.geo.me ? state.geo.me.join(',') : '';
       window.open('https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=' + encodeURIComponent(from) + '%3B' + s.lat + '%2C' + s.lng, '_blank');
@@ -397,6 +432,7 @@
       '<div class="addr">' + esc(s.address || '') + '</div></div>';
     if (img) h += '<figure class="slide start-photo"><span class="tag">Start point</span><img src="' + esc(img) + '" alt="' + esc(s.name) + '"' + (s.image.src && s.image.url ? ' data-fallback="' + esc(s.image.url) + '"' : '') + '><figcaption>' + esc(s.image.credit || '') + '</figcaption></figure>';
     h += '<div class="card"><p class="small">This step moves on automatically when you arrive (within about 30 m). Already there, or no GPS? Tap <strong>NEXT</strong>. Tap <strong>Street View</strong> above to see what it looks like.</p></div>';
+    stopYoutube();
     $('panelBody').innerHTML = h; $('panelBody').scrollTop = 0;
     var im = $('panelBody').querySelector('img');
     if (im) im.addEventListener('error', function () { if (im.dataset.fallback && im.src.indexOf(im.dataset.fallback) < 0) im.src = im.dataset.fallback; });

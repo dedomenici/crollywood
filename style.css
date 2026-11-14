@@ -324,3 +324,5 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 .film-media .carousel{margin-top:4px}
 .film-media video{width:100%;border-radius:8px;background:#000;margin:4px 0 8px;max-height:280px}
 .film-media audio{width:100%;margin:4px 0 8px}
+.film-media .yt-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;margin:4px 0 8px;overflow:hidden}
+.film-media .yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}

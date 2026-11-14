@@ -8,10 +8,18 @@
       "name": "Brazil (1985)",
       "reason": "Map pin at 51.3805,-0.1229 is about 1.6km west of the loop (Purley Way side), outside the walkable town-centre radius.",
       "source": "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
+    },
+    {
+      "name": "The Bill (Katharine Street / Park Street corner)",
+      "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
+    },
+    {
+      "name": "Matthews Yard",
+      "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 4274,
-  "route_duration_s": 3422,
+  "route_distance_m": 4029,
+  "route_duration_s": 3226,
   "stops": [
     {
       "id": "david-lean",
@@ -46,7 +54,7 @@
       "order": 1,
       "clip": "media/clips/david-lean.mp4",
       "audio": "media/audio/david-lean.mp3",
-      "leg_to_next_m": 92,
+      "leg_to_next_m": 162,
       "route_snap": {
         "lat": 51.372374,
         "lng": -0.09901,
@@ -54,11 +62,11 @@
       }
     },
     {
-      "id": "american-assassin",
-      "name": "St George's Walk (Park Street end)",
-      "address": "St George's Walk, CR0 1YJ",
-      "lat": 51.3729,
-      "lng": -0.09851,
+      "id": "heads-of-state-sgw",
+      "name": "St George's Walk",
+      "address": "St George's Walk, CR0 1YL",
+      "lat": 51.373117,
+      "lng": -0.097725,
       "films": [
         {
           "title": "American Assassin",
@@ -69,7 +77,8 @@
             "src": "media/posters/american-assassin.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (American Assassin.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/American_Assassin"
-          }
+          },
+          "youtube": "bGEEVqr-KKc"
         },
         {
           "title": "Black Mirror: Bandersnatch",
@@ -89,34 +98,41 @@
           "scene": "The Equal Pay Act bike ride was shot on St George's Walk — same arcade as the Bandersnatch dressing.",
           "poster": {
             "src": "media/posters/made-in-dagenham.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia, used for identification",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Made in dagenham poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
+          }
+        },
+        {
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "On 20–21 June 2023 the arcade was dressed overnight as a Polish high street, with a nightclub, Polish shopfronts, posters and graffiti, for the Warsaw chase with Idris Elba, John Cena and Priyanka Chopra Jonas. Richard's Heads of State: Redux recreates these scenes.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
           }
         }
       ],
       "image": {
-        "src": "media/photos/american-assassin.jpg",
-        "credit": "St George's Walk — WHSmith / Bandersnatch dressing (location)",
-        "license": "User-supplied tour photograph"
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg",
+        "src": "media/photos/heads-of-state-sgw.jpg"
       },
       "sources": [
+        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
+        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
+        "https://www.croydonites.com/programme/redux-heads-of-state",
+        "OpenStreetMap / Nominatim geometry of St George's Walk pedestrian arcade (ways 632344066, 199735119, 26600903), midpoint ±25 m",
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://www.copsecroydon.co.uk/event/local-evening-walk-no-hall/",
-        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859"
+        "https://www.copsecroydon.co.uk/event/local-evening-walk-no-hall/"
       ],
       "confidence": "high",
-      "confidence_note": "Map pins for both titles are about 15m apart. Bandersnatch's half of the Walk has been demolished.",
+      "confidence_note": "Pin placed at the midpoint of St George's Walk, from OpenStreetMap geometry of the pedestrian arcade between Park Street and Park Lane. Bandersnatch's half of the Walk has been demolished.",
       "priority": 5,
-      "must_keep": false,
-      "order": 2,
-      "clip": "media/clips/made-in-dagenham.mp4",
-      "audio": "media/audio/american-assassin.mp3",
-      "leg_to_next_m": 127,
-      "route_snap": {
-        "lat": 51.3729,
-        "lng": -0.098541,
-        "offset_m": 2
-      },
+      "must_keep": true,
       "gallery": [],
       "film_gallery": [
         {
@@ -144,148 +160,16 @@
           "credit": "Period Capri — Bandersnatch-era street",
           "tag": "Bandersnatch"
         }
-      ]
-    },
-    {
-      "id": "the-bill",
-      "name": "Katharine Street / Park Street corner",
-      "address": "Katharine Street, CR0",
-      "lat": 51.37299,
-      "lng": -0.09948,
-      "films": [
-        {
-          "title": "The Bill",
-          "year": 1984,
-          "type": "TV",
-          "scene": "The long-running police drama often filmed in central Croydon, around Surrey Street and St George's House (the Nestlé Building).",
-          "poster": {
-            "src": "media/posters/the-bill.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (The Bill UK TV Series Title 2002.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/The_Bill"
-          }
-        }
       ],
-      "image": {
-        "src": "media/photos/the-bill.jpg",
-        "credit": "Richard DeDomenici / location then–now composite (The Bill alley, Croydon)",
-        "license": "User-supplied tour media; film frame within composite © its rights holder, reproduced under fair dealing for criticism/review of filming location"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://en-academic.com/dic.nsf/enwiki/273044"
-      ],
-      "confidence": "low",
-      "confidence_note": "Map pin has no description, so the specific episode or scene is unknown.",
-      "priority": 1,
-      "must_keep": false,
-      "order": 3,
-      "clip": "media/clips/the-bill.mp4",
-      "audio": "media/audio/the-bill.mp3",
-      "leg_to_next_m": 92,
-      "route_snap": {
-        "lat": 51.373286,
-        "lng": -0.099582,
-        "offset_m": 34
-      },
-      "gallery": [],
-      "film_gallery": [
-        {
-          "src": "media/photos/the-bill.jpg",
-          "credit": "The Bill — then/now alley composite",
-          "tag": "Film"
-        }
-      ]
-    },
-    {
-      "id": "heads-of-state-sgw",
-      "name": "St George's Walk (the 'Warsaw' street)",
-      "address": "St George's Walk, CR0 1PB",
-      "lat": 51.37321,
-      "lng": -0.09857,
-      "films": [
-        {
-          "title": "Heads of State",
-          "year": 2025,
-          "type": "film",
-          "scene": "On 20–21 June 2023 the arcade was dressed overnight as a Polish high street, with a nightclub, Polish shopfronts, posters and graffiti, for the Warsaw chase with Idris Elba, John Cena and Priyanka Chopra Jonas. Richard's Heads of State: Redux recreates these scenes.",
-          "poster": {
-            "src": "media/posters/heads-of-state-2025-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:St_George's_Walk_(1)_-_geograph.org.uk_-_2631951.jpg",
-        "src": "media/photos/heads-of-state-sgw.jpg"
-      },
-      "sources": [
-        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
-        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
-        "https://www.croydonites.com/programme/redux-heads-of-state"
-      ],
-      "confidence": "high",
-      "confidence_note": "Several press sources, plus Croydonites saying the Warsaw chase was filmed in the town centre. The exact frame-by-frame spots are for Richard to refine.",
-      "priority": 5,
-      "must_keep": true,
-      "order": 4,
-      "clip": "media/clips/heads-of-state-sgw.mp4",
-      "audio": "media/audio/heads-of-state-sgw.mp3",
-      "leg_to_next_m": 82,
-      "route_snap": {
-        "lat": 51.37321,
-        "lng": -0.098567,
-        "offset_m": 0
-      }
-    },
-    {
-      "id": "made-in-dagenham",
-      "name": "St George's Walk (Made in Dagenham)",
-      "address": "St George's Walk, CR0 1PB",
-      "lat": 51.37315,
-      "lng": -0.09845,
-      "films": [
-        {
-          "title": "Made in Dagenham",
-          "year": 2010,
-          "type": "film",
-          "scene": "Croydon's 1960s concrete stands in for 1968 Westminster and Dagenham. Scenes were shot on St George's Walk and at Fairfield Halls.",
-          "poster": {
-            "src": "media/posters/made-in-dagenham.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Made in dagenham poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Hall,_Croydon_-_geograph.org.uk_-_2819880.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Hall,_Croydon_-_geograph.org.uk_-_2819880.jpg",
-        "src": "media/photos/made-in-dagenham.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/"
-      ],
-      "confidence": "medium",
-      "confidence_note": "The map pin has no description, and the scene details are generic.",
-      "priority": 2,
-      "must_keep": false,
-      "order": 5,
       "clip": "media/clips/made-in-dagenham.mp4",
-      "audio": "media/audio/made-in-dagenham.mp3",
+      "order": 2,
+      "audio": "media/audio/heads-of-state-sgw.mp3",
       "leg_to_next_m": 107,
       "route_snap": {
         "lat": 51.373117,
-        "lng": -0.097729,
-        "offset_m": 9
-      },
-      "gallery": [],
-      "film_gallery": []
+        "lng": -0.097725,
+        "offset_m": 0
+      }
     },
     {
       "id": "fairfield-halls",
@@ -331,15 +215,6 @@
       "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb.",
       "priority": 4,
       "must_keep": false,
-      "order": 6,
-      "clip": "media/clips/fairfield-halls.mp4",
-      "audio": "media/audio/fairfield-halls.mp3",
-      "leg_to_next_m": 132,
-      "route_snap": {
-        "lat": 51.37282,
-        "lng": -0.096871,
-        "offset_m": 1
-      },
       "gallery": [],
       "film_gallery": [
         {
@@ -352,7 +227,16 @@
           "credit": "The Da Vinci Code — lecture hall wide",
           "tag": "Film still"
         }
-      ]
+      ],
+      "order": 3,
+      "clip": "media/clips/fairfield-halls.mp4",
+      "audio": "media/audio/fairfield-halls.mp3",
+      "leg_to_next_m": 132,
+      "route_snap": {
+        "lat": 51.37282,
+        "lng": -0.096871,
+        "offset_m": 1
+      }
     },
     {
       "id": "criminal-bourne",
@@ -401,7 +285,9 @@
       "confidence_note": "Several sources agree. The KML pin is between the two buildings.",
       "priority": 4,
       "must_keep": false,
-      "order": 7,
+      "gallery": [],
+      "film_gallery": [],
+      "order": 4,
       "clip": "media/clips/criminal-bourne.mp4",
       "audio": "media/audio/criminal-bourne.mp3",
       "leg_to_next_m": 354,
@@ -409,9 +295,7 @@
         "lat": 51.373054,
         "lng": -0.096027,
         "offset_m": 3
-      },
-      "film_gallery": [],
-      "gallery": []
+      }
     },
     {
       "id": "velvet-goldmine",
@@ -447,7 +331,9 @@
       "confidence_note": "The street is confirmed, but the exact camera position is approximate.",
       "priority": 2,
       "must_keep": false,
-      "order": 8,
+      "gallery": [],
+      "film_gallery": [],
+      "order": 5,
       "clip": "media/clips/velvet-goldmine.mp4",
       "audio": "media/audio/velvet-goldmine.mp3",
       "leg_to_next_m": 297,
@@ -455,9 +341,7 @@
         "lat": 51.375638,
         "lng": -0.098028,
         "offset_m": 1
-      },
-      "film_gallery": [],
-      "gallery": []
+      }
     },
     {
       "id": "man-who-knew-too-little",
@@ -493,7 +377,9 @@
       "confidence_note": "Map pin and London on Location agree.",
       "priority": 3,
       "must_keep": false,
-      "order": 9,
+      "gallery": [],
+      "film_gallery": [],
+      "order": 6,
       "clip": "media/clips/man-who-knew-too-little.mp4",
       "audio": "media/audio/man-who-knew-too-little.mp3",
       "leg_to_next_m": 350,
@@ -501,9 +387,7 @@
         "lat": 51.376891,
         "lng": -0.095564,
         "offset_m": 6
-      },
-      "film_gallery": [],
-      "gallery": []
+      }
     },
     {
       "id": "peep-show-canterbury",
@@ -539,15 +423,6 @@
       "confidence_note": "Detailed description on the map, and the building is verified in OSM.",
       "priority": 5,
       "must_keep": true,
-      "order": 10,
-      "clip": "media/clips/peep-show-canterbury.mp4",
-      "audio": "media/audio/peep-show-canterbury.mp3",
-      "leg_to_next_m": 106,
-      "route_snap": {
-        "lat": 51.377863,
-        "lng": -0.097717,
-        "offset_m": 27
-      },
       "gallery": [],
       "film_gallery": [
         {
@@ -560,7 +435,16 @@
           "credit": "Peep Show — JLB Credit sign",
           "tag": "Film still"
         }
-      ]
+      ],
+      "order": 7,
+      "clip": "media/clips/peep-show-canterbury.mp4",
+      "audio": "media/audio/peep-show-canterbury.mp3",
+      "leg_to_next_m": 106,
+      "route_snap": {
+        "lat": 51.377863,
+        "lng": -0.097717,
+        "offset_m": 27
+      }
     },
     {
       "id": "heads-of-state-apollo",
@@ -597,7 +481,7 @@
       "confidence_note": "Only one source (a Reddit comment, possibly by Richard) places the scene here. The building position is verified in OSM. Check against the film.",
       "priority": 3,
       "must_keep": false,
-      "order": 11,
+      "order": 8,
       "clip": "media/clips/heads-of-state-apollo.mp4",
       "audio": "media/audio/heads-of-state-apollo.mp3",
       "leg_to_next_m": 375,
@@ -642,7 +526,7 @@
       "confidence_note": "Several sources agree. The KML pin was about 60m south, so this uses the OSM building position.",
       "priority": 5,
       "must_keep": true,
-      "order": 12,
+      "order": 9,
       "clip": "media/clips/dark-knight-rises.mp4",
       "audio": "media/audio/dark-knight-rises.mp3",
       "leg_to_next_m": 312,
@@ -700,15 +584,6 @@
       "confidence_note": "All of Us Strangers: high (IMDb, Guardian, Inside Croydon). Terry & June titles: medium (Guardian and Inside Croydon mention the Whitgift title sequence). The ramp pin is approximate.",
       "priority": 5,
       "must_keep": true,
-      "order": 13,
-      "clip": "media/clips/terry-and-june.mp4",
-      "audio": "media/audio/terry-and-june.mp3",
-      "leg_to_next_m": 228,
-      "route_snap": {
-        "lat": 51.376837,
-        "lng": -0.099136,
-        "offset_m": 31
-      },
       "gallery": [],
       "film_gallery": [
         {
@@ -716,7 +591,16 @@
           "credit": "Chelsea Girl / Mr Doodle — Bandersnatch, Whitgift",
           "tag": "Bandersnatch"
         }
-      ]
+      ],
+      "order": 10,
+      "clip": "media/clips/terry-and-june.mp4",
+      "audio": "media/audio/terry-and-june.mp3",
+      "leg_to_next_m": 228,
+      "route_snap": {
+        "lat": 51.376837,
+        "lng": -0.099136,
+        "offset_m": 31
+      }
     },
     {
       "id": "opalite",
@@ -754,7 +638,7 @@
       "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site.",
       "priority": 5,
       "must_keep": true,
-      "order": 14,
+      "order": 11,
       "clip": "media/clips/opalite.mp4",
       "audio": "media/audio/opalite.mp3",
       "leg_to_next_m": 53,
@@ -795,7 +679,7 @@
       "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC.",
       "priority": 5,
       "must_keep": true,
-      "order": 15,
+      "order": 12,
       "clip": "media/clips/girl-group.mp4",
       "audio": "media/audio/girl-group.mp3",
       "leg_to_next_m": 247,
@@ -839,7 +723,7 @@
       "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed.",
       "priority": 4,
       "must_keep": false,
-      "order": 16,
+      "order": 13,
       "clip": "media/clips/it-crowd.mp4",
       "audio": "media/audio/it-crowd.mp3",
       "leg_to_next_m": 374,
@@ -882,7 +766,7 @@
       "confidence_note": "From DeDomenici's map; venue may have changed name.",
       "priority": 2,
       "must_keep": false,
-      "order": 17,
+      "order": 14,
       "clip": "media/clips/peep-show-loop-bar.mp4",
       "audio": "media/audio/peep-show-loop-bar.mp3",
       "leg_to_next_m": 171,
@@ -928,7 +812,7 @@
       "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
       "priority": 4,
       "must_keep": false,
-      "order": 18,
+      "order": 15,
       "clip": "media/clips/heads-of-state-overtons.mp4",
       "audio": "media/audio/heads-of-state-overtons.mp3",
       "leg_to_next_m": 191,
@@ -973,53 +857,14 @@
       "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
       "priority": 3,
       "must_keep": false,
-      "order": 19,
+      "order": 16,
       "clip": "media/clips/heads-of-state-carpark.mp4",
       "audio": "media/audio/heads-of-state-carpark.mp3",
-      "leg_to_next_m": 120,
+      "leg_to_next_m": 276,
       "route_snap": {
         "lat": 51.372302,
         "lng": -0.102299,
         "offset_m": 14
-      }
-    },
-    {
-      "id": "matthews-yard",
-      "name": "Matthews Yard",
-      "address": "Matthews Yard, off Surrey Street, CR0 1FF",
-      "lat": 51.37236,
-      "lng": -0.10111,
-      "films": [
-        {
-          "title": "American Assassin: Redux (Crollywood HQ)",
-          "year": 2018,
-          "type": "redux",
-          "scene": "Start and finish of the original 2018 Crollywood tour, and the venue of the American Assassin: Redux world premiere at Matthews Yard Theatre."
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Matthews_Yard,_Croydon,_CR0_(34398740191).jpg?width=800",
-        "credit": "Flickr user via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Matthews_Yard,_Croydon,_CR0_(34398740191).jpg",
-        "src": "media/photos/matthews-yard.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "http://www.justcroydon.com/events/5609/18-May-2018/culture/richard-dedomenici-american-assassin-redux"
-      ],
-      "confidence": "high",
-      "confidence_note": "Not a film location as such: the tour's original start point.",
-      "priority": 5,
-      "must_keep": true,
-      "order": 20,
-      "clip": "media/clips/matthews-yard.mp4",
-      "audio": "media/audio/matthews-yard.mp3",
-      "leg_to_next_m": 170,
-      "route_snap": {
-        "lat": 51.372358,
-        "lng": -0.101109,
-        "offset_m": 0
       }
     },
     {
@@ -1056,7 +901,9 @@
       "confidence_note": "Map pin plus movie-locations.com description agree.",
       "priority": 5,
       "must_keep": true,
-      "order": 21,
+      "gallery": [],
+      "film_gallery": [],
+      "order": 17,
       "clip": "media/clips/konga.mp4",
       "audio": "media/audio/konga.mp3",
       "leg_to_next_m": 95,
@@ -1064,9 +911,7 @@
         "lat": 51.371059,
         "lng": -0.100255,
         "offset_m": 0
-      },
-      "film_gallery": [],
-      "gallery": []
+      }
     },
     {
       "id": "peep-show-registry",
@@ -1101,7 +946,7 @@
       "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate.",
       "priority": 2,
       "must_keep": false,
-      "order": 22,
+      "order": 18,
       "clip": "media/clips/peep-show-registry.mp4",
       "audio": "media/audio/peep-show-registry.mp3",
       "leg_to_next_m": 199,
@@ -1143,7 +988,7 @@
       "confidence_note": "Tour finish point: the same venue as stop 1.",
       "priority": 5,
       "must_keep": true,
-      "order": 23,
+      "order": 19,
       "clip": "media/clips/finale.mp4",
       "audio": "media/audio/finale.mp3",
       "leg_to_next_m": 0,
@@ -1163,29 +1008,27 @@
       "route": "route_60.geojson",
       "stop_ids": [
         "david-lean",
-        "american-assassin",
-        "heads-of-state-sgw",
+        "konga",
+        "opalite",
         "terry-and-june",
         "dark-knight-rises",
-        "opalite",
-        "matthews-yard",
-        "konga",
+        "peep-show-canterbury",
+        "heads-of-state-sgw",
         "finale"
       ],
       "legs_m": [
-        92,
-        35,
-        550,
-        312,
-        473,
-        508,
-        170,
         238,
+        619,
+        228,
+        312,
+        332,
+        680,
+        162,
         0
       ],
-      "distance_m": 2378,
-      "walk_s": 1906,
-      "est_min": 60,
+      "distance_m": 2570,
+      "walk_s": 2062,
+      "est_min": 59,
       "dwell_min": 3.5,
       "must_keep_only": false
     },
@@ -1197,31 +1040,31 @@
       "stop_ids": [
         "david-lean",
         "heads-of-state-sgw",
+        "fairfield-halls",
         "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
         "girl-group",
         "opalite",
-        "matthews-yard",
         "konga",
         "finale"
       ],
       "legs_m": [
-        126,
-        718,
+        162,
+        107,
+        686,
         332,
         312,
         263,
         53,
-        508,
-        170,
+        619,
         238,
         0
       ],
-      "distance_m": 2722,
-      "walk_s": 2185,
-      "est_min": 72,
-      "must_keep_only": true
+      "distance_m": 2772,
+      "walk_s": 2224,
+      "est_min": 73,
+      "must_keep_only": false
     },
     {
       "id": "90",
@@ -1230,37 +1073,37 @@
       "route": "route_90.geojson",
       "stop_ids": [
         "david-lean",
-        "american-assassin",
         "heads-of-state-sgw",
         "fairfield-halls",
+        "criminal-bourne",
         "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
         "girl-group",
         "opalite",
+        "peep-show-loop-bar",
         "heads-of-state-overtons",
-        "matthews-yard",
         "konga",
         "finale"
       ],
       "legs_m": [
-        92,
-        35,
-        189,
-        686,
+        162,
+        107,
+        132,
+        654,
         332,
         312,
         263,
         53,
-        516,
-        111,
-        170,
+        376,
+        171,
+        260,
         238,
         0
       ],
-      "distance_m": 2998,
-      "walk_s": 2404,
-      "est_min": 88,
+      "distance_m": 3059,
+      "walk_s": 2451,
+      "est_min": 89,
       "must_keep_only": false
     },
     {
@@ -1270,47 +1113,45 @@
       "route": "route_120.geojson",
       "stop_ids": [
         "david-lean",
-        "american-assassin",
         "heads-of-state-sgw",
-        "made-in-dagenham",
         "fairfield-halls",
         "criminal-bourne",
-        "heads-of-state-apollo",
+        "man-who-knew-too-little",
         "peep-show-canterbury",
+        "heads-of-state-apollo",
         "dark-knight-rises",
         "terry-and-june",
         "opalite",
         "girl-group",
         "it-crowd",
+        "peep-show-loop-bar",
         "heads-of-state-overtons",
         "heads-of-state-carpark",
-        "matthews-yard",
         "konga",
         "finale"
       ],
       "legs_m": [
-        92,
-        35,
-        82,
+        162,
         107,
         132,
-        698,
+        586,
+        350,
         106,
-        332,
+        375,
         312,
         228,
         53,
         247,
-        515,
+        374,
+        171,
         191,
-        120,
-        170,
+        276,
         238,
         0
       ],
-      "distance_m": 3656,
-      "walk_s": 2929,
-      "est_min": 117,
+      "distance_m": 3907,
+      "walk_s": 3128,
+      "est_min": 116,
       "must_keep_only": false
     },
     {
@@ -1320,10 +1161,7 @@
       "route": "route_full.geojson",
       "stop_ids": [
         "david-lean",
-        "american-assassin",
-        "the-bill",
         "heads-of-state-sgw",
-        "made-in-dagenham",
         "fairfield-halls",
         "criminal-bourne",
         "velvet-goldmine",
@@ -1338,16 +1176,12 @@
         "peep-show-loop-bar",
         "heads-of-state-overtons",
         "heads-of-state-carpark",
-        "matthews-yard",
         "konga",
         "peep-show-registry",
         "finale"
       ],
       "legs_m": [
-        92,
-        127,
-        92,
-        82,
+        162,
         107,
         132,
         354,
@@ -1362,15 +1196,14 @@
         374,
         171,
         191,
-        120,
-        170,
+        276,
         95,
         199,
         0
       ],
-      "distance_m": 4274,
-      "walk_s": 3422,
-      "est_min": 145,
+      "distance_m": 4029,
+      "walk_s": 3226,
+      "est_min": 126,
       "must_keep_only": false
     }
   ],
