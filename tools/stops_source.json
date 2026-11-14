@@ -176,23 +176,14 @@
             "page": "https://en.wikipedia.org/wiki/The_Da_Vinci_Code_(film)"
           },
           "clip": "media/clips/da-vinci-code-fairfield.mp4"
-        },
-        {
-          "title": "Cuban Fury",
-          "year": 2014,
-          "type": "film",
-          "scene": "The flashbacks and the salsa competition in the final scene.",
-          "poster": {
-            "src": "media/posters/cuban-fury.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Cuban Fury.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Cuban_Fury"
-          }
         }
       ],
       "image": {
-        "src": "media/photos/fairfield-halls.jpg",
-        "credit": "Fairfield Halls Concert Hall (location)",
-        "license": "User-supplied tour photograph"
+        "src": "media/photos/fairfield-halls-exterior.jpg",
+        "credit": "Stephen Richards via Geograph / Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairfield_Halls_at_night_-_geograph.org.uk_-_7061729.jpg?width=1024",
+        "page": "https://commons.wikimedia.org/wiki/File:Fairfield_Halls_at_night_-_geograph.org.uk_-_7061729.jpg"
       },
       "sources": [
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
@@ -205,7 +196,14 @@
       "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb. Pin is on the pavement immediately west of the halls, between the building and Park Lane.",
       "priority": 4,
       "must_keep": false,
-      "gallery": [],
+      "gallery": [
+        {
+          "src": "media/photos/fairfield-halls.jpg",
+          "credit": "Fairfield Halls Concert Hall (location)",
+          "license": "User-supplied tour photograph",
+          "tag": "Location"
+        }
+      ],
       "film_gallery": [
         {
           "src": "media/photos/fairfield-halls-film.jpg",
@@ -864,25 +862,25 @@
   "close_loop": false,
   "presets": [
     {
-      "id": "highlights",
-      "label": "Highlights",
-      "target_min": 75
+      "id": "15",
+      "label": "15 min",
+      "target_min": 15
+    },
+    {
+      "id": "30",
+      "label": "30 min",
+      "target_min": 30
+    },
+    {
+      "id": "60",
+      "label": "1 hr",
+      "target_min": 60
     },
     {
       "id": "90",
       "label": "1½ hrs",
       "target_min": 90
-    },
-    {
-      "id": "120",
-      "label": "2 hrs",
-      "target_min": 120
-    },
-    {
-      "id": "full",
-      "label": "Full",
-      "target_min": null
     }
   ],
-  "dwell_min_per_stop": 4
+  "dwell_min_per_stop": 2.9
 }

@@ -131,8 +131,11 @@ def build_presets():
     base, base_c = optimise([START] + must)
     results = []
     for p in presets:
-        if p.get("target_min") is None:
+        if p.get("target_min") is None or p.get("id") == "90":
             order = list(range(len(S)))
+        elif p.get("id") in ("15", "30", "60"):
+            # Subsets are chosen in tools/build_duration_presets.py (content / cluster search).
+            continue
         else:
             t, c = base[:], base_c
             while True:
@@ -165,7 +168,7 @@ def build_presets():
         time.sleep(0.5)
     out["dwell_min_per_stop"] = dwell
     out["presets"] = results
-    out["default_preset"] = "full"
+    out["default_preset"] = "90"
     json.dump(out, open("locations.json", "w"), indent=2, ensure_ascii=False)
     must_min = round(est_min([START] + base[1:] , base_c))
     print(f"\nmust-keep-only tour: {len(must)+2} stops, ~{must_min} min")

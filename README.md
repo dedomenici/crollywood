@@ -20,8 +20,8 @@ The password screen is client-side only. It's a soft gate and does not secure an
 ## Look-through mode & config.js
 `config.js` holds `GOOGLE_MAPS_KEY` (empty by default). With a key (restrict it to `https://dedomenici.github.io/*`), Look-through mode shows a Google `StreetViewPanorama` with `motionTracking: true` at the current stop. Without a key it uses the rear camera (`getUserMedia`, facingMode environment) with a compass arrow to the stop (DeviceOrientation; iOS permission requested on tap). If the camera is denied it falls back to the stop photo; if motion is denied the arrow is north-up.
 
-## 1-hour preset
-`tools/build_hour_preset.py` adds `route_60.geojson` / preset `60` (exact subset search, OSRM foot times, ~3.5 min per stop, ≤ 60 min).
+## Duration presets
+`tools/build_duration_presets.py` (also invoked as `tools/build_hour_preset.py`) writes the 15 / 30 / 60 / 90 minute slider presets and their OSRM foot routes. The full 15-stop loop is the 90-minute tour; 60 and 30 are David Lean loops that maximise content within the budget; 15 is the tightest geographic cluster. All four use the same per-stop dwell (`dwell_min_per_stop` in `tools/stops_source.json`).
 
 ## Media
 Drop clips/narration into `media/clips/<id>.mp4` and `media/audio/<id>.mp3`, then run `python3 tools/stamp_version.py` (it rebuilds `media/manifest.json`, so only existing files are requested).

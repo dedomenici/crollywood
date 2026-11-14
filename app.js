@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261114072448';
+  var BUILD = '20261114073822';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -188,7 +188,7 @@
     var n = state.stops.length, v = state.stops.filter(function (s) { return state.visited[s.id]; }).length;
     var t = state.tour;
     $('startBtn').textContent = t.active ? 'RESUME TOUR' : (n && v === n ? 'START AGAIN' : v > 0 ? 'CONTINUE TOUR' : 'START TOUR');
-    if (state.preset) $('durChipText').textContent = fmtHrs(state.preset.est_min);
+    if (state.preset) $('durChipText').textContent = state.preset.label || fmtHrs(state.preset.target_min || state.preset.est_min);
     $('endBtn').hidden = !t.active;
   }
 
@@ -200,12 +200,13 @@
   }
   function presetSummary(p) {
     if (!p) return '';
-    return p.stop_ids.length + ' stops · ' + (p.distance_m / 1000).toFixed(1) + ' km · ~' + fmtHrs(p.est_min);
+    return p.stop_ids.length + ' stops · ' + (p.distance_m / 1000).toFixed(1) + ' km · ~' + (p.label || fmtHrs(p.target_min || p.est_min));
   }
   function tourDurationText() {
     var p = state.preset; if (!p) return '';
     var dwell = p.dwell_min || state.data.dwell_min_per_stop || 4;
-    return presetSummary(p) + ' (' + Math.round(p.walk_s / 60) + ' min walking + ~' + dwell + ' min per stop)';
+    var dtxt = (Math.round(dwell * 10) / 10).toString();
+    return presetSummary(p) + ' (' + Math.round(p.walk_s / 60) + ' min walking + ~' + dtxt + ' min per stop)';
   }
 
   /* ---------- stop panel: carousel + media ---------- */
@@ -961,7 +962,7 @@
       if (label) $('durChipText').textContent = label;
     }
     function sync() {
-      var i = idx(); place(i / (n - 1), fmtHrs(state.preset.est_min));
+      var i = idx(); place(i / (n - 1), state.preset.label || fmtHrs(state.preset.target_min || state.preset.est_min));
       sl.setAttribute('aria-valuenow', i); sl.setAttribute('aria-valuetext', ps[i].label + ', ' + presetSummary(ps[i]));
       ticks.forEach(function (t, k) { t.classList.toggle('on', k <= i); });
       $('durLive').textContent = presetSummary(state.preset);
@@ -978,13 +979,13 @@
     sl.addEventListener('pointerdown', function (e) {
       if (e.target.closest('#durTicks button')) return; // tick tap handled by click
       drag = { id: e.pointerId, moved: false, x0: e.clientX }; sl.setPointerCapture(e.pointerId); sl.classList.add('dragging');
-      if (!e.target.closest('#durThumb')) { var f = fracAt(e.clientX); place(f, fmtHrs(ps[Math.round(f * (n - 1))].est_min)); }
+      if (!e.target.closest('#durThumb')) { var f = fracAt(e.clientX); place(f, ps[Math.round(f * (n - 1))].label || fmtHrs(ps[Math.round(f * (n - 1))].target_min || ps[Math.round(f * (n - 1))].est_min)); }
       e.preventDefault();
     });
     sl.addEventListener('pointermove', function (e) {
       if (!drag || e.pointerId !== drag.id) return;
       if (Math.abs(e.clientX - drag.x0) > 3) drag.moved = true;
-      var f = fracAt(e.clientX); place(f, fmtHrs(ps[Math.round(f * (n - 1))].est_min));
+      var f = fracAt(e.clientX); place(f, ps[Math.round(f * (n - 1))].label || fmtHrs(ps[Math.round(f * (n - 1))].target_min || ps[Math.round(f * (n - 1))].est_min));
     });
     function endDrag(e) {
       if (!drag) return; sl.classList.remove('dragging');
@@ -1005,7 +1006,7 @@
       data.presets = [{ id: 'full', label: 'Full', route: 'route.geojson', stop_ids: data.stops.map(function (s) { return s.id; }),
         legs_m: data.stops.map(function (s) { return s.leg_to_next_m || 0; }), distance_m: data.route_distance_m, walk_s: data.route_duration_s, est_min: 150 }];
     }
-    var saved = localStorage.getItem(LS_PRESET) || data.default_preset || 'full';
+    var saved = localStorage.getItem(LS_PRESET) || data.default_preset || '90';
     map.setView([51.5072, -0.1276], 10, { animate: false }); // start over London; launchFly() zooms in to Croydon
     applyPreset(saved).then(function () { goHome(); launchFly(); });
     setupSlider();
