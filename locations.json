@@ -539,6 +539,12 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (All of Us Strangers poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/All_of_Us_Strangers"
           }
+        },
+        {
+          "title": "All of Us Strangers: Redux",
+          "type": "The Redux Project",
+          "scene": "Richard DeDomenici's remake of the Wellesley Road car arrival scene, from The Redux Project.",
+          "clip": "media/clips/all-of-us-strangers-redux.mp4"
         }
       ],
       "image": {
@@ -562,7 +568,7 @@
       "gallery": [],
       "film_gallery": [],
       "order": 9,
-      "clip": "media/clips/all-of-us-strangers.mp4",
+      "clip": null,
       "audio": "media/audio/all-of-us-strangers.mp3",
       "leg_to_next_m": 351,
       "route_snap": {

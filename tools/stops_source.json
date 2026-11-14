@@ -473,6 +473,12 @@
             "credit": "Poster/artwork © its rights holder; via Wikipedia (All of Us Strangers poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/All_of_Us_Strangers"
           }
+        },
+        {
+          "title": "All of Us Strangers: Redux",
+          "type": "The Redux Project",
+          "scene": "Richard DeDomenici's remake of the Wellesley Road car arrival scene, from The Redux Project.",
+          "clip": "media/clips/all-of-us-strangers-redux.mp4"
         }
       ],
       "image": {
@@ -494,7 +500,8 @@
       "priority": 4,
       "must_keep": false,
       "gallery": [],
-      "film_gallery": []
+      "film_gallery": [],
+      "clip": null
     },
     {
       "id": "dark-knight-rises",
