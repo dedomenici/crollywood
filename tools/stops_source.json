@@ -911,6 +911,20 @@
           "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_Clocktower_seen_from_Queen's_gardens.jpg?width=800",
           "page": "https://commons.wikimedia.org/wiki/File:Croydon_Clocktower_seen_from_Queen's_gardens.jpg"
         }
+      ],
+      "links": [
+        {
+          "label": "Heads of State: Redux",
+          "url": "https://thereduxproject.com/headsofstate"
+        },
+        {
+          "label": "Richard's other London film tour: Fallout City Chase",
+          "url": "https://dedomenici.com/falloutcitychase"
+        },
+        {
+          "label": "Croydonites Festival",
+          "url": "https://www.croydonites.com/"
+        }
       ]
     }
   ],

@@ -326,3 +326,7 @@ body.mode-home .leaflet-top.leaflet-left{top:0}
 .film-media audio{width:100%;margin:4px 0 8px}
 .film-media .yt-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;margin:4px 0 8px;overflow:hidden}
 .film-media .yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+.links-section{margin-top:8px}
+.links-section .links-list{display:flex;flex-direction:column;gap:8px}
+.links-section .link-btn{margin:0;font-size:16px;padding:12px 14px;line-height:1.25;white-space:normal}

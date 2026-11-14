@@ -1034,7 +1034,21 @@
         "lat": 51.372374,
         "lng": -0.09901,
         "offset_m": 27
-      }
+      },
+      "links": [
+        {
+          "label": "Heads of State: Redux",
+          "url": "https://thereduxproject.com/headsofstate"
+        },
+        {
+          "label": "Richard's other London film tour: Fallout City Chase",
+          "url": "https://dedomenici.com/falloutcitychase"
+        },
+        {
+          "label": "Croydonites Festival",
+          "url": "https://www.croydonites.com/"
+        }
+      ]
     }
   ],
   "dwell_min_per_stop": 2.9,

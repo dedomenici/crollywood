@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261114082744';
+  var BUILD = '20261114083200';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -372,6 +372,17 @@
     var a = document.querySelector('#audioSlot audio');
     if (a) a.addEventListener('error', function () { $('audioSlot').innerHTML = ''; });
   }
+  function stopLinksHTML(s) {
+    var links = (s && s.links) || [];
+    if (!links.length) return '';
+    var h = '<div class="links-section card"><div class="section-label">Links</div><div class="links-list">';
+    links.forEach(function (l) {
+      if (!l || !l.url) return;
+      h += '<a class="big-btn link-btn" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label || l.url) + ' ↗</a>';
+    });
+    h += '</div></div>';
+    return h;
+  }
   function renderPanel(banner) {
     var s = state.stops[state.current];
     $('stopNum').textContent = s.order + '/' + state.stops.length;
@@ -395,6 +406,7 @@
     h += '<div class="sources">Sources: ' + s.sources.map(function (x) {
       return /^https?:/.test(x) ? '<a href="' + esc(x.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(x.split(' ')[0].replace(/^https?:\/\/(www\.)?/, '').slice(0, 48)) + '</a>' : esc(x);
     }).join(' · ') + '</div></div>';
+    h += stopLinksHTML(s);
     stopYoutube();
     $('panelBody').innerHTML = h; $('panelBody').scrollTop = 0;
     wireCarousel(); wireMedia(s); renderNav();
