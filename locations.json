@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 4814,
-  "route_duration_s": 3860,
+  "route_distance_m": 3917,
+  "route_duration_s": 3142,
   "stops": [
     {
       "id": "david-lean",
@@ -694,6 +694,17 @@
             "page": "https://en.wikipedia.org/wiki/Terry_and_June"
           },
           "clip": "media/clips/terry-and-june.mp4"
+        },
+        {
+          "title": "The IT Crowd",
+          "year": "2006–2013",
+          "type": "TV",
+          "scene": "Series 4 'Bad Boys': Moss shoplifts copies of Grand Designs magazine while he and Roy are bunking off.",
+          "poster": {
+            "src": "media/posters/the-it-crowd.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (The IT Crowd title card.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/The_IT_Crowd"
+          }
         }
       ],
       "image": {
@@ -727,6 +738,14 @@
           "tag": "Location",
           "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre,_Croydon,_1976.jpg?width=800",
           "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre,_Croydon,_1976.jpg"
+        },
+        {
+          "src": "media/photos/it-crowd.jpg",
+          "credit": "Hzh via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_North_End_entrance.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_North_End_entrance.jpg"
         }
       ],
       "film_gallery": [
@@ -748,10 +767,11 @@
         "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift",
         "https://insidecroydon.com/2025/09/10/whitgift-becomes-centre-stage-for-rebel-wilsons-new-movie/",
         "https://deadline.com/2025/09/rebel-wilson-girl-group-the-deb-randall-park-1236553365/",
-        "https://en.wikipedia.org/wiki/Girl_Group_(film)"
+        "https://en.wikipedia.org/wiki/Girl_Group_(film)",
+        "https://moviemaps.org/locations/279 (nearby: Whitgift Shopping Centre, The IT Crowd)"
       ],
       "confidence": "high",
-      "confidence_note": "The Whitgift is confirmed for All of Us Strangers, Opalite and Girl Group. The pin is inside the centre, at the escalator opposite Clarks, reached from North End; the old ramp, escalator and stage pins are now one interior stop.",
+      "confidence_note": "The Whitgift is confirmed for All of Us Strangers, Opalite, Girl Group and The IT Crowd. The pin is inside the centre, at the escalator opposite Clarks, reached from North End. The IT Crowd scene (series 4 'Bad Boys') is the North End shops; the exact unit isn't confirmed.",
       "priority": 5,
       "must_keep": true,
       "clip": null,
@@ -785,11 +805,8 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons (nearby Surrey Street)",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg",
-        "src": "media/photos/heads-of-state-overtons.jpg"
+        "src": "media/photos/overtons-yard-1.jpg",
+        "credit": "Richard DeDomenici"
       },
       "sources": [
         "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
@@ -803,57 +820,30 @@
       "priority": 4,
       "must_keep": false,
       "clip": null,
+      "gallery": [
+        {
+          "src": "media/photos/overtons-yard-2.jpg",
+          "credit": "Richard DeDomenici",
+          "tag": "Location"
+        },
+        {
+          "src": "media/photos/overtons-yard-3.jpg",
+          "credit": "Richard DeDomenici",
+          "tag": "Location"
+        },
+        {
+          "src": "media/photos/overtons-yard-4.jpg",
+          "credit": "Richard DeDomenici",
+          "tag": "Location"
+        }
+      ],
       "order": 12,
       "audio": "media/audio/heads-of-state-overtons.mp3",
-      "leg_to_next_m": 515,
+      "leg_to_next_m": 191,
       "route_snap": {
         "lat": 51.372762,
         "lng": -0.101861,
         "offset_m": 0
-      }
-    },
-    {
-      "id": "it-crowd",
-      "name": "Whitgift Centre, North End entrance",
-      "address": "North End, CR0",
-      "lat": 51.37601,
-      "lng": -0.10125,
-      "films": [
-        {
-          "title": "The IT Crowd",
-          "year": "2006–2013",
-          "type": "TV",
-          "scene": "Series 4 'Bad Boys': Moss shoplifts copies of Grand Designs magazine while he and Roy are bunking off.",
-          "poster": {
-            "src": "media/posters/the-it-crowd.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (The IT Crowd title card.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/The_IT_Crowd"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_North_End_entrance.jpg?width=800",
-        "credit": "Hzh via Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_North_End_entrance.jpg",
-        "src": "media/photos/it-crowd.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://moviemaps.org/locations/279 (nearby: Whitgift Shopping Centre, The IT Crowd)"
-      ],
-      "confidence": "high",
-      "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed.",
-      "priority": 4,
-      "must_keep": false,
-      "order": 13,
-      "clip": "media/clips/it-crowd.mp4",
-      "audio": "media/audio/it-crowd.mp3",
-      "leg_to_next_m": 574,
-      "route_snap": {
-        "lat": 51.376003,
-        "lng": -0.101305,
-        "offset_m": 4
       }
     },
     {
@@ -891,7 +881,7 @@
       "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
       "priority": 3,
       "must_keep": false,
-      "order": 14,
+      "order": 13,
       "clip": "media/clips/heads-of-state-carpark.mp4",
       "audio": "media/audio/heads-of-state-carpark.mp3",
       "leg_to_next_m": 276,
@@ -937,7 +927,7 @@
       "must_keep": true,
       "gallery": [],
       "film_gallery": [],
-      "order": 15,
+      "order": 14,
       "clip": "media/clips/konga.mp4",
       "audio": "media/audio/konga.mp3",
       "leg_to_next_m": 95,
@@ -980,7 +970,7 @@
       "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate.",
       "priority": 2,
       "must_keep": false,
-      "order": 16,
+      "order": 15,
       "clip": "media/clips/peep-show-registry.mp4",
       "audio": "media/audio/peep-show-registry.mp3",
       "leg_to_next_m": 199,
@@ -1022,7 +1012,7 @@
       "confidence_note": "Tour finish point: the same venue as stop 1.",
       "priority": 5,
       "must_keep": true,
-      "order": 17,
+      "order": 16,
       "clip": "media/clips/finale.mp4",
       "audio": "media/audio/finale.mp3",
       "leg_to_next_m": 0,
@@ -1074,30 +1064,30 @@
       "stop_ids": [
         "david-lean",
         "heads-of-state-sgw",
-        "whitgift-inside",
         "all-of-us-strangers",
+        "heads-of-state-apollo",
         "peep-show-canterbury",
         "dark-knight-rises",
-        "it-crowd",
+        "whitgift-inside",
         "heads-of-state-overtons",
         "konga",
         "finale"
       ],
       "legs_m": [
         107,
-        513,
-        141,
-        272,
+        469,
+        213,
+        59,
         300,
-        407,
-        515,
+        430,
+        516,
         260,
         238,
         0
       ],
-      "distance_m": 2753,
-      "walk_s": 2209,
-      "est_min": 73,
+      "distance_m": 2593,
+      "walk_s": 2080,
+      "est_min": 71,
       "must_keep_only": false
     },
     {
@@ -1107,37 +1097,37 @@
       "route": "route_90.geojson",
       "stop_ids": [
         "david-lean",
-        "konga",
-        "heads-of-state-overtons",
-        "it-crowd",
-        "whitgift-inside",
-        "all-of-us-strangers",
-        "dark-knight-rises",
-        "peep-show-canterbury",
-        "heads-of-state-apollo",
-        "velvet-goldmine",
-        "criminal-bourne",
         "heads-of-state-sgw",
+        "fairfield-halls",
+        "criminal-bourne",
+        "velvet-goldmine",
+        "heads-of-state-apollo",
+        "peep-show-canterbury",
+        "dark-knight-rises",
+        "all-of-us-strangers",
+        "whitgift-inside",
+        "heads-of-state-overtons",
+        "konga",
         "finale"
       ],
       "legs_m": [
-        238,
-        260,
-        515,
-        234,
-        141,
-        351,
-        300,
-        59,
-        450,
-        176,
-        264,
         107,
+        298,
+        88,
+        176,
+        450,
+        59,
+        300,
+        351,
+        141,
+        516,
+        260,
+        238,
         0
       ],
-      "distance_m": 3094,
-      "walk_s": 2483,
-      "est_min": 89,
+      "distance_m": 2984,
+      "walk_s": 2395,
+      "est_min": 88,
       "must_keep_only": false
     },
     {
@@ -1147,45 +1137,43 @@
       "route": "route_120.geojson",
       "stop_ids": [
         "david-lean",
-        "peep-show-registry",
-        "konga",
-        "heads-of-state-carpark",
-        "heads-of-state-overtons",
-        "it-crowd",
-        "whitgift-inside",
-        "all-of-us-strangers",
-        "dark-knight-rises",
-        "heads-of-state-apollo",
-        "peep-show-canterbury",
-        "man-who-knew-too-little",
-        "velvet-goldmine",
-        "criminal-bourne",
-        "fairfield-halls",
         "heads-of-state-sgw",
+        "fairfield-halls",
+        "criminal-bourne",
+        "velvet-goldmine",
+        "man-who-knew-too-little",
+        "peep-show-canterbury",
+        "heads-of-state-apollo",
+        "dark-knight-rises",
+        "all-of-us-strangers",
+        "whitgift-inside",
+        "heads-of-state-overtons",
+        "heads-of-state-carpark",
+        "konga",
+        "peep-show-registry",
         "finale"
       ],
       "legs_m": [
-        199,
-        95,
-        276,
-        191,
-        515,
-        234,
-        141,
-        351,
-        242,
-        59,
-        350,
-        440,
-        176,
-        88,
-        298,
         107,
+        298,
+        88,
+        176,
+        440,
+        350,
+        59,
+        242,
+        351,
+        141,
+        516,
+        191,
+        276,
+        95,
+        199,
         0
       ],
-      "distance_m": 3760,
-      "walk_s": 3015,
-      "est_min": 114,
+      "distance_m": 3528,
+      "walk_s": 2830,
+      "est_min": 107,
       "must_keep_only": false
     },
     {
@@ -1206,7 +1194,6 @@
         "dark-knight-rises",
         "whitgift-inside",
         "heads-of-state-overtons",
-        "it-crowd",
         "heads-of-state-carpark",
         "konga",
         "peep-show-registry",
@@ -1224,16 +1211,15 @@
         351,
         430,
         516,
-        515,
-        574,
+        191,
         276,
         95,
         199,
         0
       ],
-      "distance_m": 4814,
-      "walk_s": 3860,
-      "est_min": 128,
+      "distance_m": 3917,
+      "walk_s": 3142,
+      "est_min": 112,
       "must_keep_only": false
     }
   ],

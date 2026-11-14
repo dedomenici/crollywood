@@ -611,6 +611,17 @@
             "page": "https://en.wikipedia.org/wiki/Terry_and_June"
           },
           "clip": "media/clips/terry-and-june.mp4"
+        },
+        {
+          "title": "The IT Crowd",
+          "year": "2006–2013",
+          "type": "TV",
+          "scene": "Series 4 'Bad Boys': Moss shoplifts copies of Grand Designs magazine while he and Roy are bunking off.",
+          "poster": {
+            "src": "media/posters/the-it-crowd.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (The IT Crowd title card.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/The_IT_Crowd"
+          }
         }
       ],
       "image": {
@@ -644,6 +655,14 @@
           "tag": "Location",
           "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre,_Croydon,_1976.jpg?width=800",
           "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre,_Croydon,_1976.jpg"
+        },
+        {
+          "src": "media/photos/it-crowd.jpg",
+          "credit": "Hzh via Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_North_End_entrance.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_North_End_entrance.jpg"
         }
       ],
       "film_gallery": [
@@ -665,10 +684,11 @@
         "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift",
         "https://insidecroydon.com/2025/09/10/whitgift-becomes-centre-stage-for-rebel-wilsons-new-movie/",
         "https://deadline.com/2025/09/rebel-wilson-girl-group-the-deb-randall-park-1236553365/",
-        "https://en.wikipedia.org/wiki/Girl_Group_(film)"
+        "https://en.wikipedia.org/wiki/Girl_Group_(film)",
+        "https://moviemaps.org/locations/279 (nearby: Whitgift Shopping Centre, The IT Crowd)"
       ],
       "confidence": "high",
-      "confidence_note": "The Whitgift is confirmed for All of Us Strangers, Opalite and Girl Group. The pin is inside the centre, at the escalator opposite Clarks, reached from North End; the old ramp, escalator and stage pins are now one interior stop.",
+      "confidence_note": "The Whitgift is confirmed for All of Us Strangers, Opalite, Girl Group and The IT Crowd. The pin is inside the centre, at the escalator opposite Clarks, reached from North End. The IT Crowd scene (series 4 'Bad Boys') is the North End shops; the exact unit isn't confirmed.",
       "priority": 5,
       "must_keep": true,
       "clip": null
@@ -694,11 +714,8 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons (nearby Surrey Street)",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg",
-        "src": "media/photos/heads-of-state-overtons.jpg"
+        "src": "media/photos/overtons-yard-1.jpg",
+        "credit": "Richard DeDomenici"
       },
       "sources": [
         "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
@@ -711,42 +728,24 @@
       "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
       "priority": 4,
       "must_keep": false,
-      "clip": null
-    },
-    {
-      "id": "it-crowd",
-      "name": "Whitgift Centre, North End entrance",
-      "address": "North End, CR0",
-      "lat": 51.37601,
-      "lng": -0.10125,
-      "films": [
+      "clip": null,
+      "gallery": [
         {
-          "title": "The IT Crowd",
-          "year": "2006–2013",
-          "type": "TV",
-          "scene": "Series 4 'Bad Boys': Moss shoplifts copies of Grand Designs magazine while he and Roy are bunking off.",
-          "poster": {
-            "src": "media/posters/the-it-crowd.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (The IT Crowd title card.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/The_IT_Crowd"
-          }
+          "src": "media/photos/overtons-yard-2.jpg",
+          "credit": "Richard DeDomenici",
+          "tag": "Location"
+        },
+        {
+          "src": "media/photos/overtons-yard-3.jpg",
+          "credit": "Richard DeDomenici",
+          "tag": "Location"
+        },
+        {
+          "src": "media/photos/overtons-yard-4.jpg",
+          "credit": "Richard DeDomenici",
+          "tag": "Location"
         }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_North_End_entrance.jpg?width=800",
-        "credit": "Hzh via Wikimedia Commons",
-        "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_North_End_entrance.jpg",
-        "src": "media/photos/it-crowd.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://moviemaps.org/locations/279 (nearby: Whitgift Shopping Centre, The IT Crowd)"
-      ],
-      "confidence": "high",
-      "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed.",
-      "priority": 4,
-      "must_keep": false
+      ]
     },
     {
       "id": "heads-of-state-carpark",
