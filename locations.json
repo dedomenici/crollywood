@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 4140,
-  "route_duration_s": 3315,
+  "route_distance_m": 4086,
+  "route_duration_s": 3272,
   "stops": [
     {
       "id": "david-lean",
@@ -54,7 +54,7 @@
       "order": 1,
       "clip": "media/clips/david-lean.mp4",
       "audio": "media/audio/david-lean.mp3",
-      "leg_to_next_m": 162,
+      "leg_to_next_m": 107,
       "route_snap": {
         "lat": 51.372374,
         "lng": -0.09901,
@@ -64,9 +64,9 @@
     {
       "id": "heads-of-state-sgw",
       "name": "St George's Walk",
-      "address": "St George's Walk, CR0 1YL",
-      "lat": 51.373117,
-      "lng": -0.097725,
+      "address": "St George's Walk at Park Street, CR0 1YJ",
+      "lat": 51.373,
+      "lng": -0.09848,
       "films": [
         {
           "title": "American Assassin",
@@ -127,10 +127,11 @@
         "https://www.croydonites.com/programme/redux-heads-of-state",
         "OpenStreetMap / Nominatim geometry of St George's Walk pedestrian arcade (ways 632344066, 199735119, 26600903), midpoint ±25 m",
         "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://www.copsecroydon.co.uk/event/local-evening-walk-no-hall/"
+        "https://www.copsecroydon.co.uk/event/local-evening-walk-no-hall/",
+        "OpenStreetMap: west end of the St George's Walk pedestrian arcade (footway 632344066) where it meets the north–south St George's Walk carriageway, just south of Park Street"
       ],
       "confidence": "high",
-      "confidence_note": "Pin placed at the midpoint of St George's Walk, from OpenStreetMap geometry of the pedestrian arcade between Park Street and Park Lane. Bandersnatch's half of the Walk has been demolished.",
+      "confidence_note": "Pin placed at the west end of St George's Walk, on the corner where the pedestrian arcade meets the north–south section of St George's Walk, just south of Park Street. Bandersnatch's half of the Walk has been demolished.",
       "priority": 5,
       "must_keep": true,
       "gallery": [],
@@ -164,19 +165,19 @@
       "clip": "media/clips/made-in-dagenham.mp4",
       "order": 2,
       "audio": "media/audio/heads-of-state-sgw.mp3",
-      "leg_to_next_m": 279,
+      "leg_to_next_m": 298,
       "route_snap": {
-        "lat": 51.373117,
-        "lng": -0.097725,
+        "lat": 51.373,
+        "lng": -0.09848,
         "offset_m": 0
       }
     },
     {
       "id": "fairfield-halls",
       "name": "Fairfield Halls",
-      "address": "Park Lane / College Green, CR9 1DG",
-      "lat": 51.37274,
-      "lng": -0.09525,
+      "address": "Park Lane, CR9 1DG",
+      "lat": 51.37245,
+      "lng": -0.09629,
       "films": [
         {
           "title": "The Da Vinci Code",
@@ -210,10 +211,11 @@
         "https://www.yourlocalguardian.co.uk/news/24902765.18-movies-might-not-know-filmed-croydon/",
         "https://www.london-now.co.uk/news/24085156.9-movies-filmed-croydon-might-not-realise/",
         "Croydonites Crollywood 2026 listing (mentions The Da Vinci Code)",
-        "OpenStreetMap: pavement on the north (College Green) frontage of Fairfield Halls, immediately outside the main entrance foyer (footway 1310803837, adjacent to building way 26595743)"
+        "OpenStreetMap: pavement on the north (College Green) frontage of Fairfield Halls, immediately outside the main entrance foyer (footway 1310803837, adjacent to building way 26595743)",
+        "OpenStreetMap: pavement immediately west of the Fairfield Halls building (way 26595743), between the west facade and Park Lane (footway 1343025335)"
       ],
       "confidence": "high",
-      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb. Pin is on the east side of Park Lane / Wellesley Road, on the pavement outside the main College Green entrance.",
+      "confidence_note": "Not on the KML map, but backed by several press sources and the 2026 tour blurb. Pin is on the pavement immediately west of the halls, between the building and Park Lane.",
       "priority": 4,
       "must_keep": false,
       "gallery": [],
@@ -232,10 +234,10 @@
       "order": 3,
       "clip": "media/clips/fairfield-halls.mp4",
       "audio": "media/audio/fairfield-halls.mp3",
-      "leg_to_next_m": 106,
+      "leg_to_next_m": 88,
       "route_snap": {
-        "lat": 51.37274,
-        "lng": -0.09525,
+        "lat": 51.37245,
+        "lng": -0.096297,
         "offset_m": 0
       }
     },
@@ -1037,8 +1039,8 @@
         228,
         312,
         332,
-        680,
-        162,
+        735,
+        107,
         0
       ],
       "distance_m": 2570,
@@ -1065,8 +1067,8 @@
         "finale"
       ],
       "legs_m": [
-        162,
-        680,
+        107,
+        735,
         332,
         312,
         263,
@@ -1101,9 +1103,9 @@
         "finale"
       ],
       "legs_m": [
-        162,
-        279,
-        106,
+        107,
+        298,
+        88,
         654,
         332,
         312,
@@ -1114,8 +1116,8 @@
         238,
         0
       ],
-      "distance_m": 3175,
-      "walk_s": 2544,
+      "distance_m": 3122,
+      "walk_s": 2501,
       "est_min": 86,
       "must_keep_only": false
     },
@@ -1144,9 +1146,9 @@
         "finale"
       ],
       "legs_m": [
-        162,
-        279,
-        106,
+        107,
+        298,
+        88,
         586,
         350,
         106,
@@ -1162,9 +1164,9 @@
         238,
         0
       ],
-      "distance_m": 4053,
-      "walk_s": 3245,
-      "est_min": 118,
+      "distance_m": 4000,
+      "walk_s": 3203,
+      "est_min": 117,
       "must_keep_only": false
     },
     {
@@ -1194,9 +1196,9 @@
         "finale"
       ],
       "legs_m": [
-        162,
-        279,
-        106,
+        107,
+        298,
+        88,
         176,
         440,
         350,
@@ -1214,8 +1216,8 @@
         199,
         0
       ],
-      "distance_m": 4140,
-      "walk_s": 3315,
+      "distance_m": 4086,
+      "walk_s": 3272,
       "est_min": 127,
       "must_keep_only": false
     }
