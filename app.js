@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261114063349';
+  var BUILD = '20261114064526';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -30,6 +30,51 @@
   };
   var $ = function (id) { return document.getElementById(id); };
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
+  function yearStr(y) {
+    return (y != null && String(y).trim()) ? String(y) : '';
+  }
+  function yearRe(y) {
+    return yearStr(y).replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/[–—-]/g, '[–—-]');
+  }
+  function filmTitle(f) {
+    if (!f || !f.title) return '';
+    var y = yearStr(f.year);
+    if (!y) return f.title;
+    if (new RegExp('\\(\\s*' + yearRe(y) + '\\s*\\)\\s*$').test(f.title)) return f.title;
+    return f.title + ' (' + y + ')';
+  }
+  function allTourFilms() {
+    var list = [], seen = {};
+    (state.stops || []).forEach(function (s) {
+      (s.films || []).forEach(function (f) {
+        if (!f || !f.title || seen[f.title]) return;
+        seen[f.title] = 1;
+        list.push(f);
+      });
+    });
+    list.sort(function (a, b) { return b.title.length - a.title.length; });
+    return list;
+  }
+  function sceneWithYears(text) {
+    var out = String(text || '');
+    allTourFilms().forEach(function (f) {
+      var y = yearStr(f.year);
+      if (!y) return;
+      var title = f.title;
+      var idx = 0;
+      var already = new RegExp('^\\s*\\(\\s*' + yearRe(y) + '\\s*\\)');
+      while ((idx = out.indexOf(title, idx)) !== -1) {
+        var after = out.slice(idx + title.length);
+        if (already.test(after)) {
+          idx += title.length;
+        } else {
+          out = out.slice(0, idx + title.length) + ' (' + y + ')' + after;
+          idx += title.length + y.length + 3;
+        }
+      }
+    });
+    return out;
+  }
   function log(type, data) { state.log.push({ t: Date.now(), type: type, data: data }); }
   function saveTour() { localStorage.setItem(LS.tour, JSON.stringify(state.tour)); }
 
@@ -188,9 +233,9 @@
       if (f.poster) {
         if (seen[f.poster.src]) return;
         seen[f.poster.src] = 1;
-        out.push('<figure class="slide poster"><span class="tag">Poster</span><img src="' + esc(f.poster.src) + '" alt="' + esc(f.title) + ' poster" loading="lazy"><figcaption>' + esc(f.title) + ': ' + esc(f.poster.credit) + '</figcaption></figure>');
+        out.push('<figure class="slide poster"><span class="tag">Poster</span><img src="' + esc(f.poster.src) + '" alt="' + esc(filmTitle(f)) + ' poster" loading="lazy"><figcaption>' + esc(filmTitle(f)) + ': ' + esc(f.poster.credit) + '</figcaption></figure>');
       } else if (f.type !== 'venue' && f.type !== 'redux') {
-        out.push('<figure class="slide poster"><span class="tag">Poster</span><div class="placeholder">🎞 ' + esc(f.title) + '<br>poster not yet available</div></figure>');
+        out.push('<figure class="slide poster"><span class="tag">Poster</span><div class="placeholder">🎞 ' + esc(filmTitle(f)) + '<br>poster not yet available</div></figure>');
       }
     });
     return out;
@@ -238,8 +283,8 @@
     }
     var usedStop = false;
     ((s && s.films) || []).forEach(function (f) {
-      if (f && f.clip) add(f.clip, f.title);
-      else if (s.clip && !usedStop) { add(s.clip, f && f.title); usedStop = true; }
+      if (f && f.clip) add(f.clip, filmTitle(f));
+      else if (s.clip && !usedStop) { add(s.clip, f && filmTitle(f)); usedStop = true; }
     });
     add(s && s.clip, '');
     return out;
@@ -311,7 +356,7 @@
     h += '<div class="card"><div class="addr">' + esc(s.address || '') + '</div><div class="dist" id="panelDist"></div></div>';
     h += locationCarouselHTML(s);
     s.films.forEach(function (f) {
-      h += '<div class="film card"><h3>' + esc(f.title) + (f.year ? ' (' + esc(f.year) + ')' : '') + '</h3><div class="meta">' + esc(f.type || '') + '</div><p>' + esc(f.scene) + '</p></div>';
+      h += '<div class="film card"><h3>' + esc(filmTitle(f)) + '</h3><div class="meta">' + esc(f.type || '') + '</div><p>' + esc(sceneWithYears(f.scene)) + '</p></div>';
     });
     h += filmMediaHTML(s);
     if (s.link) h += '<a class="big-btn link-btn" href="' + esc(s.link.url) + '" target="_blank" rel="noopener">' + esc(s.link.label) + ' ↗</a>';
@@ -617,7 +662,7 @@
     if (best >= 0) {
       var s = state.stops[best]; state.toasted[s.id] = 1;
       log('nearby', { id: s.id, d: Math.round(bd) });
-      showToast('You\'re passing stop ' + s.order + ': ' + s.films[0].title + '. Tap to view.', 8000, function () { goTo(best, {}); });
+      showToast('You\'re passing stop ' + s.order + ': ' + filmTitle(s.films[0]) + '. Tap to view.', 8000, function () { goTo(best, {}); });
     }
   }
   function arrive(i, d) {
@@ -684,7 +729,7 @@
     (state.data ? state.data.stops : state.stops).forEach(function (s) {
       if (s.image && s.image.credit) ph.push('<li>' + s.order + '. ' + esc(s.name) + ': ' + esc(s.image.credit) + ', ' + esc(s.image.license) +
         (s.image.page ? ' (<a href="' + esc(s.image.page) + '" target="_blank" rel="noopener">source</a>)' : '') + '</li>');
-      s.films.forEach(function (f) { if (f.poster && !seen[f.poster.src]) { seen[f.poster.src] = 1; po.push('<li>' + esc(f.title) + ': <a href="' + esc(f.poster.page) + '" target="_blank" rel="noopener">Wikipedia</a></li>'); } });
+      s.films.forEach(function (f) { if (f.poster && !seen[f.poster.src]) { seen[f.poster.src] = 1; po.push('<li>' + esc(filmTitle(f)) + ': <a href="' + esc(f.poster.page) + '" target="_blank" rel="noopener">Wikipedia</a></li>'); } });
     });
     $('photoCredits').innerHTML = ph.join(''); $('posterCredits').innerHTML = po.join('');
   }
@@ -767,7 +812,7 @@
     look.stopIdx = lookStop();
     var s = state.stops[look.stopIdx], f = s.films[0] || {};
     $('look').hidden = false; $('look').dataset.bg = '';
-    $('lookTitle').textContent = s.order + '. ' + (f.title || s.name) + (f.year ? ' (' + f.year + ')' : '');
+    $('lookTitle').textContent = s.order + '. ' + (f.title ? filmTitle(f) : s.name);
     $('lookText').textContent = f.scene || '';
     $('lookClip').innerHTML = hasMedia('clips', s.clip) ? '<video src="' + esc(s.clip) + '" controls playsinline preload="metadata"></video>'
       : '<div class="placeholder look-ph">🎬 Movie clip placeholder: <code>' + esc(s.clip) + '</code></div>';

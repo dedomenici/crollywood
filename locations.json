@@ -18,8 +18,8 @@
       "reason": "Removed from the walk at the author's request. Media files are kept in the repo but are no longer referenced."
     }
   ],
-  "route_distance_m": 4054,
-  "route_duration_s": 3246,
+  "route_distance_m": 4386,
+  "route_duration_s": 3516,
   "stops": [
     {
       "id": "david-lean",
@@ -89,7 +89,8 @@
             "src": "media/posters/black-mirror-bandersnatch.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Black mirror bandersnatch poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Black_Mirror:_Bandersnatch"
-          }
+          },
+          "clip": "media/clips/bandersnatch-sgw.mp4"
         },
         {
           "title": "Made in Dagenham",
@@ -100,7 +101,8 @@
             "src": "media/posters/made-in-dagenham.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Made in dagenham poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
-          }
+          },
+          "clip": "media/clips/made-in-dagenham.mp4"
         },
         {
           "title": "Heads of State",
@@ -111,7 +113,8 @@
             "src": "media/posters/heads-of-state-2025-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          }
+          },
+          "clip": "media/clips/heads-of-state-sgw.mp4"
         }
       ],
       "image": {
@@ -162,7 +165,7 @@
           "tag": "Bandersnatch"
         }
       ],
-      "clip": "media/clips/made-in-dagenham.mp4",
+      "clip": null,
       "order": 2,
       "audio": "media/audio/heads-of-state-sgw.mp3",
       "leg_to_next_m": 298,
@@ -188,7 +191,8 @@
             "src": "media/posters/the-da-vinci-code-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (The da vinci code final.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/The_Da_Vinci_Code_(film)"
-          }
+          },
+          "clip": "media/clips/da-vinci-code-fairfield.mp4"
         },
         {
           "title": "Cuban Fury",
@@ -231,8 +235,8 @@
           "tag": "Film still"
         }
       ],
+      "clip": null,
       "order": 3,
-      "clip": "media/clips/fairfield-halls.mp4",
       "audio": "media/audio/fairfield-halls.mp3",
       "leg_to_next_m": 88,
       "route_snap": {
@@ -428,11 +432,8 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
-        "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg",
-        "src": "media/photos/heads-of-state-apollo.jpg"
+        "src": "media/photos/apollo-house-richard.jpg",
+        "credit": "Richard DeDomenici"
       },
       "sources": [
         "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (comment linking to Crollywood)",
@@ -444,6 +445,16 @@
       "priority": 3,
       "must_keep": false,
       "clip": "media/clips/heads-of-state-apollo-house.mp4",
+      "gallery": [
+        {
+          "src": "media/photos/heads-of-state-apollo.jpg",
+          "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
+          "license": "CC BY-SA 2.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg"
+        }
+      ],
       "order": 7,
       "audio": "media/audio/heads-of-state-apollo.mp3",
       "leg_to_next_m": 59,
@@ -462,7 +473,7 @@
       "films": [
         {
           "title": "Peep Show",
-          "year": 2003,
+          "year": "2003–2015",
           "type": "TV",
           "scene": "The JLB Credit office where Mark and Sophie first met. In real life the building is Canterbury House, 2-6 Sydenham Road; it has been converted to flats, so the interior they filmed in is gone.",
           "poster": {
@@ -504,11 +515,60 @@
       "order": 8,
       "clip": "media/clips/peep-show-canterbury.mp4",
       "audio": "media/audio/peep-show-canterbury.mp3",
-      "leg_to_next_m": 332,
+      "leg_to_next_m": 282,
       "route_snap": {
         "lat": 51.377863,
         "lng": -0.097717,
         "offset_m": 27
+      }
+    },
+    {
+      "id": "all-of-us-strangers",
+      "name": "Whitgift Centre, Wellesley Road (near bus stop WL)",
+      "address": "Wellesley Road, CR0",
+      "lat": 51.3762,
+      "lng": -0.09845,
+      "films": [
+        {
+          "title": "All of Us Strangers",
+          "year": 2023,
+          "type": "film",
+          "scene": "The car arrival scene: Adam (Andrew Scott) and his parents pull up outside the Whitgift Centre on Wellesley Road.",
+          "poster": {
+            "src": "media/posters/all-of-us-strangers.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (All of Us Strangers poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/All_of_Us_Strangers"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_Wellesley_Road_entrance.jpg?width=1280",
+        "credit": "Hzh via Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_Wellesley_Road_entrance.jpg",
+        "src": "media/photos/whitgift-wellesley.jpg"
+      },
+      "sources": [
+        "OpenStreetMap / TfL NaPTAN: Whitgift Centre bus stop WL (node 469790212, atco 490014614E15) at 51.376113, -0.098430, bearing north. Pin placed 10 m north on the Whitgift Centre (west) pavement of Wellesley Road.",
+        "https://api.tfl.gov.uk/StopPoint/490014614E15",
+        "https://www.imdb.com/title/tt21192142/locations/",
+        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight",
+        "https://insidecroydon.com/2024/08/08/how-movie-director-haigh-placed-sanderstead-centre-stage/"
+      ],
+      "confidence": "high",
+      "confidence_note": "Bus stop WL is verified in OSM and TfL. The pin is 10 m north of the stop, on the pavement between Wellesley Road and the Whitgift Centre east facade. The car-arrival scene is as described by Richard.",
+      "priority": 4,
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": [],
+      "order": 9,
+      "clip": "media/clips/all-of-us-strangers.mp4",
+      "audio": "media/audio/all-of-us-strangers.mp3",
+      "leg_to_next_m": 382,
+      "route_snap": {
+        "lat": 51.376213,
+        "lng": -0.098404,
+        "offset_m": 4
       }
     },
     {
@@ -546,7 +606,7 @@
       "confidence_note": "Several sources agree. The KML pin was about 60m south, so this uses the OSM building position.",
       "priority": 5,
       "must_keep": true,
-      "order": 9,
+      "order": 10,
       "clip": "media/clips/dark-knight-rises.mp4",
       "audio": "media/audio/dark-knight-rises.mp3",
       "leg_to_next_m": 312,
@@ -567,7 +627,7 @@
           "title": "All of Us Strangers",
           "year": 2023,
           "type": "film",
-          "scene": "Adam (Andrew Scott) takes his parents (Claire Foy, Jamie Bell) to an American diner in the Whitgift. Their cab drives up the ramp from Wellesley Road, they ride the escalator to the first floor in Sainsbury's Square, and over milkshakes his parents tell him it's time to say goodbye. The Whitgift sign appears on screen.",
+          "scene": "Adam (Andrew Scott) takes his parents (Claire Foy, Jamie Bell) to an American diner in the Whitgift. They ride the escalator to the first floor in Sainsbury's Square, and over milkshakes his parents tell him it's time to say goodbye. The Whitgift sign appears on screen.",
           "poster": {
             "src": "media/posters/all-of-us-strangers.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (All of Us Strangers poster.jpg), used for identification",
@@ -576,7 +636,7 @@
         },
         {
           "title": "Terry & June",
-          "year": 1979,
+          "year": "1979–1987",
           "type": "TV",
           "scene": "The sitcom was set in Purley, and its opening titles were filmed around the Whitgift Centre and Fairfield Halls area.",
           "poster": {
@@ -612,7 +672,7 @@
           "tag": "Bandersnatch"
         }
       ],
-      "order": 10,
+      "order": 11,
       "clip": "media/clips/terry-and-june.mp4",
       "audio": "media/audio/terry-and-june.mp3",
       "leg_to_next_m": 228,
@@ -658,7 +718,7 @@
       "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site.",
       "priority": 5,
       "must_keep": true,
-      "order": 11,
+      "order": 12,
       "clip": "media/clips/opalite.mp4",
       "audio": "media/audio/opalite.mp3",
       "leg_to_next_m": 53,
@@ -699,7 +759,7 @@
       "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC.",
       "priority": 5,
       "must_keep": true,
-      "order": 12,
+      "order": 13,
       "clip": "media/clips/girl-group.mp4",
       "audio": "media/audio/girl-group.mp3",
       "leg_to_next_m": 247,
@@ -718,7 +778,7 @@
       "films": [
         {
           "title": "The IT Crowd",
-          "year": 2010,
+          "year": "2006–2013",
           "type": "TV",
           "scene": "Series 4 'Bad Boys': Moss shoplifts copies of Grand Designs magazine while he and Roy are bunking off.",
           "poster": {
@@ -743,7 +803,7 @@
       "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed.",
       "priority": 4,
       "must_keep": false,
-      "order": 13,
+      "order": 14,
       "clip": "media/clips/it-crowd.mp4",
       "audio": "media/audio/it-crowd.mp3",
       "leg_to_next_m": 374,
@@ -762,7 +822,7 @@
       "films": [
         {
           "title": "Peep Show",
-          "year": 2003,
+          "year": "2003–2015",
           "type": "TV",
           "scene": "The bar ('Shooshh') where Mark plays pool (badly) with his nemesis Jeff.",
           "poster": {
@@ -786,7 +846,7 @@
       "confidence_note": "From DeDomenici's map; venue may have changed name.",
       "priority": 2,
       "must_keep": false,
-      "order": 14,
+      "order": 15,
       "clip": "media/clips/peep-show-loop-bar.mp4",
       "audio": "media/audio/peep-show-loop-bar.mp3",
       "leg_to_next_m": 171,
@@ -832,7 +892,7 @@
       "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
       "priority": 4,
       "must_keep": false,
-      "order": 15,
+      "order": 16,
       "clip": "media/clips/heads-of-state-overtons.mp4",
       "audio": "media/audio/heads-of-state-overtons.mp3",
       "leg_to_next_m": 191,
@@ -877,7 +937,7 @@
       "confidence_note": "Inside Croydon describes 'explosions filmed on top of one of the town centre's car parks', and a Reddit commenter names this one. The pin is on the car park's OSM position.",
       "priority": 3,
       "must_keep": false,
-      "order": 16,
+      "order": 17,
       "clip": "media/clips/heads-of-state-carpark.mp4",
       "audio": "media/audio/heads-of-state-carpark.mp3",
       "leg_to_next_m": 276,
@@ -923,7 +983,7 @@
       "must_keep": true,
       "gallery": [],
       "film_gallery": [],
-      "order": 17,
+      "order": 18,
       "clip": "media/clips/konga.mp4",
       "audio": "media/audio/konga.mp3",
       "leg_to_next_m": 95,
@@ -942,7 +1002,7 @@
       "films": [
         {
           "title": "Peep Show",
-          "year": 2004,
+          "year": "2003–2015",
           "type": "TV",
           "scene": "The registry office where Jeremy marries Nancy (so she can get a green card). Demolished to make way for the council's new headquarters.",
           "poster": {
@@ -966,7 +1026,7 @@
       "confidence_note": "Pin and description from DeDomenici's map; building demolished so the spot is approximate.",
       "priority": 2,
       "must_keep": false,
-      "order": 18,
+      "order": 19,
       "clip": "media/clips/peep-show-registry.mp4",
       "audio": "media/audio/peep-show-registry.mp3",
       "leg_to_next_m": 199,
@@ -1008,7 +1068,7 @@
       "confidence_note": "Tour finish point: the same venue as stop 1.",
       "priority": 5,
       "must_keep": true,
-      "order": 19,
+      "order": 20,
       "clip": "media/clips/finale.mp4",
       "audio": "media/audio/finale.mp3",
       "leg_to_next_m": 0,
@@ -1030,24 +1090,26 @@
         "david-lean",
         "konga",
         "opalite",
-        "terry-and-june",
+        "girl-group",
         "dark-knight-rises",
-        "peep-show-canterbury",
+        "terry-and-june",
+        "all-of-us-strangers",
         "heads-of-state-sgw",
         "finale"
       ],
       "legs_m": [
         238,
         619,
-        228,
+        53,
+        420,
         312,
-        332,
-        735,
+        115,
+        469,
         107,
         0
       ],
-      "distance_m": 2570,
-      "walk_s": 2062,
+      "distance_m": 2332,
+      "walk_s": 1868,
       "est_min": 59,
       "dwell_min": 3.5,
       "must_keep_only": false
@@ -1059,31 +1121,31 @@
       "route": "route_highlights.geojson",
       "stop_ids": [
         "david-lean",
-        "heads-of-state-sgw",
+        "konga",
+        "opalite",
+        "girl-group",
+        "all-of-us-strangers",
         "peep-show-canterbury",
         "dark-knight-rises",
         "terry-and-june",
-        "girl-group",
-        "opalite",
-        "heads-of-state-overtons",
-        "konga",
+        "heads-of-state-sgw",
         "finale"
       ],
       "legs_m": [
-        107,
-        735,
+        238,
+        619,
+        53,
+        154,
+        272,
         332,
         312,
-        263,
-        53,
-        516,
-        260,
-        238,
+        567,
+        107,
         0
       ],
-      "distance_m": 2817,
-      "walk_s": 2260,
-      "est_min": 74,
+      "distance_m": 2654,
+      "walk_s": 2127,
+      "est_min": 71,
       "must_keep_only": false
     },
     {
@@ -1093,36 +1155,36 @@
       "route": "route_90.geojson",
       "stop_ids": [
         "david-lean",
-        "heads-of-state-sgw",
-        "fairfield-halls",
-        "criminal-bourne",
-        "peep-show-canterbury",
-        "heads-of-state-apollo",
-        "dark-knight-rises",
-        "terry-and-june",
-        "girl-group",
-        "opalite",
-        "heads-of-state-overtons",
         "konga",
+        "heads-of-state-overtons",
+        "opalite",
+        "girl-group",
+        "all-of-us-strangers",
+        "terry-and-june",
+        "dark-knight-rises",
+        "peep-show-canterbury",
+        "criminal-bourne",
+        "fairfield-halls",
+        "heads-of-state-sgw",
         "finale"
       ],
       "legs_m": [
-        107,
-        298,
-        88,
-        654,
-        59,
-        273,
-        312,
-        263,
-        53,
-        516,
-        260,
         238,
+        260,
+        516,
+        53,
+        154,
+        115,
+        312,
+        332,
+        654,
+        88,
+        298,
+        107,
         0
       ],
-      "distance_m": 3122,
-      "walk_s": 2501,
+      "distance_m": 3127,
+      "walk_s": 2506,
       "est_min": 90,
       "must_keep_only": false
     },
@@ -1133,46 +1195,46 @@
       "route": "route_120.geojson",
       "stop_ids": [
         "david-lean",
-        "heads-of-state-sgw",
-        "fairfield-halls",
-        "criminal-bourne",
-        "velvet-goldmine",
-        "man-who-knew-too-little",
-        "peep-show-canterbury",
-        "heads-of-state-apollo",
-        "dark-knight-rises",
-        "terry-and-june",
-        "opalite",
-        "girl-group",
-        "it-crowd",
-        "peep-show-loop-bar",
-        "heads-of-state-overtons",
-        "heads-of-state-carpark",
         "konga",
+        "heads-of-state-carpark",
+        "heads-of-state-overtons",
+        "peep-show-loop-bar",
+        "it-crowd",
+        "girl-group",
+        "opalite",
+        "all-of-us-strangers",
+        "terry-and-june",
+        "dark-knight-rises",
+        "heads-of-state-apollo",
+        "peep-show-canterbury",
+        "man-who-knew-too-little",
+        "criminal-bourne",
+        "fairfield-halls",
+        "heads-of-state-sgw",
         "finale"
       ],
       "legs_m": [
-        107,
-        298,
-        88,
-        176,
-        440,
-        350,
-        59,
-        273,
-        312,
-        228,
-        53,
-        247,
-        374,
-        171,
-        191,
-        276,
         238,
+        276,
+        191,
+        171,
+        374,
+        247,
+        53,
+        141,
+        115,
+        312,
+        273,
+        59,
+        350,
+        586,
+        88,
+        298,
+        107,
         0
       ],
-      "distance_m": 3880,
-      "walk_s": 3107,
+      "distance_m": 3878,
+      "walk_s": 3105,
       "est_min": 120,
       "must_keep_only": false
     },
@@ -1190,6 +1252,7 @@
         "man-who-knew-too-little",
         "heads-of-state-apollo",
         "peep-show-canterbury",
+        "all-of-us-strangers",
         "dark-knight-rises",
         "terry-and-june",
         "opalite",
@@ -1210,7 +1273,8 @@
         440,
         409,
         59,
-        332,
+        282,
+        382,
         312,
         228,
         53,
@@ -1223,9 +1287,9 @@
         199,
         0
       ],
-      "distance_m": 4054,
-      "walk_s": 3246,
-      "est_min": 126,
+      "distance_m": 4386,
+      "walk_s": 3516,
+      "est_min": 135,
       "must_keep_only": false
     }
   ],

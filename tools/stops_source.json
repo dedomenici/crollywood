@@ -81,7 +81,8 @@
             "src": "media/posters/black-mirror-bandersnatch.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Black mirror bandersnatch poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Black_Mirror:_Bandersnatch"
-          }
+          },
+          "clip": "media/clips/bandersnatch-sgw.mp4"
         },
         {
           "title": "Made in Dagenham",
@@ -92,7 +93,8 @@
             "src": "media/posters/made-in-dagenham.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Made in dagenham poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Made_in_Dagenham"
-          }
+          },
+          "clip": "media/clips/made-in-dagenham.mp4"
         },
         {
           "title": "Heads of State",
@@ -103,7 +105,8 @@
             "src": "media/posters/heads-of-state-2025-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          }
+          },
+          "clip": "media/clips/heads-of-state-sgw.mp4"
         }
       ],
       "image": {
@@ -153,7 +156,7 @@
           "tag": "Bandersnatch"
         }
       ],
-      "clip": "media/clips/made-in-dagenham.mp4"
+      "clip": null
     },
     {
       "id": "fairfield-halls",
@@ -171,7 +174,8 @@
             "src": "media/posters/the-da-vinci-code-film.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (The da vinci code final.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/The_Da_Vinci_Code_(film)"
-          }
+          },
+          "clip": "media/clips/da-vinci-code-fairfield.mp4"
         },
         {
           "title": "Cuban Fury",
@@ -213,7 +217,8 @@
           "credit": "The Da Vinci Code — lecture hall wide",
           "tag": "Film still"
         }
-      ]
+      ],
+      "clip": null
     },
     {
       "id": "criminal-bourne",
@@ -378,11 +383,8 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
-        "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg",
-        "src": "media/photos/heads-of-state-apollo.jpg"
+        "src": "media/photos/apollo-house-richard.jpg",
+        "credit": "Richard DeDomenici"
       },
       "sources": [
         "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (comment linking to Crollywood)",
@@ -393,7 +395,17 @@
       "confidence_note": "Pin placed on Sydenham Road in the gap between Apollo House (south) and Lunar House (north), the two hexagonal Home Office towers. Building footprints from OSM.",
       "priority": 3,
       "must_keep": false,
-      "clip": "media/clips/heads-of-state-apollo-house.mp4"
+      "clip": "media/clips/heads-of-state-apollo-house.mp4",
+      "gallery": [
+        {
+          "src": "media/photos/heads-of-state-apollo.jpg",
+          "credit": "Loz Pycock via Wikimedia Commons (Lunar House, seen in the background of the shot)",
+          "license": "CC BY-SA 2.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_House,_Croydon.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Lunar_House,_Croydon.jpg"
+        }
+      ]
     },
     {
       "id": "peep-show-canterbury",
@@ -404,7 +416,7 @@
       "films": [
         {
           "title": "Peep Show",
-          "year": 2003,
+          "year": "2003–2015",
           "type": "TV",
           "scene": "The JLB Credit office where Mark and Sophie first met. In real life the building is Canterbury House, 2-6 Sydenham Road; it has been converted to flats, so the interior they filmed in is gone.",
           "poster": {
@@ -443,6 +455,46 @@
           "tag": "Film still"
         }
       ]
+    },
+    {
+      "id": "all-of-us-strangers",
+      "name": "Whitgift Centre, Wellesley Road (near bus stop WL)",
+      "address": "Wellesley Road, CR0",
+      "lat": 51.3762,
+      "lng": -0.09845,
+      "films": [
+        {
+          "title": "All of Us Strangers",
+          "year": 2023,
+          "type": "film",
+          "scene": "The car arrival scene: Adam (Andrew Scott) and his parents pull up outside the Whitgift Centre on Wellesley Road.",
+          "poster": {
+            "src": "media/posters/all-of-us-strangers.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (All of Us Strangers poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/All_of_Us_Strangers"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre_-_Wellesley_Road_entrance.jpg?width=1280",
+        "credit": "Hzh via Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre_-_Wellesley_Road_entrance.jpg",
+        "src": "media/photos/whitgift-wellesley.jpg"
+      },
+      "sources": [
+        "OpenStreetMap / TfL NaPTAN: Whitgift Centre bus stop WL (node 469790212, atco 490014614E15) at 51.376113, -0.098430, bearing north. Pin placed 10 m north on the Whitgift Centre (west) pavement of Wellesley Road.",
+        "https://api.tfl.gov.uk/StopPoint/490014614E15",
+        "https://www.imdb.com/title/tt21192142/locations/",
+        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight",
+        "https://insidecroydon.com/2024/08/08/how-movie-director-haigh-placed-sanderstead-centre-stage/"
+      ],
+      "confidence": "high",
+      "confidence_note": "Bus stop WL is verified in OSM and TfL. The pin is 10 m north of the stop, on the pavement between Wellesley Road and the Whitgift Centre east facade. The car-arrival scene is as described by Richard.",
+      "priority": 4,
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": []
     },
     {
       "id": "dark-knight-rises",
@@ -491,7 +543,7 @@
           "title": "All of Us Strangers",
           "year": 2023,
           "type": "film",
-          "scene": "Adam (Andrew Scott) takes his parents (Claire Foy, Jamie Bell) to an American diner in the Whitgift. Their cab drives up the ramp from Wellesley Road, they ride the escalator to the first floor in Sainsbury's Square, and over milkshakes his parents tell him it's time to say goodbye. The Whitgift sign appears on screen.",
+          "scene": "Adam (Andrew Scott) takes his parents (Claire Foy, Jamie Bell) to an American diner in the Whitgift. They ride the escalator to the first floor in Sainsbury's Square, and over milkshakes his parents tell him it's time to say goodbye. The Whitgift sign appears on screen.",
           "poster": {
             "src": "media/posters/all-of-us-strangers.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (All of Us Strangers poster.jpg), used for identification",
@@ -500,7 +552,7 @@
         },
         {
           "title": "Terry & June",
-          "year": 1979,
+          "year": "1979–1987",
           "type": "TV",
           "scene": "The sitcom was set in Purley, and its opening titles were filmed around the Whitgift Centre and Fairfield Halls area.",
           "poster": {
@@ -615,7 +667,7 @@
       "films": [
         {
           "title": "The IT Crowd",
-          "year": 2010,
+          "year": "2006–2013",
           "type": "TV",
           "scene": "Series 4 'Bad Boys': Moss shoplifts copies of Grand Designs magazine while he and Roy are bunking off.",
           "poster": {
@@ -650,7 +702,7 @@
       "films": [
         {
           "title": "Peep Show",
-          "year": 2003,
+          "year": "2003–2015",
           "type": "TV",
           "scene": "The bar ('Shooshh') where Mark plays pool (badly) with his nemesis Jeff.",
           "poster": {
@@ -794,7 +846,7 @@
       "films": [
         {
           "title": "Peep Show",
-          "year": 2004,
+          "year": "2003–2015",
           "type": "TV",
           "scene": "The registry office where Jeremy marries Nancy (so she can get a green card). Demolished to make way for the council's new headquarters.",
           "poster": {
