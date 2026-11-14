@@ -478,7 +478,8 @@
           "title": "All of Us Strangers: Redux",
           "type": "The Redux Project",
           "scene": "Richard DeDomenici's remake of the Wellesley Road car arrival scene, from The Redux Project.",
-          "clip": "media/clips/all-of-us-strangers-redux.mp4"
+          "clip": "media/clips/all-of-us-strangers-redux.mp4",
+          "year": 2024
         }
       ],
       "image": {
@@ -553,11 +554,11 @@
       ]
     },
     {
-      "id": "terry-and-june",
-      "name": "Whitgift Centre: Wellesley Road ramp",
-      "address": "Wellesley Road, CR0",
-      "lat": 51.37671,
-      "lng": -0.09954,
+      "id": "whitgift-inside",
+      "name": "Whitgift Centre (inside)",
+      "address": "Whitgift Centre, enter from North End, CR0",
+      "lat": 51.3758,
+      "lng": -0.1001,
       "films": [
         {
           "title": "All of Us Strangers",
@@ -574,7 +575,30 @@
           "title": "All of Us Strangers: Redux",
           "type": "The Redux Project",
           "scene": "Richard DeDomenici's remake of the Whitgift Centre interior and escalator scenes, from The Redux Project.",
-          "clip": "media/clips/all-of-us-strangers-redux-whitgift.mp4"
+          "clip": "media/clips/all-of-us-strangers-redux-whitgift.mp4",
+          "year": 2024
+        },
+        {
+          "title": "Taylor Swift – 'Opalite' (music video)",
+          "year": 2026,
+          "type": "music video",
+          "scene": "Taylor Swift and Domhnall Gleeson ride down the escalator and into a shop where Graham Norton hands out samples of 'Opalite' cleaning spray. Shot in November 2025 and released 6 Feb 2026. Fans now take selfies on the escalator opposite Clarks.",
+          "poster": {
+            "src": "media/posters/opalite-song.png",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Taylor Swift - Opalite.png), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Opalite_(song)"
+          },
+          "clip": "media/clips/opalite-whitgift.mp4"
+        },
+        {
+          "title": "Girl Group (Rebel Wilson)",
+          "year": "2026, forthcoming",
+          "type": "forthcoming film",
+          "scene": "In September 2025 Rebel Wilson wrote, directed and starred in this musical comedy, shot over a week on a stage set built in the Whitgift near the former Superdry unit, with fans watching from the first-floor balcony. Wilson plays a former girl-band star who mentors teenage wannabes. Co-stars include Jennifer Coolidge, Randall Park, Sheridan Smith, Sally Hawkins and Nicole Scherzinger. It premiered at TIFF on 11 Sept 2026; UK release TBC.",
+          "clips": [
+            "media/clips/girl-group-whitgift-1.mp4",
+            "media/clips/girl-group-whitgift-2.mp4"
+          ]
         },
         {
           "title": "Terry & June",
@@ -590,24 +614,38 @@
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre,_Croydon,_1976.jpg?width=800",
-        "credit": "John Shepherd via Wikimedia Commons",
-        "license": "CC BY 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre,_Croydon,_1976.jpg",
-        "src": "media/photos/terry-and-june.jpg"
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Taylor_Swift's_escalator_at_the_Whitgift_Centre,_Croydon_2026-02-10.jpg?width=1600",
+        "credit": "Bex Walton via Wikimedia Commons (the escalator used in 'Opalite')",
+        "license": "CC BY 4.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Taylor_Swift's_escalator_at_the_Whitgift_Centre,_Croydon_2026-02-10.jpg",
+        "src": "media/photos/whitgift-escalator.jpg"
       },
-      "sources": [
-        "https://www.imdb.com/title/tt21192142/locations/",
-        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight",
-        "https://insidecroydon.com/2024/08/08/how-movie-director-haigh-placed-sanderstead-centre-stage/",
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
-        "https://en-academic.com/dic.nsf/enwiki/273044 (Croydon article mirror)"
+      "gallery": [
+        {
+          "src": "media/photos/whitgift-escalators-gillett.jpg",
+          "credit": "Paul Gillett via Geograph / Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Escalators_in_Whitgift_Centre_-_geograph.org.uk_-_2819906.jpg?width=1280",
+          "page": "https://commons.wikimedia.org/wiki/File:Escalators_in_Whitgift_Centre_-_geograph.org.uk_-_2819906.jpg"
+        },
+        {
+          "src": "media/photos/girl-group.jpg",
+          "credit": "Panoramio user via Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_center_center_interior_-_panoramio.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Whitgift_center_center_interior_-_panoramio.jpg"
+        },
+        {
+          "src": "media/photos/terry-and-june.jpg",
+          "credit": "John Shepherd via Wikimedia Commons (Whitgift Centre, 1976)",
+          "license": "CC BY 2.0",
+          "tag": "Location",
+          "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_Centre,_Croydon,_1976.jpg?width=800",
+          "page": "https://commons.wikimedia.org/wiki/File:Whitgift_Centre,_Croydon,_1976.jpg"
+        }
       ],
-      "confidence": "high",
-      "confidence_note": "All of Us Strangers: high (IMDb, Guardian, Inside Croydon). Terry & June titles: medium (Guardian and Inside Croydon mention the Whitgift title sequence). The ramp pin is approximate.",
-      "priority": 5,
-      "must_keep": true,
-      "gallery": [],
       "film_gallery": [
         {
           "src": "media/photos/terry-and-june-chelsea-girl.jpg",
@@ -615,82 +653,64 @@
           "tag": "Bandersnatch"
         }
       ],
-      "clip": null
-    },
-    {
-      "id": "opalite",
-      "name": "Whitgift Centre: the 'Opalite' escalator",
-      "address": "Whitgift Centre, enter from North End",
-      "lat": 51.3758,
-      "lng": -0.1001,
-      "films": [
-        {
-          "title": "Taylor Swift – 'Opalite' (music video)",
-          "year": 2026,
-          "type": "music video",
-          "scene": "Taylor Swift and Domhnall Gleeson ride down the escalator and into a shop where Graham Norton hands out samples of 'Opalite' cleaning spray. Shot in November 2025 and released 6 Feb 2026. Fans now take selfies on the escalator opposite Clarks.",
-          "poster": {
-            "src": "media/posters/opalite-song.png",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Taylor Swift - Opalite.png), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Opalite_(song)"
-          },
-          "clip": "media/clips/opalite-whitgift.mp4"
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Whitgift_Centre,_Croydon_-_geograph.org.uk_-_694473.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:The_Whitgift_Centre,_Croydon_-_geograph.org.uk_-_694473.jpg",
-        "src": "media/photos/opalite.jpg"
-      },
       "sources": [
+        "https://www.imdb.com/title/tt21192142/locations/",
+        "https://www.theguardian.com/film/2023/dec/28/croydon-facelift-20-years-after-peep-show-londons-biggest-borough-lands-in-the-oscars-spotlight",
+        "https://insidecroydon.com/2024/08/08/how-movie-director-haigh-placed-sanderstead-centre-stage/",
+        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)",
+        "https://en-academic.com/dic.nsf/enwiki/273044 (Croydon article mirror)",
         "https://www.standard.co.uk/showbiz/taylor-swift-fans-whitgift-shopping-centre-croydon-opalite-music-video-b1270477.html",
         "https://www.bbc.co.uk/newsround/articles/cn71xpv77zlo",
         "https://metro.co.uk/2026/02/10/im-a-swiftie-this-flocking-a-luck-croydon-shopping-centre-26815066/",
-        "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift"
+        "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift",
+        "https://insidecroydon.com/2025/09/10/whitgift-becomes-centre-stage-for-rebel-wilsons-new-movie/",
+        "https://deadline.com/2025/09/rebel-wilson-girl-group-the-deb-randall-park-1236553365/",
+        "https://en.wikipedia.org/wiki/Girl_Group_(film)"
       ],
       "confidence": "high",
-      "confidence_note": "Whitgift Centre is confirmed by several outlets. The pin is approximate: it marks the escalator opposite Clarks, reached from North End, inside the mall, and needs checking on site.",
+      "confidence_note": "The Whitgift is confirmed for All of Us Strangers, Opalite and Girl Group. The pin is inside the centre, at the escalator opposite Clarks, reached from North End; the old ramp, escalator and stage pins are now one interior stop.",
       "priority": 5,
       "must_keep": true,
       "clip": null
     },
     {
-      "id": "girl-group",
-      "name": "Whitgift Centre: the main stage (by the former Superdry)",
-      "address": "Whitgift Centre, enter from North End",
-      "lat": 51.37625,
-      "lng": -0.1,
+      "id": "heads-of-state-overtons",
+      "name": "Overton's Yard",
+      "address": "Overton's Yard, off the High Street, CR0 1SL",
+      "lat": 51.37276,
+      "lng": -0.10186,
       "films": [
         {
-          "title": "Girl Group (Rebel Wilson)",
-          "year": "2026, forthcoming",
-          "type": "forthcoming film",
-          "scene": "In September 2025 Rebel Wilson wrote, directed and starred in this musical comedy, shot over a week on a stage set built in the Whitgift near the former Superdry unit, with fans watching from the first-floor balcony. Wilson plays a former girl-band star who mentors teenage wannabes. Co-stars include Jennifer Coolidge, Randall Park, Sheridan Smith, Sally Hawkins and Nicole Scherzinger. It premiered at TIFF on 11 Sept 2026; UK release TBC.",
-          "clips": [
-            "media/clips/girl-group-whitgift-1.mp4",
-            "media/clips/girl-group-whitgift-2.mp4"
-          ]
+          "title": "Heads of State",
+          "year": 2025,
+          "type": "film",
+          "scene": "Part of the night-time 'Warsaw' chase, filmed 20–21 June 2023. A car chase and crash were shot along Overton's Yard, the short service road where Granaries nightclub used to be, beside the Surrey Street car park.",
+          "poster": {
+            "src": "media/posters/heads-of-state-2025-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
+          },
+          "clip": "media/clips/heads-of-state-overtons-yard.mp4"
         }
       ],
       "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Whitgift_center_center_interior_-_panoramio.jpg?width=800",
-        "credit": "Panoramio user via Wikimedia Commons",
-        "license": "CC BY-SA 3.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Whitgift_center_center_interior_-_panoramio.jpg",
-        "src": "media/photos/girl-group.jpg"
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg?width=800",
+        "credit": "geograph.org.uk contributor via Wikimedia Commons (nearby Surrey Street)",
+        "license": "CC BY-SA 2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg",
+        "src": "media/photos/heads-of-state-overtons.jpg"
       },
       "sources": [
-        "https://insidecroydon.com/2025/09/10/whitgift-becomes-centre-stage-for-rebel-wilsons-new-movie/",
-        "https://deadline.com/2025/09/rebel-wilson-girl-group-the-deb-randall-park-1236553365/",
-        "https://en.wikipedia.org/wiki/Girl_Group_(film)",
-        "https://londonist.com/london/features/whitgift-centre-escalator-taylor-swift"
+        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
+        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
+        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (r/croydon thread)",
+        "Nominatim/OSM (Overton's Yard)",
+        "https://www.openstreetmap.org/way/15238883"
       ],
-      "confidence": "low",
-      "confidence_note": "Filming at the Whitgift is well sourced, but the exact pin (stage by the former Superdry) is a guess inside the mall. The title is confirmed as 'Girl Group', not TBC.",
-      "priority": 5,
-      "must_keep": true,
+      "confidence": "high",
+      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
+      "priority": 4,
+      "must_keep": false,
       "clip": null
     },
     {
@@ -725,77 +745,6 @@
       ],
       "confidence": "high",
       "confidence_note": "Two sources agree on the Whitgift Centre; the shop's exact unit isn't confirmed.",
-      "priority": 4,
-      "must_keep": false
-    },
-    {
-      "id": "peep-show-loop-bar",
-      "name": "Loop Bar, Crown Hill",
-      "address": "Crown Hill, CR0",
-      "lat": 51.37374,
-      "lng": -0.1012,
-      "films": [
-        {
-          "title": "Peep Show",
-          "year": "2003–2015",
-          "type": "TV",
-          "scene": "The bar ('Shooshh') where Mark plays pool (badly) with his nemesis Jeff.",
-          "poster": {
-            "src": "media/posters/peep-show-british-tv-series.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Peep Show logo.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Peep_Show_(British_TV_series)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Crown_Hill,_Croydon_-_geograph.org.uk_-_6180140.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Crown_Hill,_Croydon_-_geograph.org.uk_-_6180140.jpg",
-        "src": "media/photos/peep-show-loop-bar.jpg"
-      },
-      "sources": [
-        "Richard DeDomenici 'CROYDON REDUX' Google My Map (KML export, mid=1gqCuM1Kv3t8914BBbNlAOvKXpeAu3T2t)"
-      ],
-      "confidence": "medium",
-      "confidence_note": "From DeDomenici's map; venue may have changed name.",
-      "priority": 2,
-      "must_keep": false
-    },
-    {
-      "id": "heads-of-state-overtons",
-      "name": "Overton's Yard (the street)",
-      "address": "Overton's Yard, off Surrey Street, CR0 1SL",
-      "lat": 51.37276,
-      "lng": -0.10186,
-      "films": [
-        {
-          "title": "Heads of State",
-          "year": 2025,
-          "type": "film",
-          "scene": "Part of the night-time 'Warsaw' chase, filmed 20–21 June 2023. A car chase and crash were shot along Overton's Yard, the short service road where Granaries nightclub used to be, beside the Surrey Street car park.",
-          "poster": {
-            "src": "media/posters/heads-of-state-2025-film.jpg",
-            "credit": "Poster/artwork © its rights holder; via Wikipedia (Heads of State poster.jpg), used for identification",
-            "page": "https://en.wikipedia.org/wiki/Heads_of_State_(film)"
-          }
-        }
-      ],
-      "image": {
-        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg?width=800",
-        "credit": "geograph.org.uk contributor via Wikimedia Commons (nearby Surrey Street)",
-        "license": "CC BY-SA 2.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Surrey_Street_Market,_Croydon_-_geograph.org.uk_-_2189761.jpg",
-        "src": "media/photos/heads-of-state-overtons.jpg"
-      },
-      "sources": [
-        "https://insidecroydon.com/2023/06/22/idris-elba-and-film-co-stars-spotted-doing-the-st-georges-walk/",
-        "https://www.mylondon.news/news/south-london-news/idris-elba-john-cena-priyanka-27170859",
-        "https://www.reddit.com/r/croydon/comments/1lu5km7/heads_of_state_in_croydon/ (r/croydon thread)",
-        "Nominatim/OSM (Overton's Yard)"
-      ],
-      "confidence": "high",
-      "confidence_note": "Several local reports name Overton's Yard. The chase framing isn't frame-matched.",
       "priority": 4,
       "must_keep": false
     },
