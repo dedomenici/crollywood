@@ -213,6 +213,57 @@
       ]
     },
     {
+      "id": "croydon-college",
+      "name": "Croydon College, College Road",
+      "address": "College Road, CR9 1DX",
+      "lat": 51.37373,
+      "lng": -0.096,
+      "films": [
+        {
+          "title": "Criminal",
+          "year": 2016,
+          "type": "film",
+          "scene": "Croydon College on College Road became CIA headquarters, medical labs and a fugitive hideout. A shoot-out was filmed on College Road, and a helicopter landed at the campus. The college's multi-storey car park, which stood here, has since been demolished.",
+          "poster": {
+            "src": "media/posters/criminal-2016-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Criminal 2016 poster.jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Criminal_(2016_film)"
+          }
+        },
+        {
+          "title": "Jason Bourne",
+          "year": 2016,
+          "type": "film",
+          "scene": "The Bourne crew also filmed around this Fairfield / college campus in 2015. The old School of Art on College Green, just south of here, doubled as a Berlin warehouse for a Matt Damon fight scene.",
+          "poster": {
+            "src": "media/posters/jason-bourne-film.jpg",
+            "credit": "Poster/artwork © its rights holder; via Wikipedia (Jason Bourne (film).jpg), used for identification",
+            "page": "https://en.wikipedia.org/wiki/Jason_Bourne_(film)"
+          }
+        }
+      ],
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Croydon_College.JPG?width=800",
+        "credit": "Pafcool2 via Wikimedia Commons",
+        "license": "Public domain",
+        "page": "https://commons.wikimedia.org/wiki/File:Croydon_College.JPG"
+      },
+      "clip": "media/clips/criminal-bourne.mp4",
+      "sources": [
+        "https://www.imdb.com/title/tt3014866/locations/",
+        "https://www.yourlocalguardian.co.uk/news/11503081.hollywood-a-listers-arrive-in-croydon-to-begin-shooting-blockbuster-thriller/",
+        "https://www.yourlocalguardian.co.uk/news/14410419.revealed-croydons-role-in-the-blockbuster-criminal-starring-kevin-costner-and-ryan-reynolds/",
+        "https://www.croydonadvertiser.co.uk/news/celebs-tv/secret-locations-brad-pitt-matt-531610",
+        "Nominatim/OSM geocode of Croydon College, College Road"
+      ],
+      "confidence": "high",
+      "confidence_note": "Criminal at Croydon College, College Road, is well sourced (IMDb, local press). The college's multi-storey car park on College Road has been demolished. Jason Bourne was filmed at the adjacent School of Art / Fairfield campus, not specifically in the car park.",
+      "priority": 4,
+      "must_keep": false,
+      "gallery": [],
+      "film_gallery": []
+    },
+    {
       "id": "criminal-bourne",
       "name": "College Green: the old School of Art (Segas House)",
       "address": "College Green / Park Lane, CR0",
@@ -260,7 +311,8 @@
       "priority": 4,
       "must_keep": false,
       "gallery": [],
-      "film_gallery": []
+      "film_gallery": [],
+      "clip": null
     },
     {
       "id": "velvet-goldmine",

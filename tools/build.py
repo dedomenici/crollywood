@@ -75,7 +75,7 @@ r = get(f"{OSRM}/route/v1/driving/{coords}?overview=full&geometries=geojson&step
 route = r["routes"][0]
 for i, s in enumerate(ordered):
     s["order"] = i + 1
-    if not s.get("clip"):
+    if "clip" not in s:
         s["clip"] = f"media/clips/{s['id']}.mp4"
     if not s.get("audio"):
         s["audio"] = f"media/audio/{s['id']}.mp3"
