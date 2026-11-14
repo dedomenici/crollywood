@@ -654,6 +654,12 @@
           }
         },
         {
+          "title": "All of Us Strangers: Redux",
+          "type": "The Redux Project",
+          "scene": "Richard DeDomenici's remake of the Whitgift Centre interior and escalator scenes, from The Redux Project.",
+          "clip": "media/clips/all-of-us-strangers-redux-whitgift.mp4"
+        },
+        {
           "title": "Terry & June",
           "year": "1979–1987",
           "type": "TV",
@@ -662,7 +668,8 @@
             "src": "media/posters/terry-and-june.jpg",
             "credit": "Poster/artwork © its rights holder; via Wikipedia (Terry And June.jpg), used for identification",
             "page": "https://en.wikipedia.org/wiki/Terry_and_June"
-          }
+          },
+          "clip": "media/clips/terry-and-june.mp4"
         }
       ],
       "image": {
@@ -692,7 +699,7 @@
         }
       ],
       "order": 11,
-      "clip": "media/clips/terry-and-june.mp4",
+      "clip": null,
       "audio": "media/audio/terry-and-june.mp3",
       "leg_to_next_m": 228,
       "route_snap": {
