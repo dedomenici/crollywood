@@ -1,7 +1,7 @@
 /* Crollywood – self-guided Croydon movie location walk. Leaflet + OSM, no API keys. Monochrome. */
 (function () {
   'use strict';
-  var BUILD = '20261114083200';
+  var BUILD = '20261117111734';
   // Cache guard: GitHub Pages sends max-age=600, so a phone can pair a cached old index.html with a new app.js
   // (or vice versa). If the page and script don't match, reload once with a cache-busting URL.
   if (window.CROLLY_BUILD !== BUILD || !document.getElementById('home') || !document.getElementById('panelDrag')) {
@@ -29,6 +29,7 @@
     toasted: {}, log: [], wakeLock: null, lastArrived: -1
   };
   var $ = function (id) { return document.getElementById(id); };
+  function gc(name, title) { try { if (typeof window.__gcTrack === 'function') window.__gcTrack(name, title || name); } catch (e) {} }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
   function yearStr(y) {
     return (y != null && String(y).trim()) ? String(y) : '';
@@ -84,9 +85,11 @@
     e.preventDefault();
     if ($('gatePw').value.trim().toLowerCase() === PASSWORD) {
       localStorage.setItem(LS.unlock, '1'); $('gate').hidden = true;
+      gc('gate-success', 'Password gate success');
       setTimeout(function () { map.invalidateSize(); goHome(); launchFly(); }, 50);
     } else {
       $('gateMsg').textContent = 'Wrong password. Ask Richard!';
+      gc('gate-fail', 'Password gate fail');
       var f = $('gateForm'); f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
     }
   });
@@ -187,7 +190,10 @@
   function renderHome() {
     var n = state.stops.length, v = state.stops.filter(function (s) { return state.visited[s.id]; }).length;
     var t = state.tour;
+    var startKind = t.active ? 'resume-tour' : (n && v === n ? 'start-again' : v > 0 ? 'continue-tour' : 'start-tour');
     $('startBtn').textContent = t.active ? 'RESUME TOUR' : (n && v === n ? 'START AGAIN' : v > 0 ? 'CONTINUE TOUR' : 'START TOUR');
+    $('startBtn').setAttribute('data-goat', startKind);
+    $('startBtn').setAttribute('data-goat-title', $('startBtn').textContent);
     if (state.preset) $('durChipText').textContent = state.preset.label || fmtHrs(state.preset.target_min || state.preset.est_min);
     $('endBtn').hidden = !t.active;
   }
@@ -326,7 +332,7 @@
       : '';
     if (!yt && !clip && !aud && !films.length) return '';
     var h = '<div class="film-media card"><div class="section-label">From the film</div>';
-    if (yt) h += '<div class="media-label">Video</div><div id="ytSlot">' + yt + '</div>';
+    if (yt) { h += '<div class="media-label">Video</div><div id="ytSlot">' + yt + '</div>'; gc('trailer-play', 'Trailer play'); }
     if (clip) h += '<div class="media-label">Clip</div><div id="clipSlot">' + clip + '</div>';
     if (aud) h += '<div class="media-label">Narration</div><div id="audioSlot">' + aud + '</div>';
     if (films.length) h += '<div class="media-label">Images</div>' + carouselBlock(films, 'trackFilm', 'dots-film');
@@ -401,7 +407,7 @@
     var nx = state.stops[nxi];
     if (nx && nxi !== state.current && !(state.tour.active && isFinale(state.current) && state.visited[s.id])) h += '<div class="next-line">Next: ' + nx.order + '. ' + esc(nx.name) + '</div>';
     if (s.leg_to_next_m) h += '<p class="small">To the next stop: ' + fmtDist(s.leg_to_next_m) + ' along the route.</p>';
-    h += '<div class="btnrow"><button id="visitBtn">' + (state.visited[s.id] ? '✓ Visited' : 'Mark visited') + '</button><button id="dirBtn">Walk here (OSM)</button></div>';
+    h += '<div class="btnrow"><button id="visitBtn" data-goat="' + (state.visited[s.id] ? 'unmark-visited' : 'mark-visited') + '" data-goat-title="' + (state.visited[s.id] ? 'Unmark visited' : 'Mark visited') + '">' + (state.visited[s.id] ? '✓ Visited' : 'Mark visited') + '</button><button id="dirBtn" data-goat="directions" data-goat-title="Walk here (OSM)">Walk here (OSM)</button></div>';
     h += '<p><span class="conf ' + esc(s.confidence) + '">' + esc(s.confidence) + ' confidence</span> <span class="sources">' + esc(s.confidence_note || '') + '</span></p>';
     h += '<div class="sources">Sources: ' + s.sources.map(function (x) {
       return /^https?:/.test(x) ? '<a href="' + esc(x.split(' ')[0]) + '" target="_blank" rel="noopener">' + esc(x.split(' ')[0].replace(/^https?:\/\/(www\.)?/, '').slice(0, 48)) + '</a>' : esc(x);
@@ -413,7 +419,11 @@
     $('visitBtn').onclick = function () {
       setVisited(s, !state.visited[s.id]);
       var b = $('visitBtn');
-      if (b) b.textContent = state.visited[s.id] ? '✓ Visited' : 'Mark visited';
+      if (b) {
+        b.textContent = state.visited[s.id] ? '✓ Visited' : 'Mark visited';
+        b.setAttribute('data-goat', state.visited[s.id] ? 'unmark-visited' : 'mark-visited');
+        b.setAttribute('data-goat-title', state.visited[s.id] ? 'Unmark visited' : 'Mark visited');
+      }
     };
     $('dirBtn').onclick = function () {
       var from = state.geo.me ? state.geo.me.join(',') : '';
@@ -499,10 +509,17 @@
   /* ---------- Back / NEXT LOCATION ---------- */
   function renderNav() {
     var n = state.stops.length, t = state.tour, prev = $('prevBtn'), next = $('nextBtn');
-    if (state.mode === 'start') { prev.textContent = '‹ Back'; next.textContent = 'NEXT ›'; return; }
+    if (state.mode === 'start') {
+      prev.textContent = '‹ Back'; next.textContent = 'NEXT ›';
+      next.setAttribute('data-goat', 'next-location');
+      next.setAttribute('data-goat-title', 'Next');
+      return;
+    }
     var i = state.current, last = i === n - 1;
     prev.textContent = '‹ Back';
     next.textContent = last ? (t.active ? 'FINISH TOUR ✓' : 'OVERVIEW') : 'NEXT LOCATION ›';
+    next.setAttribute('data-goat', last ? (t.active ? 'finish-tour' : 'overview') : 'next-location');
+    next.setAttribute('data-goat-title', next.textContent);
   }
   function navBack() {
     if (state.mode === 'start') return goHome();
@@ -944,7 +961,7 @@
     state.markers.forEach(function (m) { map.removeLayer(m); }); state.markers = [];
     state.stops.forEach(function (s, i) {
       var m = L.marker(ll(s), { icon: iconFor(i), title: s.order + '. ' + s.name, zIndexOffset: zFor(i, -1) }).addTo(map);
-      m.on('click', function () { setFollow(false); goTo(i, { expand: true }); });
+      m.on('click', function () { setFollow(false); goTo(i, { expand: true }); gc('map-pin', 'Map pin: ' + (s.name || 'stop')); });
       state.markers.push(m);
     });
     // tour target within the new subset (visited state is kept by stop id)
@@ -975,7 +992,7 @@
   function setupSlider() { // full-width snap slider; the thumb IS the '⏱ 2½ hrs' label
     var ps = state.data.presets, sl = $('durSlider'), thumb = $('durThumb'), n = ps.length;
     sl.setAttribute('aria-valuemax', n - 1);
-    $('durTicks').innerHTML = ps.map(function (p, i) { return '<button type="button" data-i="' + i + '" aria-label="' + esc(p.label) + ': ' + esc(presetSummary(p)) + '"></button>'; }).join('');
+    $('durTicks').innerHTML = ps.map(function (p, i) { return '<button type="button" data-i="' + i + '" data-goat-skip="true" aria-label="' + esc(p.label) + ': ' + esc(presetSummary(p)) + '"></button>'; }).join('');
     var ticks = $('durTicks').querySelectorAll('button');
     function idx() { return ps.indexOf(state.preset); }
     function place(f, label) { // f = 0..1 along the usable track (thumb stays inside the slider)
@@ -991,9 +1008,10 @@
       ticks.forEach(function (t, k) { t.classList.toggle('on', k <= i); });
       $('durLive').textContent = presetSummary(state.preset);
     }
-    function choose(i) {
+    function choose(i, fromTick) {
       i = Math.max(0, Math.min(n - 1, +i)); if (ps[i] === state.preset) return sync();
       if (state.tour.active && !confirm('Change tour length to ' + ps[i].label + ' (' + presetSummary(ps[i]) + ') mid-tour?\nStops you have already visited stay ticked.')) { sync(); return; }
+      gc('tour-length-' + ps[i].id, 'Tour length: ' + ps[i].label);
       log('slider', ps[i].id);
       applyPreset(ps[i].id).then(function () { sync(); if (state.mode === 'home') fitRoute(); }); sync();
       if (state.tour.active && state.mode === 'home') setHomeMsg('Tour length changed. Next stop: ' + state.stops[state.tour.target].order + '. ' + state.stops[state.tour.target].name);
@@ -1016,7 +1034,7 @@
       var f = fracAt(e.clientX), i = Math.round(f * (n - 1)); drag = null; choose(i); sync();
     }
     sl.addEventListener('pointerup', endDrag); sl.addEventListener('pointercancel', function () { drag = null; sl.classList.remove('dragging'); sync(); });
-    $('durTicks').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) choose(b.dataset.i); });
+    $('durTicks').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) choose(b.dataset.i, true); });
     sl.addEventListener('keydown', function (e) {
       var k = e.key; if (k === 'ArrowLeft' || k === 'ArrowDown') { choose(idx() - 1); e.preventDefault(); } else if (k === 'ArrowRight' || k === 'ArrowUp') { choose(idx() + 1); e.preventDefault(); }
       else if (k === 'Home') choose(0); else if (k === 'End') choose(n - 1);
